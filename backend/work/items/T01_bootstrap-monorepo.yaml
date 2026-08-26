@@ -1,0 +1,32 @@
+id: T01
+title: Bootstrap Monorepo setup ticket
+description: Set up monorepo structure with package.json, TypeScript config, and basic directory structure for services
+depends_on: []
+deliverables:
+  files:
+    - package.json
+    - tsconfig.json
+    - .gitignore
+    - packages/shared/package.json
+    - packages/api/package.json
+    - packages/orchestrator/package.json
+    - packages/rentcast-fetcher/package.json
+    - packages/shared/src/index.ts
+    - packages/api/src/index.ts
+    - packages/orchestrator/src/index.ts
+    - packages/rentcast-fetcher/src/index.ts
+  schemas: []
+setup:
+  env:
+    required: []
+  commands:
+    - pnpm install
+definition_of_done:
+- Root package.json exists with workspace configuration
+- TypeScript configuration is set up
+- All packages have basic structure and package.json
+- npm install runs successfully
+- TypeScript compiles without errors
+acceptance:
+  exec:
+    - ops/checks/check_repo_bootstrap.sh

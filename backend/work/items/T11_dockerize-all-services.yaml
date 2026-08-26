@@ -1,0 +1,15 @@
+id: T11
+title: Dockerize All Services ticket
+description: Placeholder for Dockerize All Services ticket
+depends_on: []
+deliverables:
+  files: []
+  schemas: []
+setup:
+  env:
+    required: []
+  commands: []
+definition_of_done:
+- Placeholder DoD
+acceptance:
+  exec: []

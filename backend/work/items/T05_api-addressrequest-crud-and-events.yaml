@@ -1,0 +1,15 @@
+id: T05
+title: API AddressRequest CRUD + Events ticket
+description: Placeholder for API AddressRequest CRUD + Events ticket
+depends_on: []
+deliverables:
+  files: []
+  schemas: []
+setup:
+  env:
+    required: []
+  commands: []
+definition_of_done:
+- Placeholder DoD
+acceptance:
+  exec: []

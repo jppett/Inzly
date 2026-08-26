@@ -1,0 +1,30 @@
+id: T10
+title: Orchestrator Completion Logic
+description: |
+  Extend the orchestrator service to detect when all required data has been collected
+  for an AddressRequest (both BonesReportResult and MLSListingResult) and mark the
+  request as 'processed'. This completes the end-to-end workflow automation.
+depends_on: [T06, T07, T08, T09]
+deliverables:
+  files:
+    - packages/orchestrator/src/handlers/completion-handler.ts
+    - packages/orchestrator/src/services/completion-checker.ts
+    - packages/orchestrator/src/index.ts (updated to handle completion events)
+  schemas: []
+setup:
+  env:
+    required:
+      - REDPANDA_BROKERS
+      - REDIS_HOST
+      - REDIS_PORT
+  commands:
+    - npm install --prefix packages/orchestrator
+definition_of_done:
+  - Orchestrator consumes BonesReportResult.create and MLSListingResult.create events
+  - When both data types exist for an AddressRequest, status is updated to 'processed'
+  - Completion logic handles edge cases (missing data, timeouts)
+  - Integration validated via complete workflow test
+  - Status transitions: pending → processing → processed
+acceptance:
+  exec:
+    - ops/checks/check_completion_flow.sh

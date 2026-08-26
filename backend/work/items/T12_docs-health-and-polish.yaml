@@ -1,0 +1,15 @@
+id: T12
+title: Docs, Health, and Polish ticket
+description: Placeholder for Docs, Health, and Polish ticket
+depends_on: []
+deliverables:
+  files: []
+  schemas: []
+setup:
+  env:
+    required: []
+  commands: []
+definition_of_done:
+- Placeholder DoD
+acceptance:
+  exec: []

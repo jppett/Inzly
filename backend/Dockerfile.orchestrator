@@ -1,0 +1,33 @@
+# Orchestrator Service Dockerfile
+FROM node:20-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Install pnpm
+RUN npm install -g pnpm
+
+# Copy package files for dependency resolution
+COPY package.json pnpm-workspace.yaml pnpm-lock.yaml ./
+COPY packages/shared/package.json ./packages/shared/
+COPY packages/orchestrator/package.json ./packages/orchestrator/
+
+# Install dependencies
+RUN pnpm install --frozen-lockfile
+
+# Copy source code
+COPY packages/shared ./packages/shared
+COPY packages/orchestrator ./packages/orchestrator
+COPY tsconfig.json ./
+
+# Build the shared package first
+RUN pnpm --filter @bones-report/shared run build
+
+# Build the orchestrator service
+RUN pnpm --filter @bones-report/orchestrator run build
+
+# Set user for security
+USER node
+
+# Start the orchestrator service
+CMD ["node", "packages/orchestrator/dist/index.js"]

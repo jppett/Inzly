@@ -1,0 +1,32 @@
+{
+  "name": "bones-report",
+  "version": "1.0.0",
+  "description": "Event-driven address processing POC with AI agent optimization",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "pnpm run -r build",
+    "dev": "pnpm run -r dev",
+    "test": "pnpm run -r test",
+    "lint": "pnpm run -r lint",
+    "clean": "pnpm run -r clean"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.0",
+    "tsx": "^4.6.0",
+    "nodemon": "^3.0.0",
+    "node-fetch": "^3.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dkjosbru/bones-report.git"
+  },
+  "license": "MIT"
+}

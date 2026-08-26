@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MLSListingResult",
+  "type": "object",
+  "required": [
+    "id",
+    "mls_listing_request_id",
+    "listing_data",
+    "created_at",
+    "status"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "mls_listing_request_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "listing_data": {
+      "type": "object",
+      "required": [
+        "address",
+        "price",
+        "bedrooms",
+        "photo_urls"
+      ],
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number"
+        },
+        "bedrooms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "photo_urls": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "completed",
+        "failed"
+      ]
+    }
+  }
+}

@@ -1,0 +1,902 @@
+[
+  {
+    "tag": "windows",
+    "assessment": {
+      "overallRating": "fair|fair|good|fair|fair",
+      "confidence": "medium|medium|high|medium|medium",
+      "featureCategory": "windows",
+      "summary": "The windows appear to be older with potential energy efficiency concerns, typical for Minnesota's climate. Some maintenance may be needed to improve insulation and reduce drafts. Consideration for replacement or upgrades could be beneficial for long-term energy savings.\nThe windows in the property appear to be older double-hung styles with potential energy efficiency concerns. Visible signs of wear and lack of modern glazing suggest they may not be optimal for Minnesota's harsh winters. Consideration for replacement or upgrades could be beneficial for improved insulation and energy savings.\nThe windows in the property appear to be in good condition, with double-pane glazing and vinyl frames that are suitable for Minnesota's cold climate. While the windows are generally well-maintained, some minor issues with weatherstripping and potential air leakage should be addressed to enhance energy efficiency.\nThe windows in the property appear to be older and may not provide optimal energy efficiency for Minnesota's cold climate. Some windows show signs of wear and potential air leakage, which could lead to higher heating costs. Consideration for replacement or upgrades may be necessary to improve energy efficiency.\nThe windows in the property appear to be older and may not provide optimal energy efficiency for Minnesota's cold climate. Visible signs of wear and potential air leakage suggest that replacements or upgrades could be necessary to improve insulation and reduce heating costs.",
+      "insights": [
+        {
+          "referencePhoto": "7e4cf4e62e9e29bdc859447da5620408",
+          "description": "The windows appear to be double-hung with wood frames, which are common in older homes. The frames show signs of aging, which may affect insulation.",
+          "severity": "warning",
+          "sentiment": "neutral",
+          "justification": "Older wood frames can lead to drafts and higher heating costs, especially in Minnesota's cold climate.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/7e4cf4e62e9e29bdc859447da5620408-d_d.jpg"
+        },
+        {
+          "referencePhoto": "ce0448e6f7e7052e5677e404c92dd260",
+          "description": "The exterior awnings suggest an attempt to protect the windows from weather, but they may also indicate older windows that lack modern energy-efficient features.",
+          "severity": "info",
+          "sentiment": "neutral",
+          "justification": "Awnings can help with weather protection but may not compensate for poor window insulation.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/ce0448e6f7e7052e5677e404c92dd260-d_d.jpg"
+        },
+        {
+          "referencePhoto": "5d182445507f5c138d01d7387d1b9f7b",
+          "description": "The windows do not appear to have storm windows, which are beneficial in Minnesota for additional insulation.",
+          "severity": "warning",
+          "sentiment": "negative",
+          "justification": "Lack of storm windows can lead to increased heat loss during harsh winters, impacting energy bills.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/5d182445507f5c138d01d7387d1b9f7b-d_d.jpg"
+        },
+        {
+          "referencePhoto": "d85d3568de5535d58d490232793990ec",
+          "description": "Interior views show no visible condensation, which is a positive sign for seal integrity, but the overall condition suggests they are not recent installations.",
+          "severity": "info",
+          "sentiment": "positive",
+          "justification": "While the absence of condensation is good, the age of the windows may still pose efficiency issues.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/d85d3568de5535d58d490232793990ec-d_d.jpg"
+        },
+        {
+          "referencePhoto": "00998ff431cf9c2a0529f2d64f08aa78",
+          "description": "The windows appear to be single or double-pane without visible Low-E coating, which is less efficient for Minnesota's climate.",
+          "severity": "critical",
+          "sentiment": "negative",
+          "justification": "Single or basic double-pane windows without Low-E coating can significantly increase heating costs in cold climates.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/00998ff431cf9c2a0529f2d64f08aa78-d_d.jpg"
+        },
+        {
+          "referencePhoto": "75a579020382b5d9ca095d082d51e105",
+          "description": "The windows in the living room appear to be older double-hung style with wood frames. There is no visible condensation, but the frames show signs of aging.",
+          "severity": "warning",
+          "sentiment": "neutral",
+          "justification": "Older wood frames can lead to energy inefficiency and may require maintenance or replacement to improve insulation.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/75a579020382b5d9ca095d082d51e105-d_d.jpg"
+        },
+        {
+          "referencePhoto": "83fa7a7da3e56c2a139f8716c1e1c28a",
+          "description": "The kitchen window shows signs of wear on the frame and lacks modern glazing features like Low-E coating or triple-pane glass.",
+          "severity": "critical",
+          "sentiment": "negative",
+          "justification": "Without modern glazing, the window may contribute to heat loss, increasing heating costs during Minnesota winters.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/83fa7a7da3e56c2a139f8716c1e1c28a-d_d.jpg"
+        },
+        {
+          "referencePhoto": "dea0d46db7ad97642877b0da8d16eebd",
+          "description": "The window in the dining area is similar in style to others, with no visible storm window or secondary glazing.",
+          "severity": "warning",
+          "sentiment": "neutral",
+          "justification": "The absence of storm windows can lead to drafts and reduced energy efficiency, which is a concern in cold climates.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/dea0d46db7ad97642877b0da8d16eebd-d_d.jpg"
+        },
+        {
+          "referencePhoto": "cfb4bc7d6cb84a8041ba6cf70de3b133",
+          "description": "The window above the kitchen sink shows potential air leakage points around the frame, which could lead to drafts.",
+          "severity": "critical",
+          "sentiment": "negative",
+          "justification": "Air leakage can significantly impact heating efficiency, leading to higher energy bills and discomfort during cold months.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/cfb4bc7d6cb84a8041ba6cf70de3b133-d_d.jpg"
+        },
+        {
+          "referencePhoto": "cd29766793ed18d6c691b1f8704edd9e",
+          "description": "The overall condition of the windows suggests they have not been recently updated, indicating potential for future replacement needs.",
+          "severity": "info",
+          "sentiment": "neutral",
+          "justification": "Understanding the age and condition of windows helps buyers plan for future maintenance or replacement costs.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/cd29766793ed18d6c691b1f8704edd9e-d_d.jpg"
+        },
+        {
+          "referencePhoto": "b6a1118f6a117e12936bede5da774a0e",
+          "description": "The kitchen window is a double-hung style with vinyl frames and double-pane glazing, which is effective for insulation in cold climates.",
+          "severity": "info",
+          "sentiment": "positive",
+          "justification": "Double-pane windows with vinyl frames provide good thermal performance, reducing heating costs in Minnesota winters.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/b6a1118f6a117e12936bede5da774a0e-d_d.jpg"
+        },
+        {
+          "referencePhoto": "04b2824688f070d39429710e61540e7d",
+          "description": "The bedroom windows show signs of aging weatherstripping, which may lead to minor air leakage.",
+          "severity": "warning",
+          "sentiment": "neutral",
+          "justification": "Replacing or repairing weatherstripping can improve energy efficiency and reduce drafts, which is important for comfort and cost savings.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/04b2824688f070d39429710e61540e7d-d_d.jpg"
+        },
+        {
+          "referencePhoto": "94941aceebfc51613137ede66a510ec8",
+          "description": "The windows in this room are well-maintained with no visible signs of condensation or fogging between panes, indicating good seal integrity.",
+          "severity": "info",
+          "sentiment": "positive",
+          "justification": "Good seal integrity ensures that the windows are energy-efficient and do not allow heat loss, which is crucial in Minnesota's climate.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/94941aceebfc51613137ede66a510ec8-d_d.jpg"
+        },
+        {
+          "referencePhoto": "e82993ac6a4c88773c687a80dbcb3356",
+          "description": "The window frames appear to be in good condition with no visible warping or rot, suggesting they have been well-maintained.",
+          "severity": "info",
+          "sentiment": "positive",
+          "justification": "Well-maintained frames contribute to the overall durability and efficiency of the windows, reducing the need for costly replacements.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/e82993ac6a4c88773c687a80dbcb3356-d_d.jpg"
+        },
+        {
+          "referencePhoto": "952ba6a879695c146133e3229e6c65e8",
+          "description": "There is a potential for minor air leakage around the window edges, which could be improved with additional sealing or caulking.",
+          "severity": "warning",
+          "sentiment": "neutral",
+          "justification": "Addressing air leakage can enhance the home's energy efficiency, leading to lower heating bills and increased comfort during harsh winters.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/952ba6a879695c146133e3229e6c65e8-d_d.jpg"
+        },
+        {
+          "referencePhoto": "e1cbe5935d0e36e82db096dbc602296d",
+          "description": "The bathroom window appears to be a single-hung style with a vinyl frame. The frame seems intact, but the glazing is likely single-pane, which is not ideal for energy efficiency in cold climates.",
+          "severity": "critical",
+          "sentiment": "negative",
+          "justification": "Single-pane windows are less energy-efficient and can lead to higher heating costs in Minnesota's harsh winters. Replacement with double or triple-pane windows is recommended.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/e1cbe5935d0e36e82db096dbc602296d-d_d.jpg"
+        },
+        {
+          "referencePhoto": "57927a4b62ef22222b34823f031ccad3",
+          "description": "The living room windows are double-hung with visible signs of aging. The paint on the frames is peeling, indicating potential exposure to moisture and air leakage.",
+          "severity": "warning",
+          "sentiment": "negative",
+          "justification": "Peeling paint and potential air leakage can reduce energy efficiency and increase heating costs. Maintenance or replacement may be needed.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/57927a4b62ef22222b34823f031ccad3-d_d.jpg"
+        },
+        {
+          "referencePhoto": "780032e07d316d2498445c0fa09a6ad3",
+          "description": "The attic window is a single-hung style with a wood frame. The frame appears to be in fair condition, but there is no visible weatherstripping, which could lead to drafts.",
+          "severity": "warning",
+          "sentiment": "neutral",
+          "justification": "Lack of weatherstripping can cause drafts, reducing comfort and increasing energy bills. Adding weatherstripping could improve efficiency.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/780032e07d316d2498445c0fa09a6ad3-d_d.jpg"
+        },
+        {
+          "referencePhoto": "53cb01dc0798e2408d0889d78b2c6105",
+          "description": "The window in the upper hallway is a single-hung style with a wood frame. The frame shows signs of wear, and the glazing appears to be single-pane.",
+          "severity": "critical",
+          "sentiment": "negative",
+          "justification": "Single-pane windows are not suitable for Minnesota's climate due to poor insulation properties. Consider upgrading to double or triple-pane windows.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/53cb01dc0798e2408d0889d78b2c6105-d_d.jpg"
+        },
+        {
+          "referencePhoto": "0e2308a828618c95e5b0abe772b3b16d",
+          "description": "The window in the attic room is a single-hung style with a wood frame. The frame is in fair condition, but the single-pane glazing is not energy-efficient.",
+          "severity": "critical",
+          "sentiment": "negative",
+          "justification": "Single-pane windows contribute to heat loss and higher energy bills. Replacement with more efficient windows is advisable.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/0e2308a828618c95e5b0abe772b3b16d-d_d.jpg"
+        },
+        {
+          "referencePhoto": "83a95dfc8e852e4724b9782174bcf9eb",
+          "description": "The window in the attic space appears to be a single-pane window with a wooden frame. The frame shows signs of aging, which could lead to air leakage and reduced energy efficiency.",
+          "severity": "critical",
+          "sentiment": "negative",
+          "justification": "Single-pane windows are not energy-efficient, especially in Minnesota's cold climate, and may require replacement to prevent heat loss and reduce energy bills.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/83a95dfc8e852e4724b9782174bcf9eb-d_d.jpg"
+        },
+        {
+          "referencePhoto": "63a0e35a0f0ee455b5938739b925a08e",
+          "description": "The bathroom window is a small, likely single-pane window with a wooden frame. The frame appears to be in fair condition but may not provide adequate insulation against cold temperatures.",
+          "severity": "warning",
+          "sentiment": "negative",
+          "justification": "Small, single-pane windows can contribute to heat loss, and the wooden frame may require maintenance to prevent further deterioration.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/63a0e35a0f0ee455b5938739b925a08e-d_d.jpg"
+        },
+        {
+          "referencePhoto": "83a95dfc8e852e4724b9782174bcf9eb",
+          "description": "There is no visible weatherstripping on the attic window, which could lead to drafts and increased heating costs during winter months.",
+          "severity": "warning",
+          "sentiment": "negative",
+          "justification": "Lack of weatherstripping can significantly impact the home's energy efficiency, leading to higher heating costs.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/83a95dfc8e852e4724b9782174bcf9eb-d_d.jpg"
+        },
+        {
+          "referencePhoto": "63a0e35a0f0ee455b5938739b925a08e",
+          "description": "The bathroom window's placement and size suggest it may not be a primary source of natural light or ventilation, but its condition still impacts overall energy efficiency.",
+          "severity": "info",
+          "sentiment": "neutral",
+          "justification": "While not a major concern for light or ventilation, ensuring this window is well-sealed can help maintain overall home efficiency.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/63a0e35a0f0ee455b5938739b925a08e-d_d.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "tag": "hvac",
+    "assessment": {
+      "overallRating": "good",
+      "confidence": "high",
+      "featureCategory": "hvac",
+      "summary": "The HVAC system appears to be in good condition with a relatively modern furnace and central air conditioning unit. The system should provide adequate heating for Minnesota's cold winters and cooling for humid summers, though regular maintenance is recommended to ensure continued efficiency.",
+      "insights": [
+        {
+          "referencePhoto": "6e4bb66fe59b23192aecf1dbe674fb5c",
+          "description": "The furnace appears to be a forced air system, likely fueled by natural gas, based on the visible venting and design. The unit looks relatively modern, suggesting it is within 10-15 years old.",
+          "severity": "info",
+          "sentiment": "positive",
+          "justification": "A modern furnace is likely to be more efficient and reliable, reducing heating costs and ensuring comfort during Minnesota's harsh winters.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/6e4bb66fe59b23192aecf1dbe674fb5c-d_d.jpg"
+        },
+        {
+          "referencePhoto": "6e4bb66fe59b23192aecf1dbe674fb5c",
+          "description": "The ductwork appears to be in good condition with no visible signs of rust or damage. Properly maintained ductwork is crucial for efficient heating and cooling distribution.",
+          "severity": "info",
+          "sentiment": "positive",
+          "justification": "Well-maintained ductwork ensures efficient airflow, which is essential for maintaining consistent indoor temperatures and reducing energy costs.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/6e4bb66fe59b23192aecf1dbe674fb5c-d_d.jpg"
+        },
+        {
+          "referencePhoto": "6e4bb66fe59b23192aecf1dbe674fb5c",
+          "description": "The water heater is visible and appears to be in good condition with no signs of rust or leaks. This suggests regular maintenance and care.",
+          "severity": "info",
+          "sentiment": "positive",
+          "justification": "A well-maintained water heater contributes to overall home efficiency and reduces the risk of unexpected failures.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/6e4bb66fe59b23192aecf1dbe674fb5c-d_d.jpg"
+        },
+        {
+          "referencePhoto": "efb319f911000d85517a1987d2457da3",
+          "description": "The outdoor central air conditioning unit is visible and appears to be in good condition. It is likely adequate for cooling during Minnesota's humid summers.",
+          "severity": "info",
+          "sentiment": "positive",
+          "justification": "A functional central AC unit is important for comfort during hot, humid months, and its presence adds value to the property.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/efb319f911000d85517a1987d2457da3-d_d.jpg"
+        },
+        {
+          "referencePhoto": "6e4bb66fe59b23192aecf1dbe674fb5c",
+          "description": "There are no visible signs of water damage or leaks around the HVAC equipment, indicating a dry and well-maintained environment.",
+          "severity": "info",
+          "sentiment": "positive",
+          "justification": "A dry environment around HVAC equipment reduces the risk of rust and corrosion, extending the lifespan of the system.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/6e4bb66fe59b23192aecf1dbe674fb5c-d_d.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "tag": "foundation",
+    "assessment": {
+      "overallRating": "good",
+      "confidence": "high",
+      "featureCategory": "foundation",
+      "summary": "The foundation appears to be in good condition with minor typical issues for its age. There are no significant structural concerns visible, and water management seems adequate. Some minor improvements could enhance long-term durability.",
+      "insights": [
+        {
+          "referencePhoto": "df7d987f68ba5e2fdb158025c7b93381",
+          "description": "The basement walls are constructed of concrete block, which is common for homes in this area. The walls appear to be in good condition with no visible cracks or signs of bowing.",
+          "severity": "info",
+          "sentiment": "positive",
+          "justification": "Concrete block walls are durable and, when well-maintained, provide good structural integrity. The absence of cracks or bowing suggests no immediate structural concerns.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/df7d987f68ba5e2fdb158025c7b93381-d_d.jpg"
+        },
+        {
+          "referencePhoto": "df7d987f68ba5e2fdb158025c7b93381",
+          "description": "There is a visible sump pump system in the basement, indicating proactive water management. No signs of water intrusion or moisture are visible on the walls or floor.",
+          "severity": "info",
+          "sentiment": "positive",
+          "justification": "A sump pump is essential for managing groundwater and preventing basement flooding, especially in areas with freeze-thaw cycles like Minnesota.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/df7d987f68ba5e2fdb158025c7b93381-d_d.jpg"
+        },
+        {
+          "referencePhoto": "6e4bb66fe59b23192aecf1dbe674fb5c",
+          "description": "The basement floor is even, and there are no signs of differential settling or tilting. The support columns appear sturdy and well-placed.",
+          "severity": "info",
+          "sentiment": "positive",
+          "justification": "Even floors and well-placed support columns indicate a stable foundation, reducing the risk of structural issues.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/6e4bb66fe59b23192aecf1dbe674fb5c-d_d.jpg"
+        },
+        {
+          "referencePhoto": "ac3f5ba4428819ee145cffc605fc6d4c",
+          "description": "The exterior grading appears to slope away from the foundation, which is beneficial for water drainage. However, the concrete steps show minor cracking, which should be monitored.",
+          "severity": "warning",
+          "sentiment": "neutral",
+          "justification": "Proper grading helps prevent water accumulation against the foundation, reducing the risk of water intrusion. Monitoring the steps for further cracking can prevent potential tripping hazards and structural issues.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/ac3f5ba4428819ee145cffc605fc6d4c-d_d.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "tag": "roof",
+    "assessment": {
+      "overallRating": "fair",
+      "confidence": "high",
+      "featureCategory": "roof",
+      "summary": "The roof appears to be aging with visible wear, including granule loss and some curling shingles. While there are no immediate critical issues, the roof may require replacement in the near future, especially considering Minnesota's harsh climate. Proper ventilation and drainage systems are in place, but ice dam prevention measures should be considered.",
+      "insights": [
+        {
+          "referencePhoto": "7e4cf4e62e9e29bdc859447da5620408",
+          "description": "The roof is covered with asphalt shingles, likely architectural type, showing signs of aging with some granule loss and curling at the edges.",
+          "severity": "warning",
+          "sentiment": "neutral",
+          "justification": "Granule loss and curling indicate the roof is approaching the end of its lifespan, which is typically 20-30 years for asphalt shingles in Minnesota. Replacement costs can range from $8,000 to $15,000.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/7e4cf4e62e9e29bdc859447da5620408-d_d.jpg"
+        },
+        {
+          "referencePhoto": "ce0448e6f7e7052e5677e404c92dd260",
+          "description": "The roof has a gable style, which is effective for snow shedding, but there are no visible ice dam prevention measures such as heat cables or ice and water shield underlayment.",
+          "severity": "warning",
+          "sentiment": "neutral",
+          "justification": "In Minnesota, ice dams can cause significant damage. Adding ice dam prevention measures can help protect the roof and reduce potential repair costs.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/ce0448e6f7e7052e5677e404c92dd260-d_d.jpg"
+        },
+        {
+          "referencePhoto": "5d182445507f5c138d01d7387d1b9f7b",
+          "description": "The gutters appear to be in good condition and properly attached, which is crucial for effective drainage and preventing water damage.",
+          "severity": "info",
+          "sentiment": "positive",
+          "justification": "Well-maintained gutters help manage water runoff, reducing the risk of leaks and foundation issues.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/5d182445507f5c138d01d7387d1b9f7b-d_d.jpg"
+        },
+        {
+          "referencePhoto": "efb319f911000d85517a1987d2457da3",
+          "description": "There is some color fading and inconsistent coloring on the shingles, which is typical for a roof of this age.",
+          "severity": "info",
+          "sentiment": "neutral",
+          "justification": "Color fading is a cosmetic issue but can indicate the roof's age and exposure to weather elements.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/efb319f911000d85517a1987d2457da3-d_d.jpg"
+        },
+        {
+          "referencePhoto": "bab9793610b6c0ff20ce29ab4134d93e",
+          "description": "The roof has ridge vents and soffit vents, indicating proper ventilation, which is essential for preventing ice dams and prolonging roof life.",
+          "severity": "info",
+          "sentiment": "positive",
+          "justification": "Proper ventilation helps maintain roof integrity by reducing moisture buildup and temperature extremes.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/bab9793610b6c0ff20ce29ab4134d93e-d_d.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "tag": "siding",
+    "assessment": {
+      "overallRating": "good|good",
+      "confidence": "high|medium",
+      "featureCategory": "siding",
+      "summary": "The siding on this property appears to be in good condition with minor age-related wear. The vinyl material is well-suited for Minnesota's climate, showing no significant damage or weatherproofing issues. Regular maintenance will help preserve its condition and energy efficiency.\nThe siding appears to be in good condition with no visible major damage. The vinyl material is suitable for Minnesota's climate, but some maintenance may be needed to ensure long-term durability. Overall, the siding seems well-maintained with minor age-related wear.",
+      "insights": [
+        {
+          "referencePhoto": "7e4cf4e62e9e29bdc859447da5620408",
+          "description": "The siding is vinyl lap siding, which is durable and suitable for Minnesota's climate. The color and finish appear consistent with no visible fading or chalking.",
+          "severity": "info",
+          "sentiment": "positive",
+          "justification": "Vinyl siding is known for its durability and low maintenance, making it a good choice for cold climates. It typically lasts 20-30 years.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/7e4cf4e62e9e29bdc859447da5620408-d_d.jpg"
+        },
+        {
+          "referencePhoto": "ce0448e6f7e7052e5677e404c92dd260",
+          "description": "There are no visible cracks, splits, or missing pieces in the siding. The panels are well-aligned, indicating proper installation.",
+          "severity": "info",
+          "sentiment": "positive",
+          "justification": "Proper installation and intact panels are crucial for preventing moisture intrusion and maintaining energy efficiency.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/ce0448e6f7e7052e5677e404c92dd260-d_d.jpg"
+        },
+        {
+          "referencePhoto": "5d182445507f5c138d01d7387d1b9f7b",
+          "description": "The caulking around windows and doors appears intact, with no visible gaps or openings that could lead to moisture intrusion.",
+          "severity": "info",
+          "sentiment": "positive",
+          "justification": "Effective caulking is essential for preventing water damage and improving insulation, especially in a freeze-thaw climate.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/5d182445507f5c138d01d7387d1b9f7b-d_d.jpg"
+        },
+        {
+          "referencePhoto": "ac3f5ba4428819ee145cffc605fc6d4c",
+          "description": "The siding shows no signs of warping or buckling, which suggests it has not been affected by freeze-thaw cycles or improper installation.",
+          "severity": "info",
+          "sentiment": "positive",
+          "justification": "Warping or buckling can indicate underlying moisture issues or poor installation, which are not present here.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/ac3f5ba4428819ee145cffc605fc6d4c-d_d.jpg"
+        },
+        {
+          "referencePhoto": "efb319f911000d85517a1987d2457da3",
+          "description": "The property has proper drainage with downspouts directing water away from the foundation, reducing the risk of water damage to the siding.",
+          "severity": "info",
+          "sentiment": "positive",
+          "justification": "Proper drainage is critical in preventing water accumulation and potential damage to the siding and foundation.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/efb319f911000d85517a1987d2457da3-d_d.jpg"
+        },
+        {
+          "referencePhoto": "4905308e8fbc1af49a71ed9b9c6ebf3f",
+          "description": "The siding is vinyl, which is a common choice for cold climates due to its durability and low maintenance. The installation style is lap siding, which is effective for shedding water.",
+          "severity": "info",
+          "sentiment": "positive",
+          "justification": "Vinyl siding is resistant to moisture and freeze-thaw cycles, making it a practical choice for Minnesota. It typically lasts 20-30 years, providing good value for homeowners.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/4905308e8fbc1af49a71ed9b9c6ebf3f-d_d.jpg"
+        },
+        {
+          "referencePhoto": "4905308e8fbc1af49a71ed9b9c6ebf3f",
+          "description": "The siding shows no signs of warping or buckling, indicating proper installation and stability. However, there are minor signs of age-related wear.",
+          "severity": "info",
+          "sentiment": "neutral",
+          "justification": "Stable siding without warping suggests that the installation was done correctly, which is crucial for preventing moisture intrusion and maintaining energy efficiency.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/4905308e8fbc1af49a71ed9b9c6ebf3f-d_d.jpg"
+        },
+        {
+          "referencePhoto": "4905308e8fbc1af49a71ed9b9c6ebf3f",
+          "description": "There is no visible mold, mildew, or algae growth on the siding, which suggests effective moisture management.",
+          "severity": "info",
+          "sentiment": "positive",
+          "justification": "Effective moisture management is critical in preventing damage and maintaining the siding's appearance and structural integrity, especially in a climate with frequent freeze-thaw cycles.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/4905308e8fbc1af49a71ed9b9c6ebf3f-d_d.jpg"
+        },
+        {
+          "referencePhoto": "4905308e8fbc1af49a71ed9b9c6ebf3f",
+          "description": "The caulking and sealing around windows and doors appear intact, with no visible gaps or openings.",
+          "severity": "info",
+          "sentiment": "positive",
+          "justification": "Proper sealing is essential to prevent water intrusion and improve energy efficiency, reducing heating costs during Minnesota's cold winters.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/4905308e8fbc1af49a71ed9b9c6ebf3f-d_d.jpg"
+        },
+        {
+          "referencePhoto": "4905308e8fbc1af49a71ed9b9c6ebf3f",
+          "description": "The color and finish of the siding are slightly faded, which is typical for its age but does not affect functionality.",
+          "severity": "info",
+          "sentiment": "neutral",
+          "justification": "Fading is a cosmetic issue that does not impact the siding's performance but may require repainting or replacement for aesthetic reasons.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/4905308e8fbc1af49a71ed9b9c6ebf3f-d_d.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "tag": "plumbing",
+    "assessment": {
+      "overallRating": "good",
+      "confidence": "high",
+      "featureCategory": "plumbing",
+      "summary": "The plumbing system appears to be in good condition with modern materials and fixtures. The water heater is relatively new, and there are no visible signs of leaks or corrosion. Some minor updates may be needed for optimal efficiency and freeze protection.",
+      "insights": [
+        {
+          "referencePhoto": "e1cbe5935d0e36e82db096dbc602296d",
+          "description": "The bathroom fixtures, including the sink and shower, appear modern and in good condition. The chrome finish is intact, and there are no visible signs of leaks or mineral deposits.",
+          "severity": "info",
+          "sentiment": "positive",
+          "justification": "Modern fixtures reduce the likelihood of immediate replacement needs and contribute to overall home value.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/e1cbe5935d0e36e82db096dbc602296d-d_d.jpg"
+        },
+        {
+          "referencePhoto": "63a0e35a0f0ee455b5938739b925a08e",
+          "description": "The bathroom fixtures are functional but appear slightly dated. The faucet and handles show minor wear, but there are no visible leaks or significant mineral deposits.",
+          "severity": "warning",
+          "sentiment": "neutral",
+          "justification": "While functional, updating these fixtures could improve water efficiency and aesthetic appeal.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/63a0e35a0f0ee455b5938739b925a08e-d_d.jpg"
+        },
+        {
+          "referencePhoto": "df7d987f68ba5e2fdb158025c7b93381",
+          "description": "The basement plumbing includes visible PEX piping, which is modern and resistant to freezing. The laundry area is well-organized, with no visible leaks or corrosion.",
+          "severity": "info",
+          "sentiment": "positive",
+          "justification": "PEX piping is ideal for cold climates like Minnesota, reducing the risk of freeze-related issues.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/df7d987f68ba5e2fdb158025c7b93381-d_d.jpg"
+        },
+        {
+          "referencePhoto": "6e4bb66fe59b23192aecf1dbe674fb5c",
+          "description": "The water heater appears to be relatively new and in good condition, with no visible rust or corrosion. Proper venting is observed, and the temperature and pressure relief valve is present.",
+          "severity": "info",
+          "sentiment": "positive",
+          "justification": "A newer water heater ensures efficient operation and reduces the likelihood of costly repairs or replacements in the near future.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/6e4bb66fe59b23192aecf1dbe674fb5c-d_d.jpg"
+        },
+        {
+          "referencePhoto": "df7d987f68ba5e2fdb158025c7b93381",
+          "description": "There is no visible insulation on exposed pipes in the basement, which could be a concern for freeze protection during Minnesota winters.",
+          "severity": "warning",
+          "sentiment": "neutral",
+          "justification": "Adding insulation to exposed pipes can prevent freezing and potential pipe bursts, which are costly to repair.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/df7d987f68ba5e2fdb158025c7b93381-d_d.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "tag": "cabinetry",
+    "assessment": {
+      "overallRating": "fair|fair",
+      "confidence": "high|medium",
+      "featureCategory": "cabinetry",
+      "summary": "The cabinetry appears to be stock or builder-grade with a traditional style and visible wear. The cabinets are functional but show signs of age and may benefit from updating or replacement for a more modern look. The overall condition is fair, with some aesthetic and functional limitations.\nThe cabinetry appears to be stock or builder-grade with a traditional style. The finish shows signs of wear, and the cabinets may benefit from updating or replacement to enhance functionality and aesthetics.",
+      "insights": [
+        {
+          "referencePhoto": "83fa7a7da3e56c2a139f8716c1e1c28a",
+          "description": "The cabinets are traditional raised panel style, likely made from a lower-grade wood or veneer, with a stained finish that shows signs of wear and age.",
+          "severity": "warning",
+          "sentiment": "neutral",
+          "justification": "The traditional style and visible wear suggest that while functional, the cabinets may not appeal to buyers seeking a modern aesthetic.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/83fa7a7da3e56c2a139f8716c1e1c28a-d_d.jpg"
+        },
+        {
+          "referencePhoto": "dea0d46db7ad97642877b0da8d16eebd",
+          "description": "The pantry cabinet provides additional storage but lacks modern features like pull-out shelves or organizers.",
+          "severity": "info",
+          "sentiment": "neutral",
+          "justification": "While the pantry adds storage capacity, the lack of modern features may limit its functionality and appeal.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/dea0d46db7ad97642877b0da8d16eebd-d_d.jpg"
+        },
+        {
+          "referencePhoto": "cfb4bc7d6cb84a8041ba6cf70de3b133",
+          "description": "The cabinet finish shows signs of wear, including scratches and fading, which detracts from the overall appearance.",
+          "severity": "warning",
+          "sentiment": "negative",
+          "justification": "Visible wear on the finish can impact the visual appeal and may require refinishing or replacement to enhance the kitchen's look.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/cfb4bc7d6cb84a8041ba6cf70de3b133-d_d.jpg"
+        },
+        {
+          "referencePhoto": "cd29766793ed18d6c691b1f8704edd9e",
+          "description": "The hardware is basic and shows signs of age, with some tarnishing visible.",
+          "severity": "info",
+          "sentiment": "neutral",
+          "justification": "Updating hardware can be a cost-effective way to improve the cabinet's appearance and functionality.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/cd29766793ed18d6c691b1f8704edd9e-d_d.jpg"
+        },
+        {
+          "referencePhoto": "b6a1118f6a117e12936bede5da774a0e",
+          "description": "The cabinets do not extend to the ceiling, resulting in unused space that could be optimized for additional storage.",
+          "severity": "info",
+          "sentiment": "neutral",
+          "justification": "Maximizing vertical space can enhance storage capacity and improve the kitchen's functionality.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/b6a1118f6a117e12936bede5da774a0e-d_d.jpg"
+        },
+        {
+          "referencePhoto": "57927a4b62ef22222b34823f031ccad3",
+          "description": "The cabinets are likely stock or builder-grade with a traditional raised panel door style. The material appears to be a lower-end wood or wood veneer.",
+          "severity": "warning",
+          "sentiment": "neutral",
+          "justification": "Stock cabinets are typically less durable and may not offer the same longevity or aesthetic appeal as custom or semi-custom options.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/57927a4b62ef22222b34823f031ccad3-d_d.jpg"
+        },
+        {
+          "referencePhoto": "57927a4b62ef22222b34823f031ccad3",
+          "description": "The finish on the cabinets shows signs of wear, including potential fading and minor scratches.",
+          "severity": "warning",
+          "sentiment": "negative",
+          "justification": "Worn finishes can detract from the overall appearance of the kitchen and may require refinishing or replacement to improve aesthetics.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/57927a4b62ef22222b34823f031ccad3-d_d.jpg"
+        },
+        {
+          "referencePhoto": "57927a4b62ef22222b34823f031ccad3",
+          "description": "The cabinetry lacks modern features such as soft-close hinges or full-extension drawer slides.",
+          "severity": "warning",
+          "sentiment": "negative",
+          "justification": "Modern features enhance functionality and user experience, making the kitchen more appealing to potential buyers.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/57927a4b62ef22222b34823f031ccad3-d_d.jpg"
+        },
+        {
+          "referencePhoto": "57927a4b62ef22222b34823f031ccad3",
+          "description": "The cabinets do not extend to the ceiling, which may limit storage capacity and create dead space.",
+          "severity": "info",
+          "sentiment": "neutral",
+          "justification": "Maximizing storage is important in kitchen design, and extending cabinets to the ceiling can provide additional space and a more finished look.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/57927a4b62ef22222b34823f031ccad3-d_d.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "tag": "appliances",
+    "assessment": {
+      "overallRating": "fair|fair",
+      "confidence": "high|medium",
+      "featureCategory": "appliances",
+      "summary": "The appliances in this property are mostly builder-grade and appear to be older, with basic features and some visible wear. They are functional but may require replacement in the near future due to age and condition.\nThe washer and dryer in the basement appear to be older, builder-grade models with basic features. They show signs of wear but seem functional, though replacement may be needed in the near future.",
+      "insights": [
+        {
+          "referencePhoto": "83fa7a7da3e56c2a139f8716c1e1c28a",
+          "description": "The refrigerator is a basic model with a top freezer, likely from a builder-grade brand. It appears to be older, with a dated design and some visible wear.",
+          "severity": "warning",
+          "sentiment": "negative",
+          "justification": "Older refrigerators may be less energy-efficient and could require replacement soon, impacting future costs.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/83fa7a7da3e56c2a139f8716c1e1c28a-d_d.jpg"
+        },
+        {
+          "referencePhoto": "cd29766793ed18d6c691b1f8704edd9e",
+          "description": "The gas range is a basic white model, showing signs of age with a dated design. It appears functional but lacks modern features like convection or self-cleaning.",
+          "severity": "warning",
+          "sentiment": "negative",
+          "justification": "Aging ranges may not perform as efficiently and could be less reliable, potentially needing replacement.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/cd29766793ed18d6c691b1f8704edd9e-d_d.jpg"
+        },
+        {
+          "referencePhoto": "b6a1118f6a117e12936bede5da774a0e",
+          "description": "The range hood is a simple, older model with no visible advanced features. It matches the range in color but not in style, indicating a possible mismatch in the suite.",
+          "severity": "info",
+          "sentiment": "neutral",
+          "justification": "While functional, the lack of advanced features may not meet modern cooking needs, and the mismatch could affect aesthetic appeal.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/b6a1118f6a117e12936bede5da774a0e-d_d.jpg"
+        },
+        {
+          "referencePhoto": "cfb4bc7d6cb84a8041ba6cf70de3b133",
+          "description": "The kitchen lacks a visible dishwasher, which is a common expectation in modern homes. This absence could be a drawback for potential buyers.",
+          "severity": "critical",
+          "sentiment": "negative",
+          "justification": "The absence of a dishwasher may be a significant inconvenience, affecting daily functionality and resale value.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/cfb4bc7d6cb84a8041ba6cf70de3b133-d_d.jpg"
+        },
+        {
+          "referencePhoto": "57927a4b62ef22222b34823f031ccad3",
+          "description": "Overall, the appliances show signs of wear and age, with basic features and a lack of modern technology. The suite is not fully coordinated, impacting the kitchen's overall aesthetic.",
+          "severity": "warning",
+          "sentiment": "negative",
+          "justification": "Aging and mismatched appliances may require near-term replacement, affecting buyer costs and negotiation leverage.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/57927a4b62ef22222b34823f031ccad3-d_d.jpg"
+        },
+        {
+          "referencePhoto": "df7d987f68ba5e2fdb158025c7b93381",
+          "description": "The washer and dryer are older models, likely over 10 years old, with a basic white finish and analog controls. They appear to be builder-grade, possibly from brands like Amana or basic GE.",
+          "severity": "warning",
+          "sentiment": "negative",
+          "justification": "Older appliances often have reduced efficiency and may require replacement soon, impacting potential maintenance costs for the buyer.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/df7d987f68ba5e2fdb158025c7b93381-d_d.jpg"
+        },
+        {
+          "referencePhoto": "df7d987f68ba5e2fdb158025c7b93381",
+          "description": "The appliances show visible signs of wear, including potential discoloration and minor surface scratches, but no major dents or damage.",
+          "severity": "info",
+          "sentiment": "neutral",
+          "justification": "While the wear is typical for their age, it indicates that the appliances have been used extensively, which may affect their remaining lifespan.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/df7d987f68ba5e2fdb158025c7b93381-d_d.jpg"
+        },
+        {
+          "referencePhoto": "df7d987f68ba5e2fdb158025c7b93381",
+          "description": "The washer and dryer are freestanding and not part of a matching suite, which is common for utility appliances in a basement setting.",
+          "severity": "info",
+          "sentiment": "neutral",
+          "justification": "Lack of a matching suite is typical in utility areas and does not significantly impact functionality, but may affect aesthetic appeal.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/df7d987f68ba5e2fdb158025c7b93381-d_d.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "tag": "tile",
+    "assessment": {
+      "overallRating": "good",
+      "confidence": "high",
+      "featureCategory": "tile",
+      "summary": "The bathroom features classic white subway tiles with a clean and consistent installation. The grout lines are uniform, and the overall condition appears well-maintained, contributing to a timeless and appealing design. The tile work is functional and adds value to the space.",
+      "insights": [
+        {
+          "referencePhoto": "e1cbe5935d0e36e82db096dbc602296d",
+          "description": "The bathroom showcases 3x6 white subway tiles installed in a straight lay pattern. The tiles are well-aligned with consistent grout lines, indicating quality installation.",
+          "severity": "info",
+          "sentiment": "positive",
+          "justification": "Subway tiles are a classic choice that offers a timeless look, and the quality installation ensures durability and aesthetic appeal.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/e1cbe5935d0e36e82db096dbc602296d-d_d.jpg"
+        },
+        {
+          "referencePhoto": "e1cbe5935d0e36e82db096dbc602296d",
+          "description": "The grout appears clean and uniform without visible staining or discoloration, enhancing the overall appearance of the tile work.",
+          "severity": "info",
+          "sentiment": "positive",
+          "justification": "Clean grout lines contribute significantly to the visual appeal and hygiene of the bathroom, reducing the need for immediate maintenance.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/e1cbe5935d0e36e82db096dbc602296d-d_d.jpg"
+        },
+        {
+          "referencePhoto": "e1cbe5935d0e36e82db096dbc602296d",
+          "description": "The tile installation extends to the ceiling in the shower area, providing full coverage and effective waterproofing.",
+          "severity": "info",
+          "sentiment": "positive",
+          "justification": "Full-height tile installation in wet areas is crucial for preventing water damage and ensuring long-term durability.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/e1cbe5935d0e36e82db096dbc602296d-d_d.jpg"
+        },
+        {
+          "referencePhoto": "e1cbe5935d0e36e82db096dbc602296d",
+          "description": "The design is simple and modern, with a neutral color scheme that complements various decor styles.",
+          "severity": "info",
+          "sentiment": "positive",
+          "justification": "A neutral and modern design increases the property's appeal to a wide range of buyers, enhancing marketability.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/e1cbe5935d0e36e82db096dbc602296d-d_d.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "tag": "countertops",
+    "assessment": {
+      "overallRating": "fair",
+      "confidence": "high",
+      "featureCategory": "countertops",
+      "summary": "The countertops appear to be laminate, which is a budget-tier material. They show signs of wear and have a dated appearance, suggesting they may be candidates for replacement. The installation is functional but lacks modern design elements.",
+      "insights": [
+        {
+          "referencePhoto": "83fa7a7da3e56c2a139f8716c1e1c28a",
+          "description": "The countertops appear to be laminate with visible seams and a wood grain pattern, typical of budget-tier materials.",
+          "severity": "warning",
+          "sentiment": "negative",
+          "justification": "Laminate is often targeted for upgrades due to its lower durability and aesthetic appeal compared to stone or quartz.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/83fa7a7da3e56c2a139f8716c1e1c28a-d_d.jpg"
+        },
+        {
+          "referencePhoto": "cfb4bc7d6cb84a8041ba6cf70de3b133",
+          "description": "The edges of the countertops are rounded, which is common in laminate installations but lacks the modern appeal of more contemporary edge profiles.",
+          "severity": "info",
+          "sentiment": "neutral",
+          "justification": "While functional, the edge profile does not add to the modern aesthetic that many buyers seek.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/cfb4bc7d6cb84a8041ba6cf70de3b133-d_d.jpg"
+        },
+        {
+          "referencePhoto": "cd29766793ed18d6c691b1f8704edd9e",
+          "description": "There are visible signs of wear and potential discoloration on the countertop surface, indicating age and use.",
+          "severity": "warning",
+          "sentiment": "negative",
+          "justification": "Wear and discoloration can detract from the kitchen's overall appearance and may require replacement to improve aesthetics.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/cd29766793ed18d6c691b1f8704edd9e-d_d.jpg"
+        },
+        {
+          "referencePhoto": "b6a1118f6a117e12936bede5da774a0e",
+          "description": "The countertop installation is level and functional, with adequate space for kitchen tasks, but lacks modern design elements like integrated backsplashes or undermount sinks.",
+          "severity": "info",
+          "sentiment": "neutral",
+          "justification": "While the installation is functional, the lack of modern features may not appeal to buyers looking for updated kitchens.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/b6a1118f6a117e12936bede5da774a0e-d_d.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "tag": "lighting",
+    "assessment": {
+      "overallRating": "fair|fair",
+      "confidence": "high|high",
+      "featureCategory": "lighting",
+      "summary": "The property features basic builder-grade lighting fixtures with adequate natural light in most areas. While functional, the lighting design lacks modern features and style, suggesting potential for upgrades to enhance ambiance and efficiency.\nThe property features a mix of builder-grade and basic lighting fixtures, with adequate natural light in some areas. While the lighting is functional, there is room for improvement in style and brightness, particularly in the basement area.",
+      "insights": [
+        {
+          "referencePhoto": "83fa7a7da3e56c2a139f8716c1e1c28a",
+          "description": "The kitchen features basic flush mount ceiling lights, which provide general illumination but lack style and modern features.",
+          "severity": "warning",
+          "sentiment": "neutral",
+          "justification": "These fixtures are functional but do not enhance the kitchen's aesthetic. Upgrading to pendant or recessed lighting could improve both style and task lighting.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/83fa7a7da3e56c2a139f8716c1e1c28a-d_d.jpg"
+        },
+        {
+          "referencePhoto": "dea0d46db7ad97642877b0da8d16eebd",
+          "description": "Natural light is present in the dining area through a medium-sized window, contributing to a bright atmosphere during the day.",
+          "severity": "info",
+          "sentiment": "positive",
+          "justification": "Good natural light reduces the need for artificial lighting during the day and creates a more inviting space.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/dea0d46db7ad97642877b0da8d16eebd-d_d.jpg"
+        },
+        {
+          "referencePhoto": "cfb4bc7d6cb84a8041ba6cf70de3b133",
+          "description": "The kitchen lacks under-cabinet lighting, which is a desirable feature for task lighting and enhancing kitchen usability.",
+          "severity": "warning",
+          "sentiment": "negative",
+          "justification": "Under-cabinet lighting is a valued feature that improves visibility for cooking and food preparation, making it a worthwhile upgrade.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/cfb4bc7d6cb84a8041ba6cf70de3b133-d_d.jpg"
+        },
+        {
+          "referencePhoto": "04b2824688f070d39429710e61540e7d",
+          "description": "The bedroom features a basic flush mount light, providing adequate general lighting but lacking in style and modernity.",
+          "severity": "warning",
+          "sentiment": "neutral",
+          "justification": "While functional, the fixture does not add to the room's decor. Consider upgrading to a more stylish fixture to enhance the room's ambiance.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/04b2824688f070d39429710e61540e7d-d_d.jpg"
+        },
+        {
+          "referencePhoto": "94941aceebfc51613137ede66a510ec8",
+          "description": "The room benefits from good natural light due to multiple windows, creating a bright and airy feel.",
+          "severity": "info",
+          "sentiment": "positive",
+          "justification": "Natural light is a highly desirable feature that enhances the living space and reduces reliance on artificial lighting.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/94941aceebfc51613137ede66a510ec8-d_d.jpg"
+        },
+        {
+          "referencePhoto": "e82993ac6a4c88773c687a80dbcb3356",
+          "description": "The room features a basic flush mount ceiling light, which is functional but lacks style. The natural light from two windows is good, providing a bright atmosphere during the day.",
+          "severity": "info",
+          "sentiment": "neutral",
+          "justification": "While the lighting is adequate, the fixture is builder-grade and could be upgraded for better aesthetics.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/e82993ac6a4c88773c687a80dbcb3356-d_d.jpg"
+        },
+        {
+          "referencePhoto": "e1cbe5935d0e36e82db096dbc602296d",
+          "description": "The bathroom has vanity lighting with multiple bulbs, providing good task lighting. The frosted window allows natural light while maintaining privacy.",
+          "severity": "info",
+          "sentiment": "positive",
+          "justification": "The vanity lighting is effective for bathroom tasks, and the natural light enhances the space.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/e1cbe5935d0e36e82db096dbc602296d-d_d.jpg"
+        },
+        {
+          "referencePhoto": "26df38822eec4422bbcd9217ff25047d",
+          "description": "The basement features basic recessed lighting, which provides even illumination but lacks warmth and style. The absence of windows results in no natural light.",
+          "severity": "warning",
+          "sentiment": "negative",
+          "justification": "The basement lighting is functional but could benefit from additional fixtures or warmer lighting to improve ambiance.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/26df38822eec4422bbcd9217ff25047d-d_d.jpg"
+        },
+        {
+          "referencePhoto": "c4c5350c887fa649849bb85ac10b9958",
+          "description": "Similar to the other basement photo, the lighting is consistent but lacks character. The space feels utilitarian due to the absence of natural light and decorative fixtures.",
+          "severity": "warning",
+          "sentiment": "negative",
+          "justification": "Enhancing the lighting with more stylish fixtures could improve the overall feel of the basement.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/c4c5350c887fa649849bb85ac10b9958-d_d.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "tag": "wall_finishes",
+    "assessment": {
+      "overallRating": "fair|fair",
+      "confidence": "high|high",
+      "featureCategory": "wall_finishes",
+      "summary": "The property features a mix of modern paint and dated wood paneling. The main living area has fresh, neutral gray paint with crisp white trim, while the upper level is dominated by dated wood paneling. Overall, the walls are in fair condition, with some areas needing updates for a more contemporary look.\nThe property features extensive wood paneling throughout, which is in fair condition but may appear dated to some buyers. The paneling is well-maintained, but the style could benefit from modernization. The overall design lacks contemporary appeal, suggesting potential for updates to enhance the space.",
+      "insights": [
+        {
+          "referencePhoto": "d85d3568de5535d58d490232793990ec",
+          "description": "The living room walls are painted in a modern light gray with white trim, providing a fresh and neutral appearance. The paint application appears professional with no visible brush marks or drips.",
+          "severity": "info",
+          "sentiment": "positive",
+          "justification": "Neutral colors and professional paint application enhance the move-in readiness and appeal of the home.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/d85d3568de5535d58d490232793990ec-d_d.jpg"
+        },
+        {
+          "referencePhoto": "00998ff431cf9c2a0529f2d64f08aa78",
+          "description": "The paint in the living room is consistent and well-applied, with no visible imperfections. The color choice is modern and appealing, complementing the natural light.",
+          "severity": "info",
+          "sentiment": "positive",
+          "justification": "A consistent and well-applied paint job indicates quality and reduces the need for immediate updates.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/00998ff431cf9c2a0529f2d64f08aa78-d_d.jpg"
+        },
+        {
+          "referencePhoto": "75a579020382b5d9ca095d082d51e105",
+          "description": "The transition between rooms maintains the same color scheme, ensuring visual flow and cohesiveness throughout the space.",
+          "severity": "info",
+          "sentiment": "positive",
+          "justification": "Cohesive color schemes enhance the overall aesthetic and make spaces feel larger and more connected.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/75a579020382b5d9ca095d082d51e105-d_d.jpg"
+        },
+        {
+          "referencePhoto": "780032e07d316d2498445c0fa09a6ad3",
+          "description": "The upper level features extensive wood paneling, which appears dated and may not appeal to all buyers. The paneling is in good condition but could benefit from a modern update.",
+          "severity": "warning",
+          "sentiment": "neutral",
+          "justification": "Dated finishes like wood paneling can detract from the home's appeal and may require updating to meet modern tastes.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/780032e07d316d2498445c0fa09a6ad3-d_d.jpg"
+        },
+        {
+          "referencePhoto": "53cb01dc0798e2408d0889d78b2c6105",
+          "description": "The wood paneling on the upper level is consistent and well-maintained, but the style is outdated. This could be a potential area for renovation to increase the home's value and appeal.",
+          "severity": "warning",
+          "sentiment": "neutral",
+          "justification": "Updating dated finishes can significantly enhance the home's marketability and align it with current design trends.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/53cb01dc0798e2408d0889d78b2c6105-d_d.jpg"
+        },
+        {
+          "referencePhoto": "0e2308a828618c95e5b0abe772b3b16d",
+          "description": "The room features wood paneling on all walls, which is in good condition but gives a dated appearance. The paneling is consistent and well-installed, with no visible damage.",
+          "severity": "warning",
+          "sentiment": "neutral",
+          "justification": "While the paneling is in good condition, its dated style may not appeal to modern buyers, suggesting a potential need for updates.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/0e2308a828618c95e5b0abe772b3b16d-d_d.jpg"
+        },
+        {
+          "referencePhoto": "83a95dfc8e852e4724b9782174bcf9eb",
+          "description": "The ceiling tiles are consistent with the wood paneling, maintaining a uniform look. However, the overall aesthetic is somewhat outdated.",
+          "severity": "warning",
+          "sentiment": "neutral",
+          "justification": "The ceiling tiles, while in good condition, contribute to the dated feel of the space, which may not align with current design trends.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/83a95dfc8e852e4724b9782174bcf9eb-d_d.jpg"
+        },
+        {
+          "referencePhoto": "26df38822eec4422bbcd9217ff25047d",
+          "description": "The built-in shelving and cabinetry match the wood paneling, providing functional storage but reinforcing the dated style.",
+          "severity": "info",
+          "sentiment": "neutral",
+          "justification": "The built-ins are practical but may require updating to match modern design preferences.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/26df38822eec4422bbcd9217ff25047d-d_d.jpg"
+        },
+        {
+          "referencePhoto": "c4c5350c887fa649849bb85ac10b9958",
+          "description": "The wood paneling in this room is well-maintained, with no visible damage or wear. The flooring contrasts with the walls, adding some modernity.",
+          "severity": "info",
+          "sentiment": "neutral",
+          "justification": "The condition of the paneling is good, but the style may not appeal to all buyers, indicating a potential area for cosmetic updates.",
+          "referencePhotoUrl": "https://photos.zillowstatic.com/fp/c4c5350c887fa649849bb85ac10b9958-d_d.jpg"
+        }
+      ]
+    }
+  }
+]

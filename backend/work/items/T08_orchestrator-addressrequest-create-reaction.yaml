@@ -1,0 +1,33 @@
+id: T08
+title: Orchestrator reaction to AddressRequest.create ticket
+description: |
+  Create an orchestrator service that consumes AddressRequest.create events from Redpanda
+  and initiates the workflow by updating the request status to 'processing' and creating
+  an MLSListingRequest to gather property data. This establishes the initial workflow
+  automation for the address processing POC.
+depends_on: [T05, T07]
+deliverables:
+  files:
+    - packages/orchestrator/package.json
+    - packages/orchestrator/src/index.ts
+    - packages/orchestrator/src/consumer.ts
+    - packages/orchestrator/src/handlers/address-request-handler.ts
+    - docker-compose.yaml (updated with orchestrator service)
+  schemas: []
+setup:
+  env:
+    required:
+      - REDPANDA_BROKERS
+      - REDIS_HOST
+      - REDIS_PORT
+  commands:
+    - npm install --prefix packages/orchestrator
+definition_of_done:
+  - Orchestrator service consumes AddressRequest.create events
+  - When AddressRequest is created, status is updated to 'processing'
+  - MLSListingRequest is automatically created for the address
+  - Service runs as Docker container
+  - Integration validated via manual test
+acceptance:
+  exec:
+    - ops/checks/check_orchestrator_initial.sh

@@ -1,0 +1,32 @@
+id: T02
+title: Shared Models & Utils ticket
+description: Implement shared TypeScript types, Zod schemas, event utilities, and validation based on JSON schemas
+depends_on: [T01]
+deliverables:
+  files:
+    - packages/shared/src/types/index.ts
+    - packages/shared/src/schemas/index.ts
+    - packages/shared/src/events/index.ts
+    - packages/shared/src/utils/index.ts
+    - packages/shared/src/validation/index.ts
+  schemas:
+    - address-request.json
+    - bones-report-result.json
+    - event-envelope.json
+    - mls-listing-request.json
+    - mls-listing-result.json
+setup:
+  env:
+    required: []
+  commands:
+    - pnpm install
+definition_of_done:
+- TypeScript interfaces match JSON schemas exactly
+- Zod schemas provide runtime validation
+- Event utilities support envelope creation and topic constants
+- Utility functions for ID generation, timestamps, and validation
+- All types exported from shared package
+- TypeScript compiles without errors
+acceptance:
+  exec:
+    - ops/checks/check_shared_types.sh

@@ -1,0 +1,38 @@
+id: T09
+title: RentCast Fetcher Worker
+description: |
+  Create a RentCast fetcher worker service that consumes AddressRequest.create events
+  and fetches property data from RentCast API (mocked for POC). The worker will create
+  BonesReportResult records with the fetched property data, enabling the completion
+  of the address processing workflow.
+depends_on: [T05]
+deliverables:
+  files:
+    - packages/rentcast-fetcher/package.json
+    - packages/rentcast-fetcher/src/index.ts
+    - packages/rentcast-fetcher/src/consumer.ts
+    - packages/rentcast-fetcher/src/handlers/address-request-handler.ts
+    - packages/rentcast-fetcher/src/services/rentcast-api.ts
+    - packages/rentcast-fetcher/src/services/mock-rentcast-api.ts
+    - docker-compose.yml (updated with rentcast-fetcher service)
+  schemas: []
+setup:
+  env:
+    required:
+      - REDPANDA_BROKERS
+      - REDIS_HOST
+      - REDIS_PORT
+      - RENTCAST_API_KEY
+      - RENTCAST_BASE_URL
+  commands:
+    - npm install --prefix packages/rentcast-fetcher
+definition_of_done:
+  - RentCast fetcher consumes AddressRequest.create events
+  - Fetches property data from RentCast API (mocked)
+  - Creates BonesReportResult with fetched data
+  - Service runs as Docker container
+  - Mock implementation provides realistic property data
+  - Integration validated via manual test
+acceptance:
+  exec:
+    - ops/checks/check_rentcast_result.sh

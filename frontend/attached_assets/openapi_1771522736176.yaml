@@ -1,0 +1,606 @@
+openapi: 3.0.3
+info:
+  title: Inzly API
+  description: |
+    Inzly is an AI-powered real estate analysis platform that helps homebuyers 
+    discover potential issues, neighborhood risks, and hidden costs before purchasing 
+    a property. This API provides access to property listings, AI-powered inspection 
+    analysis, and property Q&A functionality.
+  version: 1.0.0
+  contact:
+    name: Inzly Support
+
+servers:
+  - url: /api
+    description: API base path
+
+tags:
+  - name: Properties
+    description: Property listing operations
+  - name: Analysis
+    description: AI-powered property analysis
+  - name: Q&A
+    description: Property question and answer
+
+paths:
+  /properties:
+    get:
+      tags:
+        - Properties
+      summary: Get all properties
+      description: Retrieves a list of all properties available in the system.
+      operationId: getAllProperties
+      responses:
+        '200':
+          description: Successful response with list of properties
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Property'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+    post:
+      tags:
+        - Properties
+      summary: Create a new property
+      description: Creates a new property listing in the system.
+      operationId: createProperty
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PropertyCreate'
+      responses:
+        '201':
+          description: Property created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Property'
+        '400':
+          description: Invalid property data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /properties/{id}:
+    get:
+      tags:
+        - Properties
+      summary: Get property by ID
+      description: Retrieves a single property with all its associated inspection issues.
+      operationId: getPropertyById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Unique property identifier (UUID)
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Successful response with property and issues
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PropertyWithIssues'
+        '404':
+          description: Property not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+    delete:
+      tags:
+        - Properties
+      summary: Delete a property
+      description: Deletes a property and all associated issues.
+      operationId: deleteProperty
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Unique property identifier (UUID)
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '204':
+          description: Property deleted successfully
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /properties/{id}/analyze:
+    post:
+      tags:
+        - Analysis
+      summary: Analyze property with AI
+      description: |
+        Triggers an AI-powered analysis of the property to identify potential issues, 
+        concerns, and positive aspects. This will replace any existing issues for the 
+        property and update the Inzly Score.
+      operationId: analyzeProperty
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Unique property identifier (UUID)
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Analysis completed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalysisResult'
+        '404':
+          description: Property not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /properties/{id}/ask:
+    post:
+      tags:
+        - Q&A
+      summary: Ask a question about a property
+      description: |
+        Submit a question about a specific property and receive a streaming AI-powered 
+        response. The response is streamed using Server-Sent Events (SSE) format.
+      operationId: askPropertyQuestion
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Unique property identifier (UUID)
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QuestionRequest'
+      responses:
+        '200':
+          description: Streaming response with answer
+          content:
+            text/event-stream:
+              schema:
+                $ref: '#/components/schemas/StreamingResponse'
+        '400':
+          description: Invalid question
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Property not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    Property:
+      type: object
+      required:
+        - id
+        - address
+        - city
+        - state
+        - zip
+        - price
+        - beds
+        - baths
+        - sqft
+        - yearBuilt
+        - description
+        - images
+        - createdAt
+        - updatedAt
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique property identifier
+          example: "550e8400-e29b-41d4-a716-446655440000"
+        address:
+          type: string
+          description: Street address
+          example: "742 Elmwood Avenue"
+        city:
+          type: string
+          description: City name
+          example: "Columbus"
+        state:
+          type: string
+          description: State abbreviation
+          example: "OH"
+        zip:
+          type: string
+          description: ZIP code
+          example: "43215"
+        price:
+          type: string
+          description: Listing price (formatted with currency symbol)
+          example: "$425,000"
+        beds:
+          type: integer
+          description: Number of bedrooms
+          example: 4
+        baths:
+          type: string
+          description: Number of bathrooms (can include half baths)
+          example: "2.5"
+        sqft:
+          type: integer
+          description: Square footage
+          example: 2800
+        yearBuilt:
+          type: integer
+          description: Year the property was built
+          example: 1892
+        description:
+          type: string
+          description: Property description
+          example: "Stunning Queen Anne Victorian with original architectural details."
+        foundlyScore:
+          type: integer
+          nullable: true
+          minimum: 0
+          maximum: 100
+          description: AI-generated Inzly Score (0-100, higher is better)
+          example: 85
+        images:
+          type: array
+          description: Focused property images used for display and issue pin mapping
+          items:
+            $ref: '#/components/schemas/FocusImage'
+        priceHistory:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/PriceHistoryEntry'
+        schools:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/School'
+        createdAt:
+          type: string
+          format: date-time
+          description: Timestamp when property was created
+        updatedAt:
+          type: string
+          format: date-time
+          description: Timestamp when property was last updated
+
+    PropertyCreate:
+      type: object
+      required:
+        - address
+        - city
+        - state
+        - zip
+        - price
+        - beds
+        - baths
+        - sqft
+        - yearBuilt
+        - description
+        - images
+      properties:
+        address:
+          type: string
+          description: Street address
+          example: "742 Elmwood Avenue"
+        city:
+          type: string
+          description: City name
+          example: "Columbus"
+        state:
+          type: string
+          description: State abbreviation
+          example: "OH"
+        zip:
+          type: string
+          description: ZIP code
+          example: "43215"
+        price:
+          type: string
+          description: Listing price (formatted with currency symbol)
+          example: "$425,000"
+        beds:
+          type: integer
+          description: Number of bedrooms
+          example: 4
+        baths:
+          type: string
+          description: Number of bathrooms (can include half baths)
+          example: "2.5"
+        sqft:
+          type: integer
+          description: Square footage
+          example: 2800
+        yearBuilt:
+          type: integer
+          description: Year the property was built
+          example: 1892
+        description:
+          type: string
+          description: Property description
+          example: "Stunning Queen Anne Victorian with original architectural details."
+        images:
+          type: array
+          description: Focused property images used for display and issue pin mapping
+          items:
+            $ref: '#/components/schemas/FocusImage'
+        priceHistory:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/PriceHistoryEntry'
+        schools:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/School'
+
+    PropertyWithIssues:
+      allOf:
+        - $ref: '#/components/schemas/Property'
+        - type: object
+          required:
+            - issues
+          properties:
+            issues:
+              type: array
+              items:
+                $ref: '#/components/schemas/Issue'
+
+    FocusImage:
+      type: object
+      description: A focused property image used for display and insight pin mapping
+      required:
+        - id
+        - url
+        - label
+      properties:
+        id:
+          type: string
+          description: Stable identifier referenced by ImageLocation.imageId
+          example: "hero"
+        url:
+          type: string
+          format: uri
+          description: Image URL
+          example: "https://images.unsplash.com/photo-1570129477492-45c003edd2be"
+        label:
+          type: string
+          description: Human-readable label for the image
+          example: "Hero"
+
+    PriceHistoryEntry:
+      type: object
+      required:
+        - year
+        - price
+      properties:
+        year:
+          type: string
+          description: Year of the price record
+          example: "2024"
+        price:
+          type: number
+          description: Price value (numeric, without formatting)
+          example: 425000
+
+    School:
+      type: object
+      required:
+        - name
+        - type
+        - grades
+        - rating
+        - distance
+      properties:
+        name:
+          type: string
+          description: School name
+          example: "Victorian Village Elementary"
+        type:
+          type: string
+          description: School type (Public, Private, Charter)
+          example: "Public"
+        grades:
+          type: string
+          description: Grade levels served
+          example: "K-5"
+        rating:
+          type: integer
+          minimum: 1
+          maximum: 10
+          description: School rating (1-10 scale)
+          example: 7
+        distance:
+          type: string
+          description: Distance from property
+          example: "0.3 mi"
+
+    Issue:
+      type: object
+      required:
+        - id
+        - propertyId
+        - title
+        - description
+        - severity
+        - category
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique issue identifier
+          example: "550e8400-e29b-41d4-a716-446655440001"
+        propertyId:
+          type: string
+          format: uuid
+          description: ID of the associated property
+          example: "550e8400-e29b-41d4-a716-446655440000"
+        title:
+          type: string
+          description: Brief title of the issue
+          example: "Aging Slate Roof Tiles"
+        description:
+          type: string
+          description: Detailed explanation of the issue
+          example: "The decorative slate roof shows signs of deterioration. Several tiles appear cracked or missing near the peak."
+        severity:
+          type: string
+          enum:
+            - critical
+            - warning
+            - info
+            - good
+          description: |
+            Severity level of the issue:
+            - critical: Serious issue requiring immediate attention
+            - warning: Moderate concern that should be addressed
+            - info: Informational note or minor consideration
+            - good: Positive aspect or feature of the property
+          example: "critical"
+        category:
+          type: string
+          description: Category of the issue
+          example: "Exterior"
+        costEstimate:
+          type: string
+          nullable: true
+          description: Estimated cost to address the issue
+          example: "$15,000 - $35,000"
+        imageLocation:
+          allOf:
+            - $ref: '#/components/schemas/ImageLocation'
+          nullable: true
+          description: Optional location of this issue on a property image
+        createdAt:
+          type: string
+          format: date-time
+          description: Timestamp when issue was created
+
+    ImageLocation:
+      type: object
+      description: Location of an issue marker on a property image (optional)
+      properties:
+        imageId:
+          type: string
+          description: ID of the FocusImage where this issue is visible; matches FocusImage.id
+          example: "hero"
+        x:
+          type: number
+          minimum: 0
+          maximum: 1
+          description: X coordinate as a fraction of image width (0.0 = left edge, 1.0 = right edge)
+          example: 0.5
+        y:
+          type: number
+          minimum: 0
+          maximum: 1
+          description: Y coordinate as a fraction of image height (0.0 = top edge, 1.0 = bottom edge)
+          example: 0.12
+
+    AnalysisResult:
+      type: object
+      required:
+        - property
+        - issues
+      properties:
+        property:
+          $ref: '#/components/schemas/Property'
+        issues:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue'
+
+    QuestionRequest:
+      type: object
+      required:
+        - question
+      properties:
+        question:
+          type: string
+          description: The question to ask about the property
+          example: "What are the biggest issues with this property?"
+
+    StreamingResponse:
+      type: object
+      description: |
+        Server-Sent Events stream format. Each event is a JSON object with one of:
+        - `content`: Partial response text chunk
+        - `done`: Boolean indicating stream completion
+        - `error`: Error message if something went wrong
+      properties:
+        content:
+          type: string
+          description: Partial response text
+        done:
+          type: boolean
+          description: Indicates the stream has completed
+        error:
+          type: string
+          description: Error message if the request failed
+
+    Error:
+      type: object
+      required:
+        - error
+      properties:
+        error:
+          type: string
+          description: Error message
+          example: "Property not found"

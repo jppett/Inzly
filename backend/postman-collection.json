@@ -1,0 +1,513 @@
+{
+  "info": {
+    "name": "Bones Report API - Complete Workflow",
+    "description": "Complete API testing collection for the bones-report event-driven address processing system. Tests the full workflow from AddressRequest creation through completion detection.",
+    "version": "1.0.0",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string"
+    },
+    {
+      "key": "addressRequestId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "mlsListingRequestId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "bonesReportResultId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "mlsListingResultId",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Health Check",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('API is healthy', function () {",
+              "    pm.response.to.have.status(200);",
+              "    const response = pm.response.json();",
+              "    pm.expect(response.status).to.eql('healthy');",
+              "    pm.expect(response.checks.redis).to.be.true;",
+              "    pm.expect(response.checks.repositories).to.be.true;",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/health",
+          "host": ["{{baseUrl}}"],
+          "path": ["health"]
+        },
+        "description": "Check if the API service is healthy and can connect to Redis and repositories"
+      }
+    },
+    {
+      "name": "2. Create AddressRequest",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('AddressRequest created successfully', function () {",
+              "    pm.response.to.have.status(201);",
+              "    const response = pm.response.json();",
+              "    pm.expect(response.id).to.be.a('string');",
+              "    pm.expect(response.address).to.include('Postman Test Street');",
+              "    pm.expect(response.status).to.eql('pending');",
+              "    pm.expect(response.created_at).to.be.a('string');",
+              "    ",
+              "    // Store the ID for subsequent requests",
+              "    pm.collectionVariables.set('addressRequestId', response.id);",
+              "    ",
+              "    console.log('✅ AddressRequest created:', response.id);",
+              "    console.log('📍 Address:', response.address);",
+              "    console.log('📊 Initial status:', response.status);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"address\": \"{{$randomInt}}-{{$randomInt}} Postman Test Street, {{$randomCity}}, {{$randomStateAbbr}}\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/address-requests",
+          "host": ["{{baseUrl}}"],
+          "path": ["address-requests"]
+        },
+        "description": "Create a new AddressRequest. This triggers the workflow and should be picked up by the orchestrator to update status to 'processing'."
+      }
+    },
+    {
+      "name": "3. Get AddressRequest Status (Check Orchestrator)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('AddressRequest retrieved successfully', function () {",
+              "    pm.response.to.have.status(200);",
+              "    const response = pm.response.json();",
+              "    pm.expect(response.id).to.eql(pm.collectionVariables.get('addressRequestId'));",
+              "    ",
+              "    console.log('📊 Current status:', response.status);",
+              "    console.log('⏰ Created at:', response.created_at);",
+              "    ",
+              "    if (response.status === 'processing') {",
+              "        console.log('✅ Orchestrator updated status to processing!');",
+              "    } else if (response.status === 'pending') {",
+              "        console.log('⏳ Status still pending - orchestrator may need more time');",
+              "    } else {",
+              "        console.log('📈 Status is:', response.status);",
+              "    }",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/address-requests/{{addressRequestId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["address-requests", "{{addressRequestId}}"]
+        },
+        "description": "Check the current status of the AddressRequest. The orchestrator should have updated it to 'processing' and created an MLSListingRequest."
+      }
+    },
+    {
+      "name": "4. Simulate RentCast Completion (Create BonesReportResult)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('BonesReportResult created successfully', function () {",
+              "    pm.response.to.have.status(201);",
+              "    const response = pm.response.json();",
+              "    pm.expect(response.id).to.be.a('string');",
+              "    pm.expect(response.address_request_id).to.eql(pm.collectionVariables.get('addressRequestId'));",
+              "    pm.expect(response.status).to.eql('completed');",
+              "    pm.expect(response.report_data).to.be.an('object');",
+              "    ",
+              "    // Store the ID for reference",
+              "    pm.collectionVariables.set('bonesReportResultId', response.id);",
+              "    ",
+              "    console.log('🏠 BonesReportResult created:', response.id);",
+              "    console.log('💰 Property value:', response.report_data.property_value);",
+              "    console.log('🏡 Rental estimate:', response.report_data.rental_estimate);",
+              "    console.log('📊 Investment score:', response.report_data.investment_score);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"address_request_id\": \"{{addressRequestId}}\",\n  \"report_data\": {\n    \"property_value\": {{$randomInt}},\n    \"rental_estimate\": {{$randomInt}},\n    \"investment_score\": {{$randomInt}},\n    \"market_trends\": {\n      \"appreciation\": 0.{{$randomInt}},\n      \"rental_growth\": 0.{{$randomInt}}\n    },\n    \"comparables\": [\n      {\n        \"address\": \"{{$randomInt}} Comparable St\",\n        \"price\": {{$randomInt}},\n        \"distance_miles\": 0.{{$randomInt}}\n      }\n    ],\n    \"investment_metrics\": {\n      \"cap_rate\": 0.{{$randomInt}},\n      \"cash_flow\": {{$randomInt}},\n      \"roi\": 0.{{$randomInt}}\n    },\n    \"source\": \"postman_simulation\",\n    \"data_quality_score\": 0.{{$randomInt}}\n  },\n  \"status\": \"completed\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/bones-report-results",
+          "host": ["{{baseUrl}}"],
+          "path": ["bones-report-results"]
+        },
+        "description": "Simulate the RentCast fetcher completing its work by creating a BonesReportResult. This should trigger the completion logic if MLSListingResult also exists."
+      }
+    },
+    {
+      "name": "5. List MLSListingRequests (Find Created by Orchestrator)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('MLSListingRequests retrieved successfully', function () {",
+              "    pm.response.to.have.status(200);",
+              "    const response = pm.response.json();",
+              "    pm.expect(response).to.be.an('array');",
+              "    ",
+              "    // Find the MLS request for our address",
+              "    const addressRequestId = pm.collectionVariables.get('addressRequestId');",
+              "    const ourRequests = response.filter(req => {",
+              "        // Look for recent requests that might be ours",
+              "        const createdAt = new Date(req.created_at);",
+              "        const now = new Date();",
+              "        const ageMinutes = (now - createdAt) / (1000 * 60);",
+              "        return ageMinutes < 5; // Created in last 5 minutes",
+              "    });",
+              "    ",
+              "    console.log('🏘️ Found', response.length, 'total MLS requests');",
+              "    console.log('🔍 Recent requests (last 5 min):', ourRequests.length);",
+              "    ",
+              "    if (ourRequests.length > 0) {",
+              "        const mlsRequest = ourRequests[0]; // Take the most recent",
+              "        pm.collectionVariables.set('mlsListingRequestId', mlsRequest.id);",
+              "        console.log('✅ Found MLSListingRequest:', mlsRequest.id);",
+              "        console.log('📍 Address:', mlsRequest.address);",
+              "        console.log('📊 Status:', mlsRequest.status);",
+              "    } else {",
+              "        console.log('⚠️ No recent MLS requests found - orchestrator may need more time');",
+              "    }",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/mls-listing-requests",
+          "host": ["{{baseUrl}}"],
+          "path": ["mls-listing-requests"]
+        },
+        "description": "List all MLSListingRequests to find the one created by the orchestrator for our AddressRequest."
+      }
+    },
+    {
+      "name": "6. Simulate MLS Completion (Create MLSListingResult)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('MLSListingResult created successfully', function () {",
+              "    pm.response.to.have.status(201);",
+              "    const response = pm.response.json();",
+              "    pm.expect(response.id).to.be.a('string');",
+              "    pm.expect(response.mls_listing_request_id).to.eql(pm.collectionVariables.get('mlsListingRequestId'));",
+              "    pm.expect(response.status).to.eql('completed');",
+              "    pm.expect(response.listing_data).to.be.an('object');",
+              "    ",
+              "    // Store the ID for reference",
+              "    pm.collectionVariables.set('mlsListingResultId', response.id);",
+              "    ",
+              "    console.log('🏘️ MLSListingResult created:', response.id);",
+              "    console.log('💰 Listing price:', response.listing_data.price);",
+              "    console.log('🛏️ Bedrooms:', response.listing_data.bedrooms);",
+              "    console.log('📸 Photos:', response.listing_data.photo_urls.length, 'URLs');",
+              "    console.log('');",
+              "    console.log('🎯 COMPLETION LOGIC SHOULD NOW TRIGGER!');",
+              "    console.log('   Both BonesReportResult and MLSListingResult exist');",
+              "    console.log('   Orchestrator should mark AddressRequest as processed');",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "// Check if we have an MLSListingRequest ID",
+              "const mlsRequestId = pm.collectionVariables.get('mlsListingRequestId');",
+              "if (!mlsRequestId) {",
+              "    console.error('❌ No MLSListingRequest ID found. Run step 5 first.');",
+              "    throw new Error('MLSListingRequest ID is required');",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"mls_listing_request_id\": \"{{mlsListingRequestId}}\",\n  \"listing_data\": {\n    \"address\": \"{{$randomInt}} MLS Listing Street, {{$randomCity}}, {{$randomStateAbbr}}\",\n    \"price\": {{$randomInt}},\n    \"bedrooms\": {{$randomInt}},\n    \"photo_urls\": [\n      \"https://example.com/photo1-{{$randomAlphaNumeric}}.jpg\",\n      \"https://example.com/photo2-{{$randomAlphaNumeric}}.jpg\",\n      \"https://example.com/photo3-{{$randomAlphaNumeric}}.jpg\"\n    ]\n  },\n  \"status\": \"completed\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/mls-listing-results",
+          "host": ["{{baseUrl}}"],
+          "path": ["mls-listing-results"]
+        },
+        "description": "Complete the workflow by creating an MLSListingResult. This is the final piece that should trigger the T10 completion logic to mark the AddressRequest as 'processed'."
+      }
+    },
+    {
+      "name": "7. Final Status Check (T10 Completion Verification)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Final AddressRequest status check', function () {",
+              "    pm.response.to.have.status(200);",
+              "    const response = pm.response.json();",
+              "    pm.expect(response.id).to.eql(pm.collectionVariables.get('addressRequestId'));",
+              "    ",
+              "    console.log('🎯 FINAL WORKFLOW STATUS:');",
+              "    console.log('========================');",
+              "    console.log('📍 AddressRequest ID:', response.id);",
+              "    console.log('📊 Final Status:', response.status);",
+              "    console.log('⏰ Created:', response.created_at);",
+              "    console.log('');",
+              "    ",
+              "    if (response.status === 'processed') {",
+              "        console.log('🎉 SUCCESS! T10 Completion Logic Worked!');",
+              "        console.log('✅ Orchestrator detected completion and updated status');",
+              "        pm.test('T10 completion logic successful', function () {",
+              "            pm.expect(response.status).to.eql('processed');",
+              "        });",
+              "    } else if (response.status === 'processing') {",
+              "        console.log('⚡ Status is processing - completion may need more time');",
+              "        console.log('💡 Try running this request again in a few seconds');",
+              "    } else {",
+              "        console.log('⚠️ Status is still:', response.status);",
+              "        console.log('🔍 Check that both BonesReportResult and MLSListingResult exist');",
+              "        console.log('🔧 Event processing may need time or debugging');",
+              "    }",
+              "    ",
+              "    console.log('');",
+              "    console.log('📋 Created Records Summary:');",
+              "    console.log('   🏠 BonesReportResult:', pm.collectionVariables.get('bonesReportResultId'));",
+              "    console.log('   🏘️ MLSListingResult:', pm.collectionVariables.get('mlsListingResultId'));",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/address-requests/{{addressRequestId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["address-requests", "{{addressRequestId}}"]
+        },
+        "description": "Final check to see if the T10 completion logic worked. The AddressRequest should now be marked as 'processed' since both BonesReportResult and MLSListingResult exist."
+      }
+    },
+    {
+      "name": "8. List All BonesReportResults (Data Verification)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('BonesReportResults retrieved successfully', function () {",
+              "    pm.response.to.have.status(200);",
+              "    const response = pm.response.json();",
+              "    pm.expect(response).to.be.an('array');",
+              "    ",
+              "    const ourResult = response.find(result => ",
+              "        result.id === pm.collectionVariables.get('bonesReportResultId')",
+              "    );",
+              "    ",
+              "    console.log('📊 Total BonesReportResults:', response.length);",
+              "    if (ourResult) {",
+              "        console.log('✅ Found our BonesReportResult:', ourResult.id);",
+              "        console.log('💰 Property Value:', ourResult.report_data.property_value);",
+              "        console.log('🏡 Rental Estimate:', ourResult.report_data.rental_estimate);",
+              "    }",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/bones-report-results",
+          "host": ["{{baseUrl}}"],
+          "path": ["bones-report-results"]
+        },
+        "description": "Verify that our BonesReportResult was created and exists in the system."
+      }
+    },
+    {
+      "name": "9. List All MLSListingResults (Data Verification)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('MLSListingResults retrieved successfully', function () {",
+              "    pm.response.to.have.status(200);",
+              "    const response = pm.response.json();",
+              "    pm.expect(response).to.be.an('array');",
+              "    ",
+              "    const ourResult = response.find(result => ",
+              "        result.id === pm.collectionVariables.get('mlsListingResultId')",
+              "    );",
+              "    ",
+              "    console.log('📊 Total MLSListingResults:', response.length);",
+              "    if (ourResult) {",
+              "        console.log('✅ Found our MLSListingResult:', ourResult.id);",
+              "        console.log('💰 Listing Price:', ourResult.listing_data.price);",
+              "        console.log('🛏️ Bedrooms:', ourResult.listing_data.bedrooms);",
+              "    }",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/mls-listing-results",
+          "host": ["{{baseUrl}}"],
+          "path": ["mls-listing-results"]
+        },
+        "description": "Verify that our MLSListingResult was created and exists in the system."
+      }
+    },
+    {
+      "name": "10. System Statistics (Overall Health)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('System health check', function () {",
+              "    pm.response.to.have.status(200);",
+              "    const response = pm.response.json();",
+              "    pm.expect(response.status).to.eql('healthy');",
+              "    ",
+              "    console.log('');",
+              "    console.log('🎯 SYSTEM OVERVIEW:');",
+              "    console.log('==================');",
+              "    console.log('📊 Service Status:', response.status);",
+              "    console.log('🔗 Redis:', response.checks.redis ? 'Connected' : 'Disconnected');",
+              "    console.log('💾 Repositories:', response.checks.repositories ? 'Healthy' : 'Unhealthy');",
+              "    console.log('⏰ Timestamp:', response.timestamp);",
+              "    console.log('');",
+              "    console.log('🚀 Complete workflow test finished!');",
+              "    console.log('   Check step 7 results to see if T10 completion logic worked');",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/health",
+          "host": ["{{baseUrl}}"],
+          "path": ["health"]
+        },
+        "description": "Final system health check to ensure everything is still running properly after the complete workflow test."
+      }
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "exec": [
+          "// Global pre-request script",
+          "console.log('🔄 Running request:', pm.info.requestName);"
+        ],
+        "type": "text/javascript"
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "exec": [
+          "// Global test script",
+          "console.log('✅ Completed:', pm.info.requestName);",
+          "console.log('---');"
+        ],
+        "type": "text/javascript"
+      }
+    }
+  ]
+}

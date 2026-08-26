@@ -1,0 +1,32 @@
+id: T04
+title: Redis Repositories ticket
+description: Implement Redis-based repositories for all data entities with CRUD operations and event publishing
+depends_on: [T01, T02]
+deliverables:
+  files:
+    - packages/shared/src/repositories/index.ts
+    - packages/shared/src/repositories/base.ts
+    - packages/shared/src/repositories/address-request.ts
+    - packages/shared/src/repositories/bones-report-result.ts
+    - packages/shared/src/repositories/mls-listing-request.ts
+    - packages/shared/src/repositories/mls-listing-result.ts
+    - packages/shared/src/redis/index.ts
+    - packages/shared/src/redis/connection.ts
+    - packages/shared/src/events/publisher.ts
+  schemas: []
+setup:
+  env:
+    required:
+      - REDIS_URL
+  commands:
+    - pnpm install
+definition_of_done:
+- Redis repositories implement CRUD operations for all entities
+- Repositories use shared types and validation
+- Event publishing integrated with repository operations
+- Base repository class provides common functionality
+- Redis connection management with error handling
+- All TypeScript compiles without errors
+acceptance:
+  exec:
+    - ops/checks/check_repo_roundtrip.sh

@@ -1,0 +1,15 @@
+id: T06
+title: API BonesReportResult CRUD + Events ticket
+description: Placeholder for API BonesReportResult CRUD + Events ticket
+depends_on: []
+deliverables:
+  files: []
+  schemas: []
+setup:
+  env:
+    required: []
+  commands: []
+definition_of_done:
+- Placeholder DoD
+acceptance:
+  exec: []

@@ -1,0 +1,26 @@
+id: T03
+title: Docker Compose Infra ticket
+description: Set up Docker Compose infrastructure with Redpanda (Kafka), Redis, and service orchestration
+depends_on: [T01]
+deliverables:
+  files:
+    - docker-compose.yml
+    - .env.example
+    - .dockerignore
+    - Dockerfile.api
+    - Dockerfile.orchestrator
+    - Dockerfile.rentcast-fetcher
+setup:
+  env:
+    required: []
+  commands:
+    - docker compose config
+definition_of_done:
+- Docker Compose file includes Redpanda, Redis, and all services
+- Environment variables properly configured
+- Services have proper health checks
+- Docker Compose configuration validates successfully
+- Dockerfiles for each service are properly structured
+acceptance:
+  exec:
+    - ops/checks/check_infra.sh

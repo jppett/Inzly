@@ -1,0 +1,61 @@
+# Inzly — repository guide
+
+AI-powered real estate analysis. Two systems, one repository, one seam between
+them.
+
+## Layout
+
+- `frontend/` — the product. React 19 client + Express BFF + Postgres. npm, tsx.
+- `backend/` — the data platform. Event-driven services on Redpanda + Redis. pnpm workspace.
+- `docs/` — architecture, integration contract, brand guide, known issues.
+
+They build and deploy independently. Do not merge their toolchains or lockfiles.
+
+## Before you start
+
+Read [docs/INTEGRATION.md](docs/INTEGRATION.md) if your change touches how the
+two halves talk. Read [docs/BRAND.md](docs/BRAND.md) before any UI work — the
+design language is specific and deliberate. Read
+[docs/KNOWN_ISSUES.md](docs/KNOWN_ISSUES.md) before you "fix" something that
+looks broken; it may be a known inherited problem with a reason.
+
+## Commands
+
+```bash
+# frontend/
+npm run dev        # dev server on :5000
+npm run build      # vite + esbuild
+npm run check      # tsc --noEmit — see KNOWN_ISSUES.md, 7 pre-existing errors
+npm run db:push    # drizzle-kit push
+
+# backend/
+pnpm install
+pnpm run build     # builds all workspace packages; currently green
+docker compose up -d
+```
+
+## Conventions that matter here
+
+**The storage seam.** API routes talk to `IStorage`
+(`frontend/server/storage-types.ts`), never to a concrete implementation. Adding
+a route that reaches into Drizzle directly breaks platform mode. If you add a
+method, implement it in both `DatabaseStorage` and `PlatformStorage`.
+
+**Contract duplication is intentional.** `frontend/server/platform/types.ts`
+mirrors `backend/packages/shared/src/types.ts` by hand. When one changes, change
+the other in the same commit.
+
+**Configuration, not code.** Where data comes from is decided by
+`INZLY_DATA_SOURCE` and `VITE_API_TARGET`. Never hardcode a backend URL — that
+is exactly what this setup replaced.
+
+**Events.** Topics are `<noun>.<operation>`; envelopes are `{ type, ts, data }`.
+`backend/schemas/*.json` is the source of truth for bodies.
+
+**Secrets.** Never commit real values. Both halves ship `.env.example`.
+
+## Agents
+
+`.claude/agents/` holds specialists for this codebase: `frontend-ui`,
+`platform-services`, `api-contract`, `data-integration`, `db-schema`. Use them
+for work squarely in their area; they carry the conventions above.

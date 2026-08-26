@@ -1,0 +1,26 @@
+{
+  "name": "@bones-report/rentcast-fetcher",
+  "version": "1.0.0",
+  "description": "RentCast API fetcher worker for bones-report",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -b",
+    "dev": "nodemon --exec tsx src/index.ts",
+    "start": "node dist/index.js",
+    "clean": "rm -rf dist",
+    "test": "echo \"No tests yet\"",
+    "lint": "echo \"No linting yet\""
+  },
+  "dependencies": {
+    "@bones-report/shared": "workspace:*",
+    "redis": "^4.6.0",
+    "kafkajs": "^2.2.0",
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "typescript": "^5.3.0",
+    "tsx": "^4.6.0",
+    "nodemon": "^3.0.0"
+  }
+}

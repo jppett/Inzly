@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build output
+dist/
+build/
+*.tsbuildinfo
+frontend/server/public/
+
+# Environment / secrets — never commit real values
+.env
+.env.*
+!.env.example
+!**/.env.example
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-error.log*
+
+# Editors & OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Test / coverage
+coverage/
+.nyc_output/
+
+# Replit runtime artifacts
+.config/
+.upm/
+.breakpoints
+
+# Temp
+tmp/
+temp/
+*.tar.gz
