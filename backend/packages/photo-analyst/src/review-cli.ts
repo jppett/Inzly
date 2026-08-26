@@ -14,6 +14,7 @@ import { dirname, resolve } from 'node:path';
 import { PhotoAnalyst } from './services/analyst.js';
 import { createVisionProvider } from './providers/index.js';
 import { toReviewBundle, scoreRun, formatReport } from './calibration/index.js';
+import { EXPERT_AGENTS } from './agents/definitions.js';
 import type { GoldenFile, ReviewBundle } from './calibration/types.js';
 
 function arg(name: string): string | undefined {
@@ -38,10 +39,23 @@ async function review(): Promise<void> {
     process.exit(1);
   }
 
+  // Say what this will cost before spending it. Every run is a full pass over
+  // the photos, so the call count is the number that matters.
+  const calls = EXPERT_AGENTS.reduce((n, a) => n + a.runs, 0);
+  console.log(
+    `${urls.length} photos · ${EXPERT_AGENTS.length} agents · ${calls} model calls\n` +
+      `Photos are sent once and cached, so only the first call pays full image cost.`,
+  );
+
+  if (process.argv.includes('--dry-run')) {
+    console.log('\nDry run — nothing sent.');
+    return;
+  }
+
   const provider = createVisionProvider();
   const analyst = new PhotoAnalyst(provider);
 
-  console.log(`Analysing ${urls.length} photos for "${label}" with ${provider.model}...`);
+  console.log(`\nAnalysing with ${provider.model}...`);
   const started = Date.now();
   const outcome = await analyst.analyse(randomUUID(), urls, { maxPhotos: urls.length });
   const bundle = toReviewBundle(outcome, label, provider.model);

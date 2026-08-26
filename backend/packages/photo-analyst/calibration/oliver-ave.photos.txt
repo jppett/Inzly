@@ -1,0 +1,19 @@
+# 3550 Oliver Ave N, Minneapolis MN 55412
+# 3 bed / 1 bath / 1098 sqft / built 1909 / listed $145,000
+# 16 photos, served by the mock backend
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/3550-oliver-ave-n-minneapolis/static/4238ea42133cf27eab2942fccdeb681d-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/3550-oliver-ave-n-minneapolis/static/08e206fb7649d30d867b019862b248c4-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/3550-oliver-ave-n-minneapolis/static/a2b4c8949da5ac0a4ee328a7f2c2e369-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/3550-oliver-ave-n-minneapolis/static/21557fe829da2d2aee21fe00fe24bdad-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/3550-oliver-ave-n-minneapolis/static/081ecf5110273e5466d872f940b199f4-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/3550-oliver-ave-n-minneapolis/static/36f60b191104bccd15605fec03334e61-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/3550-oliver-ave-n-minneapolis/static/95239d6ffb46b652d9bc1a3f1a3aec30-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/3550-oliver-ave-n-minneapolis/static/04338def35800e997ae0484b4d348aa8-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/3550-oliver-ave-n-minneapolis/static/558c185d309bae91d255cfa98e59315a-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/3550-oliver-ave-n-minneapolis/static/2e9e021a6335230b915fb5f34787db55-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/3550-oliver-ave-n-minneapolis/static/0a3d93623557e3532a01bb336d969e51-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/3550-oliver-ave-n-minneapolis/static/c02d6acd5f350e90a8998d90431e5f4d-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/3550-oliver-ave-n-minneapolis/static/a7aedc8d0cb4200c9a3380030a96050b-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/3550-oliver-ave-n-minneapolis/static/95d9366b545759fce7950418aece1834-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/3550-oliver-ave-n-minneapolis/static/f26e4eb36d136b454b95d052d19ea2de-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/3550-oliver-ave-n-minneapolis/static/840c8fdc65ba4be88e73327fd64cec67-uncropped_scaled_within_1536_1152.jpg

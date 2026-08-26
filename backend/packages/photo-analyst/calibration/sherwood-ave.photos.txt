@@ -1,0 +1,33 @@
+# 675 Sherwood Ave, Saint Paul MN 55106
+# 4 bed / 1 bath / 1346 sqft / built 1928 / listed $279,500
+# 30 photos, served by the mock backend
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/675-sherwood-ave-st-paul/static/402bb0038b85ab771c79ddc82a7e223e-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/675-sherwood-ave-st-paul/static/71b7275eb80315ee63b612e0e41edf79-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/675-sherwood-ave-st-paul/static/c01d9fb728786097ba049cee1ee2cd31-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/675-sherwood-ave-st-paul/static/47a0b571c98dea5c85fa040a3a441f08-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/675-sherwood-ave-st-paul/static/39708ee0816933cde75f9b7a31ac4209-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/675-sherwood-ave-st-paul/static/d6a46bc3e171ff0d1649b9c2fa8ee6f4-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/675-sherwood-ave-st-paul/static/ea5f4b5e088c9daa15f15146dc14aa8a-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/675-sherwood-ave-st-paul/static/4be2fada1da069a8eb5c4b739d2aadb5-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/675-sherwood-ave-st-paul/static/807a3447e843964e22480672e9d045ae-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/675-sherwood-ave-st-paul/static/bfe53105faff5fc180076dadbb32e18a-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/675-sherwood-ave-st-paul/static/e5278f207efa7ebc4370d0f146817c47-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/675-sherwood-ave-st-paul/static/b6f73779e750a8429e87ec74ab3053fb-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/675-sherwood-ave-st-paul/static/c0388bba20ed4a586d55f21695a3f50b-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/675-sherwood-ave-st-paul/static/9c34ec3ca688ddfb14f669916e3948db-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/675-sherwood-ave-st-paul/static/9c8127c6ec07194bb61684490e34c400-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/675-sherwood-ave-st-paul/static/2cc90d7142d2c952a72ec2b2662ae9be-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/675-sherwood-ave-st-paul/static/149db9d5f7fcf8153391a7c7ce7e0239-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/675-sherwood-ave-st-paul/static/44504c03c4e0a0b806c3efca84f254aa-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/675-sherwood-ave-st-paul/static/daa20390e7b790e845744d620daa7793-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/675-sherwood-ave-st-paul/static/83f20d80f35d26a53cc45d8174f22f94-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/675-sherwood-ave-st-paul/static/a7c3bfb220dcc5382a8849a9282faf67-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/675-sherwood-ave-st-paul/static/31351fa39d3eab5322e76a95a8c3141c-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/675-sherwood-ave-st-paul/static/c1c12a40e4f830cf00cf2c0c1edb08c4-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/675-sherwood-ave-st-paul/static/bec3730005cfc93c2fe30828b1416a77-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/675-sherwood-ave-st-paul/static/6fb399a0ecd9dbef7b6088fe62aa7971-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/675-sherwood-ave-st-paul/static/dd0570f06d33c9eafbc6971876fb2a0f-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/675-sherwood-ave-st-paul/static/ed1406faee00822810ee965b48074c96-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/675-sherwood-ave-st-paul/static/5adb90cca6ebcc89b3a206e8f28d13fa-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/675-sherwood-ave-st-paul/static/8464be84598b6b3419ca4b9d34a347c4-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/675-sherwood-ave-st-paul/static/ba9662ff592b9572e378e0edd8aa4f9b-uncropped_scaled_within_1536_1152.jpg

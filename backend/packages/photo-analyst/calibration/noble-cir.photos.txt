@@ -1,0 +1,36 @@
+# 10552 Noble Cir N, Brooklyn Park MN 55443
+# 5 bed / 4 bath / 3722 sqft / built 2013 / listed $657,000
+# 33 photos, served by the mock backend
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/507e8adf0ff08a11a3a88f90de6116dd-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/e75dd3f85cb60e5d81d40bf6a542ae37-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/2a90be2b6cf6e37b80e1b376633f919a-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/80ccb20644f709f8d3a0fdf8d4ea5114-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/602eeee53812303207e3e2712efd6db3-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/775b147a9e2c815708904d9d9962ca06-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/669b4d859dde92c480babf261064a7b2-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/43840caa8f0f5e8b11f598458be7ad59-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/f994348886fc7c886a11ecfa9eeaac51-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/cc853a5f25d5097020f7fd069acd924c-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/418a146bbcc508bbf4d8c12d639259e6-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/06e394d920e418105312d864abd67fbb-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/1220fe20581a76a4aad485452b2e68ce-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/bad858efeec1ad75c702f2ae3ba9655f-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/dcfa2eb5bb1462bb86f4ceb368cbc7f2-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/fd58f652437ab94fe0b911e5a99c49e6-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/a2d04a1c489ad88981bb875a8476cebf-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/5be6d29bc2030c6c303c2fd328ae9568-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/cc16528eef63f3bcb8a01df9234612e5-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/1db4d5a5a98fb500711ee19a7692af84-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/e5dfbb9bfadbfda1a769fef5f3c0cdf6-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/95cf2f9af697ab7f5b1bcd10689b2161-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/e3385b44792b6d3bc6f0e41db5864b60-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/ba8d649ee482124e9a7185918587abc8-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/6bea4c854e0506fee001380d39addc46-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/6da061cc44dc53dbb19b2ecd88c196d2-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/16bee7f0cb7b0f656f2e64406786c3b3-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/e076ca737d8cf240c5c432e4e905c9be-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/d08ba91e48d9e41b37cbfbd4457ed15d-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/adf2d18f713287276047f022534aa340-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/4771f050442423afa14bbf677d04be9a-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/db935159d325b9fe52169e2ba985c40f-uncropped_scaled_within_1536_1152.jpg
+https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/8a957c9d1917fbba93860a3be233d606-uncropped_scaled_within_1536_1152.jpg

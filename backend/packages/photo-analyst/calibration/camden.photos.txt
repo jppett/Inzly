@@ -1,3 +1,7 @@
+# Camden — the house analysed by the previous generation of expert agents.
+# Their output is in backend/discovery/expert-agents/camden.json, which makes this
+# the one house where old and new findings can be compared on identical photos.
+# 30 photos, hosted by Zillow.
 https://photos.zillowstatic.com/fp/7e4cf4e62e9e29bdc859447da5620408-d_d.jpg
 https://photos.zillowstatic.com/fp/ce0448e6f7e7052e5677e404c92dd260-d_d.jpg
 https://photos.zillowstatic.com/fp/5d182445507f5c138d01d7387d1b9f7b-d_d.jpg
