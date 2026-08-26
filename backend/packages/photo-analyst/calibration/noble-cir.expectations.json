@@ -1,0 +1,410 @@
+{
+  "label": "noble-cir",
+  "property": "10552 Noble Cir N, Brooklyn Park MN",
+  "listPrice": 657000,
+  "yearBuilt": 2013,
+  "reviewer": "Josh Pettersen",
+  "source": "professional-notes.md",
+  "note": "Per-photo expectations transcribed from the reviewer's emailed notes. Photo numbers are carousel positions and align 1:1 with the served photo order.",
+  "photos": [
+    {
+      "photo": 1,
+      "photoId": "28b115d0db",
+      "label": "Exterior",
+      "url": "https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/507e8adf0ff08a11a3a88f90de6116dd-uncropped_scaled_within_1536_1152.jpg",
+      "expected": [
+        {
+          "severity": "info",
+          "category": "roof",
+          "expect": "Asphalt shingle roof; age informed by last permit"
+        },
+        {
+          "severity": "info",
+          "category": "siding",
+          "expect": "Siding present; type worth identifying"
+        },
+        {
+          "severity": "info",
+          "category": "landscaping",
+          "expect": "Concrete driveway in good condition"
+        }
+      ],
+      "silent": false,
+      "suppressedBecause": null
+    },
+    {
+      "photo": 2,
+      "photoId": "fff3916402",
+      "label": "Entryway",
+      "url": "https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/e75dd3f85cb60e5d81d40bf6a542ae37-uncropped_scaled_within_1536_1152.jpg",
+      "expected": [
+        {
+          "severity": "info",
+          "category": "flooring",
+          "expect": "Red oak hardwood, can be sanded and refinished $3-$6/sq ft"
+        }
+      ],
+      "silent": false,
+      "suppressedBecause": null
+    },
+    {
+      "photo": 3,
+      "photoId": "9f33e1e5ab",
+      "label": "Dining Room",
+      "url": "https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/2a90be2b6cf6e37b80e1b376633f919a-uncropped_scaled_within_1536_1152.jpg",
+      "expected": [],
+      "silent": true,
+      "suppressedBecause": "hardwood already covered in photo 2"
+    },
+    {
+      "photo": 4,
+      "photoId": "86e5a17014",
+      "label": "Living Room",
+      "url": "https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/80ccb20644f709f8d3a0fdf8d4ea5114-uncropped_scaled_within_1536_1152.jpg",
+      "expected": [
+        {
+          "severity": "info",
+          "category": "flooring",
+          "expect": "Low-pile higher-end carpet $7-$10/sq ft"
+        }
+      ],
+      "silent": false,
+      "suppressedBecause": null
+    },
+    {
+      "photo": 5,
+      "photoId": "6a28474aec",
+      "label": "Living Room",
+      "url": "https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/602eeee53812303207e3e2712efd6db3-uncropped_scaled_within_1536_1152.jpg",
+      "expected": [],
+      "silent": true,
+      "suppressedBecause": "carpet already covered in photo 4"
+    },
+    {
+      "photo": 6,
+      "photoId": "73bd2467f2",
+      "label": "Kitchen",
+      "url": "https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/775b147a9e2c815708904d9d9962ca06-uncropped_scaled_within_1536_1152.jpg",
+      "expected": [
+        {
+          "severity": "info",
+          "category": "countertops",
+          "expect": "Granite countertops, replacement $75-$150/sq ft"
+        },
+        {
+          "severity": "info",
+          "category": "cabinetry",
+          "expect": "Solid wood shaker, likely cherry; paint $4k-$8k, replace ~$15k-$20k for 13x12"
+        },
+        {
+          "severity": "info",
+          "category": "appliances",
+          "expect": "Stainless double oven $2k-$4k; dishwasher $500-$1,500; gas cooktop $1,000-$2,000"
+        },
+        {
+          "severity": "warning",
+          "category": "ventilation",
+          "expect": "No vent hood; microwave recirculates rather than venting outside"
+        }
+      ],
+      "silent": false,
+      "suppressedBecause": null
+    },
+    {
+      "photo": 7,
+      "photoId": "b1a9f8b204",
+      "label": "Kitchen",
+      "url": "https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/669b4d859dde92c480babf261064a7b2-uncropped_scaled_within_1536_1152.jpg",
+      "expected": [],
+      "silent": true,
+      "suppressedBecause": "cabinets and countertops already covered"
+    },
+    {
+      "photo": 8,
+      "photoId": "5bf1f51fa2",
+      "label": "Dining Room",
+      "url": "https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/43840caa8f0f5e8b11f598458be7ad59-uncropped_scaled_within_1536_1152.jpg",
+      "expected": [],
+      "silent": true,
+      "suppressedBecause": null
+    },
+    {
+      "photo": 9,
+      "photoId": "fe23ffe8e9",
+      "label": "Kitchen",
+      "url": "https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/f994348886fc7c886a11ecfa9eeaac51-uncropped_scaled_within_1536_1152.jpg",
+      "expected": [],
+      "silent": true,
+      "suppressedBecause": null
+    },
+    {
+      "photo": 10,
+      "photoId": "b5489184b9",
+      "label": "Mudroom",
+      "url": "https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/cc853a5f25d5097020f7fd069acd924c-uncropped_scaled_within_1536_1152.jpg",
+      "expected": [],
+      "silent": true,
+      "suppressedBecause": null
+    },
+    {
+      "photo": 11,
+      "photoId": "799bc437b0",
+      "label": "Bathroom",
+      "url": "https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/418a146bbcc508bbf4d8c12d639259e6-uncropped_scaled_within_1536_1152.jpg",
+      "expected": [],
+      "silent": true,
+      "suppressedBecause": null
+    },
+    {
+      "photo": 12,
+      "photoId": "f22e14f7dd",
+      "label": "Living Room",
+      "url": "https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/06e394d920e418105312d864abd67fbb-uncropped_scaled_within_1536_1152.jpg",
+      "expected": [],
+      "silent": true,
+      "suppressedBecause": null
+    },
+    {
+      "photo": 13,
+      "photoId": "cb10d95dbb",
+      "label": "Living Room",
+      "url": "https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/1220fe20581a76a4aad485452b2e68ce-uncropped_scaled_within_1536_1152.jpg",
+      "expected": [],
+      "silent": true,
+      "suppressedBecause": null
+    },
+    {
+      "photo": 14,
+      "photoId": "cafe7f8079",
+      "label": "Bedroom",
+      "url": "https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/bad858efeec1ad75c702f2ae3ba9655f-uncropped_scaled_within_1536_1152.jpg",
+      "expected": [],
+      "silent": true,
+      "suppressedBecause": null
+    },
+    {
+      "photo": 15,
+      "photoId": "e97965cdc9",
+      "label": "Bathroom",
+      "url": "https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/dcfa2eb5bb1462bb86f4ceb368cbc7f2-uncropped_scaled_within_1536_1152.jpg",
+      "expected": [
+        {
+          "severity": "info",
+          "category": "windows",
+          "expect": "Picture window by tub/shower; check wood frame for condensation"
+        },
+        {
+          "severity": "info",
+          "category": "ventilation",
+          "expect": "Bath fan present, helps circulation"
+        }
+      ],
+      "silent": false,
+      "suppressedBecause": null
+    },
+    {
+      "photo": 16,
+      "photoId": "829b6e8e41",
+      "label": "Bathroom",
+      "url": "https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/fd58f652437ab94fe0b911e5a99c49e6-uncropped_scaled_within_1536_1152.jpg",
+      "expected": [],
+      "silent": true,
+      "suppressedBecause": null
+    },
+    {
+      "photo": 17,
+      "photoId": "ecdb2bed17",
+      "label": "Closet",
+      "url": "https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/a2d04a1c489ad88981bb875a8476cebf-uncropped_scaled_within_1536_1152.jpg",
+      "expected": [],
+      "silent": true,
+      "suppressedBecause": null
+    },
+    {
+      "photo": 18,
+      "photoId": "265be65c45",
+      "label": "Laundry Room",
+      "url": "https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/5be6d29bc2030c6c303c2fd328ae9568-uncropped_scaled_within_1536_1152.jpg",
+      "expected": [
+        {
+          "severity": "warning",
+          "category": "wall_finishes",
+          "expect": "Faint line on wall behind washer/dryer suggests a historical drywall issue"
+        }
+      ],
+      "silent": false,
+      "suppressedBecause": null
+    },
+    {
+      "photo": 19,
+      "photoId": "c484fafc83",
+      "label": "Bedroom",
+      "url": "https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/cc16528eef63f3bcb8a01df9234612e5-uncropped_scaled_within_1536_1152.jpg",
+      "expected": [],
+      "silent": true,
+      "suppressedBecause": null
+    },
+    {
+      "photo": 20,
+      "photoId": "0728f66714",
+      "label": "Bathroom",
+      "url": "https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/1db4d5a5a98fb500711ee19a7692af84-uncropped_scaled_within_1536_1152.jpg",
+      "expected": [
+        {
+          "severity": "info",
+          "category": "ventilation",
+          "expect": "Bath fan present in shower room"
+        }
+      ],
+      "silent": false,
+      "suppressedBecause": null
+    },
+    {
+      "photo": 21,
+      "photoId": "ad5327732b",
+      "label": "Living Room",
+      "url": "https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/e5dfbb9bfadbfda1a769fef5f3c0cdf6-uncropped_scaled_within_1536_1152.jpg",
+      "expected": [
+        {
+          "severity": "good",
+          "category": "windows",
+          "expect": "Best view of windows; they appear good quality"
+        }
+      ],
+      "silent": false,
+      "suppressedBecause": null
+    },
+    {
+      "photo": 22,
+      "photoId": "c3542f8029",
+      "label": "Living Room",
+      "url": "https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/95cf2f9af697ab7f5b1bcd10689b2161-uncropped_scaled_within_1536_1152.jpg",
+      "expected": [],
+      "silent": true,
+      "suppressedBecause": "windows already covered in photo 21"
+    },
+    {
+      "photo": 23,
+      "photoId": "382ca7c0f5",
+      "label": "Living Room",
+      "url": "https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/e3385b44792b6d3bc6f0e41db5864b60-uncropped_scaled_within_1536_1152.jpg",
+      "expected": [],
+      "silent": true,
+      "suppressedBecause": null
+    },
+    {
+      "photo": 24,
+      "photoId": "71047f1027",
+      "label": "Bathroom",
+      "url": "https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/ba8d649ee482124e9a7185918587abc8-uncropped_scaled_within_1536_1152.jpg",
+      "expected": [
+        {
+          "severity": "warning",
+          "category": "ventilation",
+          "expect": "No bath fan visible; confirm one exists or check for moisture"
+        }
+      ],
+      "silent": false,
+      "suppressedBecause": null
+    },
+    {
+      "photo": 25,
+      "photoId": "19cbadd156",
+      "label": "Bedroom",
+      "url": "https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/6bea4c854e0506fee001380d39addc46-uncropped_scaled_within_1536_1152.jpg",
+      "expected": [],
+      "silent": true,
+      "suppressedBecause": null
+    },
+    {
+      "photo": 26,
+      "photoId": "40cf4b93e1",
+      "label": "Bedroom",
+      "url": "https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/6da061cc44dc53dbb19b2ecd88c196d2-uncropped_scaled_within_1536_1152.jpg",
+      "expected": [],
+      "silent": true,
+      "suppressedBecause": null
+    },
+    {
+      "photo": 27,
+      "photoId": "4e7af25b8b",
+      "label": "Bedroom",
+      "url": "https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/16bee7f0cb7b0f656f2e64406786c3b3-uncropped_scaled_within_1536_1152.jpg",
+      "expected": [],
+      "silent": true,
+      "suppressedBecause": null
+    },
+    {
+      "photo": 28,
+      "photoId": "c00cde5317",
+      "label": "Porch",
+      "url": "https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/e076ca737d8cf240c5c432e4e905c9be-uncropped_scaled_within_1536_1152.jpg",
+      "expected": [
+        {
+          "severity": "info",
+          "category": "landscaping",
+          "expect": "Low-maintenance deck, 25-50 year life, 2013 build so life remains; composite replacement ~$100/sq ft, 14x14 ~ $20,000"
+        }
+      ],
+      "silent": false,
+      "suppressedBecause": null
+    },
+    {
+      "photo": 29,
+      "photoId": "2a3866a5fb",
+      "label": "Exterior",
+      "url": "https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/d08ba91e48d9e41b37cbfbd4457ed15d-uncropped_scaled_within_1536_1152.jpg",
+      "expected": [],
+      "silent": true,
+      "suppressedBecause": null
+    },
+    {
+      "photo": 30,
+      "photoId": "711a6d4400",
+      "label": "Exterior",
+      "url": "https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/adf2d18f713287276047f022534aa340-uncropped_scaled_within_1536_1152.jpg",
+      "expected": [],
+      "silent": true,
+      "suppressedBecause": null
+    },
+    {
+      "photo": 31,
+      "photoId": "b29767d6c7",
+      "label": "Exterior",
+      "url": "https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/4771f050442423afa14bbf677d04be9a-uncropped_scaled_within_1536_1152.jpg",
+      "expected": [
+        {
+          "severity": "warning",
+          "category": "landscaping",
+          "expect": "Deck shows handyman work: no hurricane ties, beam bolted to side of post; check permits"
+        }
+      ],
+      "silent": false,
+      "suppressedBecause": null
+    },
+    {
+      "photo": 32,
+      "photoId": "895252de4f",
+      "label": "Exterior",
+      "url": "https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/db935159d325b9fe52169e2ba985c40f-uncropped_scaled_within_1536_1152.jpg",
+      "expected": [],
+      "silent": true,
+      "suppressedBecause": "deck already covered in photo 31"
+    },
+    {
+      "photo": 33,
+      "photoId": "34034fcfab",
+      "label": "Porch",
+      "url": "https://bones-report-mock-backend.norsebru-e7d.workers.dev/api/properties/10552-noble-cir-n-brooklyn-park/static/8a957c9d1917fbba93860a3be233d606-uncropped_scaled_within_1536_1152.jpg",
+      "expected": [
+        {
+          "severity": "warning",
+          "category": "landscaping",
+          "expect": "Confirms the deck construction warning from photo 31"
+        }
+      ],
+      "silent": false,
+      "suppressedBecause": null
+    }
+  ]
+}

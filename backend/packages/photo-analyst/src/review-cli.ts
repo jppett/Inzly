@@ -54,6 +54,19 @@ async function review(): Promise<void> {
   }
 
   const permits = await loadPermits(arg('address'));
+  const num = (name: string) => {
+    const v = arg(name);
+    return v ? Number(v.replace(/[^0-9.]/g, '')) : undefined;
+  };
+  const property = {
+    address: arg('address'),
+    listPrice: num('price'),
+    yearBuilt: num('year'),
+    sqft: num('sqft'),
+  };
+  if (property.listPrice) {
+    console.log(`List price $${property.listPrice.toLocaleString()} — cost ranges will be tiered to it.`);
+  }
   if (permits.length) {
     console.log(`${permits.length} permits on record — agents will corroborate against them.`);
   }
@@ -66,6 +79,7 @@ async function review(): Promise<void> {
   const outcome = await analyst.analyse(randomUUID(), urls, {
     maxPhotos: urls.length,
     permits,
+    property,
   });
   const bundle = toReviewBundle(outcome, label, provider.model);
 

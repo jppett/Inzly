@@ -27,6 +27,22 @@ export interface AnalyseOptions {
    * so findings corroborate the record instead of guessing at age.
    */
   permits?: PermitRecord[];
+  /**
+   * What the house is, so costs land in the right tier. The same granite is a
+   * different number in a $650k house and a $1.8M one.
+   */
+  property?: PropertyContext;
+  /** Cap on findings per photograph. The reviewer asked for three. */
+  maxPerPhoto?: number;
+}
+
+export interface PropertyContext {
+  address?: string;
+  listPrice?: number;
+  yearBuilt?: number;
+  beds?: number;
+  baths?: number;
+  sqft?: number;
 }
 
 export interface AnalyseOutcome {
@@ -37,6 +53,7 @@ export interface AnalyseOutcome {
 
 const DEFAULT_MAX_PHOTOS = 20;
 const DEFAULT_CONCURRENCY = 4;
+const DEFAULT_MAX_PER_PHOTO = 3;
 
 export class PhotoAnalyst {
   constructor(private readonly provider: VisionProvider) {}
@@ -85,14 +102,21 @@ export class PhotoAnalyst {
     // racing several cold writers.
     const [first, ...rest] = agents;
     if (first) {
-      await this.runOne(first, photos, manifest, assessments, insights, failures, usage, options.permits);
+      await this.runOne(first, photos, manifest, assessments, insights, failures, usage, options);
     }
 
     await inBatches(rest, options.concurrency ?? DEFAULT_CONCURRENCY, (agent) =>
-      this.runOne(agent, photos, manifest, assessments, insights, failures, usage, options.permits),
+      this.runOne(agent, photos, manifest, assessments, insights, failures, usage, options),
     );
 
     insights.sort((a, b) => severityRank(b.severity) - severityRank(a.severity));
+
+    // Agents run blind to each other, so a busy kitchen can collect findings
+    // from five of them. Enforce the cap across the whole run, keeping the most
+    // consequential per photograph.
+    const capped = capPerPhoto(insights, options.maxPerPhoto ?? DEFAULT_MAX_PER_PHOTO);
+    insights.length = 0;
+    insights.push(...capped);
 
     const status: CreatePropertyInsightsResultInput['status'] =
       failures.length === 0 ? 'completed' : failures.length < agents.length ? 'partial' : 'failed';
@@ -121,8 +145,9 @@ export class PhotoAnalyst {
     insights: PropertyInsight[],
     failures: Array<{ category: string; error: string }>,
     usage: VisionUsage,
-    permits?: PermitRecord[],
+    options: AnalyseOptions,
   ): Promise<void> {
+    const permits = options.permits;
     const runs: AgentCategoryResponse[] = [];
 
     for (let i = 0; i < agent.runs; i += 1) {
@@ -133,7 +158,10 @@ export class PhotoAnalyst {
           photoManifest: manifest,
           // Permit context sits with the brief, after the cache breakpoint,
           // so the photo prefix stays identical across agents.
-          brief: `${agent.brief}${permitContext(permits, agent.category)}\n\n${OUTPUT_CONTRACT}`,
+          brief:
+            `${agent.brief}` +
+            `${propertyContext(options.property)}` +
+            `${permitContext(permits, agent.category)}\n\n${OUTPUT_CONTRACT}`,
         });
         runs.push(response.result);
         if (response.usage) {
@@ -282,4 +310,53 @@ async function inBatches<T>(
   for (let i = 0; i < items.length; i += size) {
     await Promise.all(items.slice(i, i + size).map(fn));
   }
+}
+
+/**
+ * Keep at most `max` findings on any one photograph.
+ *
+ * Ordered by severity, then by whether a cost is attached, then by confidence —
+ * the reviewer's stated priority: "prioritized by importance/cost". A finding
+ * dropped here is dropped entirely rather than merged, because compressing two
+ * findings into one produces a sentence that says neither clearly.
+ */
+export function capPerPhoto(insights: PropertyInsight[], max: number): PropertyInsight[] {
+  const perPhoto = new Map<string, number>();
+  const confidenceRank = { high: 2, medium: 1, low: 0 } as const;
+
+  const ordered = [...insights].sort((a, b) => {
+    const sev = severityRank(b.severity) - severityRank(a.severity);
+    if (sev !== 0) return sev;
+    const cost = Number(Boolean(b.costEstimate)) - Number(Boolean(a.costEstimate));
+    if (cost !== 0) return cost;
+    return confidenceRank[b.confidence] - confidenceRank[a.confidence];
+  });
+
+  return ordered.filter((insight) => {
+    const photoId = insight.evidence[0]?.photoId;
+    if (!photoId) return true;
+    const used = perPhoto.get(photoId) ?? 0;
+    if (used >= max) return false;
+    perPhoto.set(photoId, used + 1);
+    return true;
+  });
+}
+
+/** What the house is, so cost ranges land in the right tier. */
+function propertyContext(property?: PropertyContext): string {
+  if (!property || (!property.listPrice && !property.yearBuilt)) return '';
+
+  const parts: string[] = [];
+  if (property.address) parts.push(property.address);
+  if (property.listPrice) parts.push(`listed at $${property.listPrice.toLocaleString()}`);
+  if (property.yearBuilt) parts.push(`built ${property.yearBuilt}`);
+  if (property.beds && property.baths) parts.push(`${property.beds} bed, ${property.baths} bath`);
+  if (property.sqft) parts.push(`${property.sqft.toLocaleString()} sq ft`);
+
+  return (
+    '\n\n## This property\n\n' +
+    `${parts.join(' · ')}\n\n` +
+    'Place any cost range in the tier this price implies, rather than quoting a ' +
+    'national average. Use the size and age above when they help you scope work.'
+  );
 }

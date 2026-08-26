@@ -2,9 +2,9 @@
 // Mirrors schemas/property-insights-result.json exactly.
 
 export const INSIGHT_CATEGORIES = [
-  'windows', 'hvac', 'foundation', 'roof', 'siding', 'plumbing',
+  'windows', 'hvac', 'ventilation', 'foundation', 'roof', 'siding', 'plumbing',
   'electrical', 'cabinetry', 'appliances', 'tile', 'countertops',
-  'lighting', 'wall_finishes', 'flooring', 'landscaping',
+  'lighting', 'wall_finishes', 'flooring', 'deck', 'landscaping',
 ] as const;
 
 export type InsightCategory = typeof INSIGHT_CATEGORIES[number];

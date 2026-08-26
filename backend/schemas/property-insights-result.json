@@ -66,9 +66,9 @@
     "category": {
       "type": "string",
       "enum": [
-        "windows", "hvac", "foundation", "roof", "siding", "plumbing",
+        "windows", "hvac", "ventilation", "foundation", "roof", "siding", "plumbing",
         "electrical", "cabinetry", "appliances", "tile", "countertops",
-        "lighting", "wall_finishes", "flooring", "landscaping"
+        "lighting", "wall_finishes", "flooring", "deck", "landscaping"
       ]
     },
     "severity": {

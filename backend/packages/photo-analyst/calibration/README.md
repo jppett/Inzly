@@ -3,6 +3,29 @@
 Reviewed houses, used as the standard the agents are tuned against. See
 [docs/CALIBRATION.md](../../../../docs/CALIBRATION.md) for the workflow.
 
+## The reviewer's own notes
+
+`professional-notes.md` holds a working agent's photo-by-photo notes on three
+listings, and `noble-cir.expectations.json` maps the Noble notes onto real photo
+ids — his notes number photos by carousel position, which aligns 1:1 with the
+order served.
+
+Those notes are the source of the restraint rules in the agent rubric. The
+numbers behind them:
+
+| | |
+| --- | --- |
+| photos reviewed (Noble) | 33 |
+| photos he wanted findings on | 12 |
+| photos he wanted silent | 21 (63%) |
+| findings in total | 18 |
+| findings per photo | 0.55 |
+| critical findings | 0 |
+| most on any one photo | 4 — and he said that was too many |
+
+For contrast, the previous generation of agents produced 96 findings across 30
+photos: 3.2 per photo, roughly six times what a professional wanted.
+
 ## Files
 
 - `<label>.photos.txt`  — one photo URL per line, `#` for comments

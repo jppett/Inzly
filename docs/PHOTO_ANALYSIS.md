@@ -57,6 +57,41 @@ findings arrived as `severity: "info", sentiment: "positive"` and rendered as
 neutral. A report that structurally cannot say "this is good" is not a fair
 report of a house.
 
+## What a professional actually wanted
+
+Restraint turned out to be the bigger problem, and it only became visible once a
+working agent reviewed three listings photo by photo
+(`calibration/professional-notes.md`).
+
+Across 33 photographs of a well-kept 2013 house he wanted findings on 12 and
+silence on 21 — 18 findings in total, none of them critical. The previous
+generation produced 96 findings on 30 photos. **He wanted roughly a sixth of
+what the agents were producing.**
+
+Three of his instructions were explicit, and are now rules:
+
+- *"It would make sense to set a maximum number of insights per photo (3 or so)
+  and have them prioritized by importance/cost."* — a kitchen photo had drawn
+  observations about countertops, cabinets, four appliances and ventilation.
+- *"No warnings or insights (cabinets & countertops called out in photo 5, no
+  need to repeat)."* — the clearest view of a subject owns the finding.
+- *"I do like the insight provided — it doesn't need a repair cost though."* —
+  cost belongs on work, not on descriptions.
+
+He also priced by unit rate rather than lump sum ($3–$6/sq ft to refinish oak,
+$75–$150/sq ft for granite, ~$100/sq ft for composite decking) and expected the
+tier to follow the house: the same granite is a different number in a $650k home
+than in a $1.8M one. The analyst now passes list price, year and size to every
+agent for exactly that reason.
+
+Two distinctions of his are now in the rubric because they cut against the
+obvious reading:
+
+- A missing dishwasher is `info`; a missing **bath fan** is a `warning`. Absent
+  convenience is preference, absent ventilation is a moisture problem.
+- A good feature is not a problem. Transom windows set high for privacy and
+  plantation shutters are positives, not compromises.
+
 ## How the instructions address that
 
 The agent prompts live in `backend/packages/photo-analyst/src/agents/`:
@@ -83,6 +118,14 @@ before storage, which catches the model inventing a reference.
 
 **Evidence carries a region.** `{x, y, width, height}` as percentages, so markers
 land where the model actually looked. The hardcoded coordinate table is gone.
+
+**Silence is the default.** Most photographs should produce nothing, and the
+rubric says so with the reviewer's own ratio behind it. A finding is warranted by
+a defect, a cost worth planning for, a material fact about quality, or a genuine
+positive — a tidy bedroom with nothing remarkable in it warrants none of those.
+The per-photo cap is also enforced in code (`capPerPhoto`), because agents run
+blind to each other and a busy kitchen can otherwise collect findings from five
+of them at once.
 
 **`not_visible` is a first-class answer.** Most categories genuinely are not
 visible in a listing set — you cannot assess electrical with the panel cover on,

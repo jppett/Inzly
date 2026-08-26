@@ -9,8 +9,10 @@ told about a house. Their output is the product.
 
 ## Read first
 
-`docs/PHOTO_ANALYSIS.md`. It records what the previous generation of these
-agents got wrong and why each instruction is phrased the way it is. Most
+`docs/PHOTO_ANALYSIS.md`, and the reviewer's own notes in
+`backend/packages/photo-analyst/calibration/professional-notes.md`. Between them
+they record what the previous generation got wrong and why each instruction is
+phrased the way it is. Most
 "improvements" to these prompts are re-introductions of those failures.
 
 ## Where things live
@@ -41,6 +43,14 @@ These each fix an observed failure. Removing one brings the failure back.
   ids that were not in the manifest — do not weaken that check.
 - **`not_visible` is a correct answer.** Never pressure an agent to produce
   findings. Most categories are genuinely invisible in a listing set.
+- **Silence is the default.** A professional reviewing 33 photos wanted findings
+  on 12. Most photographs should produce nothing; do not add anything that
+  encourages an agent to fill space.
+- **At most three findings per photograph**, prioritised by importance then
+  cost. Enforced in the rubric and again in `capPerPhoto`.
+- **Say each thing once.** The clearest view of a subject owns the finding.
+- **Cost goes on work, not descriptions**, as a unit rate where possible, tiered
+  to the house's list price.
 - **Reconciliation resolves, never concatenates.** One rating, one confidence,
   one summary paragraph. Disagreement is recorded in `provenance`, not pasted
   into the value. `"fair|fair|good"` is the bug this replaced.

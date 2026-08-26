@@ -5,6 +5,7 @@ import {
   getMLSListingRequestRepository,
   getAddressRequestRepository,
   getPermitHistoryResultRepository,
+  getBonesReportResultRepository,
 } from '@bones-report/shared';
 import { PhotoAnalyst } from '../services/analyst.js';
 import { createVisionProvider } from '../providers/index.js';
@@ -60,6 +61,31 @@ export class MLSListingResultHandler {
       .catch(() => null);
     const permits = permitHistory?.permits ?? [];
 
+    // Price tier drives cost ranges, so pull what the pipeline already knows
+    // about the house. Optional: without it agents fall back to generic ranges.
+    const report = await getBonesReportResultRepository()
+      .getLatestForAddressRequest(addressRequestId)
+      .catch(() => null);
+    const data = (report?.report_data ?? {}) as Record<string, unknown>;
+    const property = {
+      address: result.listing_data.address,
+      listPrice:
+        typeof result.listing_data.price === 'number'
+          ? result.listing_data.price
+          : typeof data.estimatedValue === 'number'
+            ? data.estimatedValue
+            : undefined,
+      yearBuilt: typeof data.yearBuilt === 'number' ? data.yearBuilt : undefined,
+      beds:
+        typeof data.bedrooms === 'number'
+          ? data.bedrooms
+          : typeof result.listing_data.bedrooms === 'number'
+            ? result.listing_data.bedrooms
+            : undefined,
+      baths: typeof data.bathrooms === 'number' ? data.bathrooms : undefined,
+      sqft: typeof data.squareFootage === 'number' ? data.squareFootage : undefined,
+    };
+
     console.log(
       `📸 [photo-analyst] Analysing ${photoUrls.length} photos for ${result.listing_data.address}` +
         (permits.length ? ` with ${permits.length} permits on record` : ' (no permits on record)'),
@@ -69,7 +95,7 @@ export class MLSListingResultHandler {
       const { result: insights, usage, failures } = await this.analyst.analyse(
         addressRequestId,
         photoUrls,
-        { permits },
+        { permits, property },
       );
 
       const stored = await repo.create(insights);
