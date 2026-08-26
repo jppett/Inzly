@@ -14,9 +14,16 @@ import { dirname, resolve } from 'node:path';
 import { PhotoAnalyst } from './services/analyst.js';
 import { createVisionProvider } from './providers/index.js';
 import { loadPermits } from './services/permits.js';
-import { toReviewBundle, scoreRun, formatReport } from './calibration/index.js';
+import {
+  toReviewBundle,
+  scoreRun,
+  formatReport,
+  scoreAgainstExpectations,
+  formatExpectationsReport,
+} from './calibration/index.js';
 import { EXPERT_AGENTS } from './agents/definitions.js';
 import type { GoldenFile, ReviewBundle } from './calibration/types.js';
+import type { ExpectationsFile } from './calibration/expectations.js';
 
 function arg(name: string): string | undefined {
   const i = process.argv.indexOf(`--${name}`);
@@ -106,16 +113,33 @@ async function review(): Promise<void> {
 function score(): void {
   const bundlePath = arg('bundle');
   const goldenPath = arg('golden');
+  const expectationsPath = arg('expectations');
 
-  if (!bundlePath || !goldenPath) {
-    console.error('Usage: score --bundle <file> --golden <file>');
+  if (!bundlePath || (!goldenPath && !expectationsPath)) {
+    console.error(
+      'Usage: score --bundle <file> --golden <file>\n' +
+        '       score --bundle <file> --expectations <file>\n\n' +
+        'A golden file holds verdicts recorded on a run; an expectations file holds\n' +
+        "a reviewer's per-photo notes taken before one. Expectations also measure\n" +
+        'silence, which verdicts cannot.',
+    );
     process.exit(1);
   }
 
   const bundle: ReviewBundle = JSON.parse(readFileSync(resolve(bundlePath), 'utf-8'));
-  const golden: GoldenFile = JSON.parse(readFileSync(resolve(goldenPath), 'utf-8'));
 
-  console.log(formatReport(scoreRun(bundle, golden)));
+  if (expectationsPath) {
+    const expectations: ExpectationsFile = JSON.parse(
+      readFileSync(resolve(expectationsPath), 'utf-8'),
+    );
+    console.log(formatExpectationsReport(scoreAgainstExpectations(bundle, expectations)));
+    if (goldenPath) console.log();
+  }
+
+  if (goldenPath) {
+    const golden: GoldenFile = JSON.parse(readFileSync(resolve(goldenPath), 'utf-8'));
+    console.log(formatReport(scoreRun(bundle, golden)));
+  }
 }
 
 const command = process.argv[2];

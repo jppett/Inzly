@@ -1,5 +1,6 @@
 export * from './types.js';
 export * from './score.js';
+export * from './expectations.js';
 
 import { randomUUID } from 'node:crypto';
 import type { AnalyseOutcome } from '../services/analyst.js';

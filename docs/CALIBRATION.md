@@ -8,6 +8,30 @@ says what they would actually tell a client. Those calls become the standard.**
 Every subsequent change to the agent briefs is scored against them, so a prompt
 edit either measurably improves calibration or it does not.
 
+## Two instruments, not one
+
+There are two ways to record what a professional thinks, and they measure
+different things.
+
+**Expectations** are recorded photo by photo *before* a run — what should be
+found, including on photographs where the right answer is nothing. This is the
+stronger instrument, because it is the only one that can measure **silence**.
+When a reviewer wants findings on 12 of 33 photographs, an agent that reports on
+all 33 is failing badly, and no amount of judging what it produced will reveal
+that. `calibration/noble-cir.expectations.json` is one of these.
+
+**Verdicts** are recorded *on* a run — agree, wrong severity, not there,
+wouldn't mention it. They are easier to collect (the review page walks you
+through them) and they capture nuance expectations cannot, like how a reviewer
+would phrase something. But they can only judge findings that were produced.
+
+Use both. Expectations catch over-reporting; verdicts catch miscalibration.
+
+```bash
+score --bundle <run> --expectations <notes>   # silence, recall, volume
+score --bundle <run> --golden <verdicts>      # precision, severity bias
+```
+
 ## The loop
 
 ```
@@ -55,6 +79,31 @@ Work is held in the browser as you go. **Save for Claude** publishes it back so
 it can be read directly; **Download** exports the same thing as JSON.
 
 ### 3. Score
+
+Against expectations, if you have them:
+
+```bash
+pnpm --filter @bones-report/photo-analyst score \
+  --bundle calibration/<label>.bundle.json \
+  --expectations calibration/<label>.expectations.json
+```
+
+```
+  volume           21 findings vs 18 wanted (0.64/photo vs 0.55)
+                   about right
+
+  silence          13/21 photos kept quiet (62%)
+                   14 findings on photos that should say nothing
+
+  recall           0/18 of what he wanted found (0%)
+  severity         0/0 agreed
+```
+
+`volume` and `silence` are the ones to watch first: an agent that is 2× too
+talkative is unusable regardless of how good its individual findings are.
+`recall` says whether it looked where the reviewer looked.
+
+And against verdicts:
 
 Save the verdicts as `calibration/<label>.golden.json`, then:
 

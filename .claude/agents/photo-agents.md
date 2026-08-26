@@ -57,10 +57,17 @@ These each fix an observed failure. Removing one brings the failure back.
 
 ## Editing a brief
 
-If a golden file exists for a reviewed house, use it — a brief edit that does
+If calibration data exists for a reviewed house, use it — a brief edit that does
 not move the score is not an improvement:
 
 ```bash
+# Expectations measure silence, volume and recall. Check these first:
+# an agent 2x too talkative is unusable however good its findings are.
+pnpm --filter @bones-report/photo-analyst score \
+  --bundle calibration/<label>.bundle.json \
+  --expectations calibration/<label>.expectations.json
+
+# Verdicts measure precision and severity bias on what was produced.
 pnpm --filter @bones-report/photo-analyst score \
   --bundle calibration/<label>.bundle.json --golden calibration/<label>.golden.json
 ```
