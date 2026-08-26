@@ -39,6 +39,19 @@ from building at all:
   package is `bones-report`, with a `repository` field pointing at
   `dkjosbru/bones-report`.
 
+## The text-only "AI analysis"
+
+`POST /api/properties/:id/analyze` in the front end is labelled AI analysis but
+never looks at a photograph. It sends the model the address, year built, room
+counts and listing blurb, and asks for "realistic insights based on the property
+age, location, and typical issues for homes of this era". The markers it places
+on photos come from a hardcoded lookup table — anything categorised "roof" is
+pinned to the hero image at (50, 20).
+
+It is superseded by the `photo-analyst` service (see
+[PHOTO_ANALYSIS.md](PHOTO_ANALYSIS.md)) and left running so the app keeps working
+during rollout. Retire it once photo analysis is live against real listings.
+
 ## Superseded code
 
 `backend/packages/frontend` is the POC UI that the app in `frontend/` replaces.

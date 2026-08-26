@@ -37,6 +37,9 @@
     },
     {
       "path": "./packages/rentcast-fetcher"
+    },
+    {
+      "path": "./packages/photo-analyst"
     }
   ]
 }

@@ -8,7 +8,7 @@ This repository holds both halves of the product:
 | Path         | What it is                                                                 |
 | ------------ | -------------------------------------------------------------------------- |
 | `frontend/`  | The Inzly product app — React 19 client plus an Express BFF and Postgres.   |
-| `backend/`   | The data platform — event-driven services that ingest and enrich property data. |
+| `backend/`   | The data platform — event-driven services that ingest property data and analyse listing photographs. |
 | `docs/`      | Architecture, the integration contract, brand guide, known issues.          |
 | `.claude/`   | Agent definitions for build-out work.                                       |
 
@@ -55,10 +55,30 @@ UI renders. That adapter is written and typechecked; it is the piece that goes
 live as real data connections come online. Details and the current gaps are in
 [docs/INTEGRATION.md](docs/INTEGRATION.md).
 
+## Photo analysis
+
+The `photo-analyst` service runs 14 specialist vision agents over a property's
+listing photographs and produces the severity-rated findings the app shows to
+buyers. Each finding cites the photo it came from and separates what was
+literally seen from what that implies.
+
+```bash
+cd backend
+# Works with no credentials — deterministic mock provider
+pnpm --filter @bones-report/photo-analyst analyse <photo-url> [photo-url...]
+
+# Real analysis
+export ANTHROPIC_API_KEY=...
+pnpm --filter @bones-report/photo-analyst analyse <photo-url>
+```
+
+See [docs/PHOTO_ANALYSIS.md](docs/PHOTO_ANALYSIS.md).
+
 ## Documentation
 
 - [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — how the whole system fits together
 - [docs/INTEGRATION.md](docs/INTEGRATION.md) — the contract between the two halves
+- [docs/PHOTO_ANALYSIS.md](docs/PHOTO_ANALYSIS.md) — the expert vision agents and why their instructions read as they do
 - [docs/BRAND.md](docs/BRAND.md) — brand and UI design guide
 - [docs/KNOWN_ISSUES.md](docs/KNOWN_ISSUES.md) — inherited problems worth knowing about
 - [backend/docs/](backend/docs/) — platform API spec, events, decisions

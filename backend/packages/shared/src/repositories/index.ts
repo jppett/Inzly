@@ -4,6 +4,7 @@ export * from './address-request.js';
 export * from './bones-report-result.js';
 export * from './mls-listing-request.js';
 export * from './mls-listing-result.js';
+export * from './property-insights-result.js';
 
 // Import types and functions for internal use
 import {
@@ -26,12 +27,18 @@ import {
   MLSListingResultRepository,
 } from './mls-listing-result.js';
 
+import {
+  getPropertyInsightsResultRepository,
+  PropertyInsightsResultRepository,
+} from './property-insights-result.js';
+
 // Convenience function to get all repositories
 export interface AllRepositories {
   addressRequest: AddressRequestRepository;
   bonesReportResult: BonesReportResultRepository;
   mlsListingRequest: MLSListingRequestRepository;
   mlsListingResult: MLSListingResultRepository;
+  propertyInsightsResult: PropertyInsightsResultRepository;
 }
 
 export function getAllRepositories(): AllRepositories {
@@ -40,6 +47,7 @@ export function getAllRepositories(): AllRepositories {
     bonesReportResult: getBonesReportResultRepository(),
     mlsListingRequest: getMLSListingRequestRepository(),
     mlsListingResult: getMLSListingResultRepository(),
+    propertyInsightsResult: getPropertyInsightsResultRepository(),
   };
 }
 
@@ -94,6 +102,7 @@ export async function initializeAllRepositories(): Promise<void> {
     repos.bonesReportResult.count(),
     repos.mlsListingRequest.count(),
     repos.mlsListingResult.count(),
+    repos.propertyInsightsResult.count(),
   ]);
 
   console.log('All repositories initialized');

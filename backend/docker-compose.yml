@@ -147,6 +147,35 @@ services:
       - /app/packages/shared/node_modules
     restart: unless-stopped
 
+  photo-analyst:
+    build:
+      context: .
+      dockerfile: Dockerfile.photo-analyst
+    container_name: bones-photo-analyst
+    depends_on:
+      redis:
+        condition: service_healthy
+      redpanda:
+        condition: service_healthy
+    environment:
+      - NODE_ENV=${NODE_ENV:-development}
+      - REDIS_URL=redis://redis:6379
+      - REDPANDA_BROKERS=redpanda:9092
+      # Without a key the service falls back to the mock provider, so the
+      # stack still runs end to end with no credentials.
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+      - VISION_PROVIDER=${VISION_PROVIDER:-}
+      - VISION_MODEL=${VISION_MODEL:-claude-opus-5}
+      - VISION_EFFORT=${VISION_EFFORT:-high}
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+    volumes:
+      - ./packages/photo-analyst:/app/packages/photo-analyst
+      - ./packages/shared:/app/packages/shared
+      - /app/node_modules
+      - /app/packages/photo-analyst/node_modules
+      - /app/packages/shared/node_modules
+    restart: unless-stopped
+
 volumes:
   redis_data:
   redpanda_data:

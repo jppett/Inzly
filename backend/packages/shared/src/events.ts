@@ -17,6 +17,8 @@ export const EVENT_TOPICS = {
   MLS_LISTING_REQUEST_UPDATE: 'MLSListingRequest.update',
   MLS_LISTING_RESULT_CREATE: 'MLSListingResult.create',
   MLS_LISTING_RESULT_UPDATE: 'MLSListingResult.update',
+  PROPERTY_INSIGHTS_RESULT_CREATE: 'PropertyInsightsResult.create',
+  PROPERTY_INSIGHTS_RESULT_UPDATE: 'PropertyInsightsResult.update',
 } as const;
 
 export type EventTopic = typeof EVENT_TOPICS[keyof typeof EVENT_TOPICS];
@@ -106,6 +108,26 @@ export interface MLSListingResultUpdateEvent {
   };
 }
 
+export interface PropertyInsightsResultCreateEvent {
+  type: typeof EVENT_TOPICS.PROPERTY_INSIGHTS_RESULT_CREATE;
+  data: {
+    id: string;
+    address_request_id: string;
+    created_at: string;
+    status: 'completed' | 'partial' | 'failed';
+    insightCount: number;
+  };
+}
+
+export interface PropertyInsightsResultUpdateEvent {
+  type: typeof EVENT_TOPICS.PROPERTY_INSIGHTS_RESULT_UPDATE;
+  data: {
+    id: string;
+    status?: 'completed' | 'partial' | 'failed';
+    updated_at: string;
+  };
+}
+
 // Union type for all events
 export type AppEvent = 
   | AddressRequestCreateEvent
@@ -115,7 +137,9 @@ export type AppEvent =
   | MLSListingRequestCreateEvent
   | MLSListingRequestUpdateEvent
   | MLSListingResultCreateEvent
-  | MLSListingResultUpdateEvent;
+  | MLSListingResultUpdateEvent
+  | PropertyInsightsResultCreateEvent
+  | PropertyInsightsResultUpdateEvent;
 
 // Utility functions for creating event envelopes
 export function createEventEnvelope<T>(type: EventTopic, data: T): EventEnvelope<T> {
@@ -156,4 +180,11 @@ export function createMLSListingResultCreateEvent(data: MLSListingResultCreateEv
 
 export function createMLSListingResultUpdateEvent(data: MLSListingResultUpdateEvent['data']): EventEnvelope<MLSListingResultUpdateEvent['data']> {
   return createEventEnvelope(EVENT_TOPICS.MLS_LISTING_RESULT_UPDATE, data);
+}
+export function createPropertyInsightsResultCreateEvent(data: PropertyInsightsResultCreateEvent['data']): EventEnvelope<PropertyInsightsResultCreateEvent['data']> {
+  return createEventEnvelope(EVENT_TOPICS.PROPERTY_INSIGHTS_RESULT_CREATE, data);
+}
+
+export function createPropertyInsightsResultUpdateEvent(data: PropertyInsightsResultUpdateEvent['data']): EventEnvelope<PropertyInsightsResultUpdateEvent['data']> {
+  return createEventEnvelope(EVENT_TOPICS.PROPERTY_INSIGHTS_RESULT_UPDATE, data);
 }

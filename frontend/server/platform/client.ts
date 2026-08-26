@@ -3,6 +3,7 @@ import type {
   BonesReportResult,
   MLSListingResult,
   PlatformListResponse,
+  PropertyInsightsResult,
 } from "./types";
 
 export interface PlatformClientOptions {
@@ -125,6 +126,24 @@ export class PlatformClient {
     const results = await this.listBonesReportResults(addressRequestId);
     return results
       .filter((r) => r.status === "completed")
+      .sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at))[0];
+  }
+
+  async listPropertyInsights(addressRequestId?: string): Promise<PropertyInsightsResult[]> {
+    const query = addressRequestId
+      ? `?address_request_id=${encodeURIComponent(addressRequestId)}`
+      : "";
+    const res = await this.request<PlatformListResponse<PropertyInsightsResult>>(
+      `/property-insights${query}`,
+    );
+    return res.data ?? [];
+  }
+
+  /** Most recent usable photo-analysis report for an address request. */
+  async getLatestInsights(addressRequestId: string): Promise<PropertyInsightsResult | undefined> {
+    const results = await this.listPropertyInsights(addressRequestId);
+    return results
+      .filter((r) => r.status !== "failed")
       .sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at))[0];
   }
 

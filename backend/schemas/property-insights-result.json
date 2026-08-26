@@ -1,0 +1,165 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PropertyInsightsResult",
+  "description": "Output of the photo-analyst service: what the expert agents observed in a property's photos, reconciled across agents and runs into a single report.",
+  "type": "object",
+  "required": ["id", "address_request_id", "status", "created_at", "photos", "categories", "insights", "summary"],
+  "properties": {
+    "id": { "type": "string", "format": "uuid" },
+    "address_request_id": { "type": "string", "format": "uuid" },
+    "status": {
+      "type": "string",
+      "enum": ["completed", "partial", "failed"],
+      "description": "partial means some category agents failed but usable findings remain"
+    },
+    "created_at": { "type": "string", "format": "date-time" },
+    "model": { "type": "string", "description": "Vision model that produced this report" },
+    "photos": {
+      "type": "array",
+      "description": "Manifest of photos analysed. Insight evidence references these ids.",
+      "items": {
+        "type": "object",
+        "required": ["id", "url"],
+        "properties": {
+          "id": { "type": "string" },
+          "url": { "type": "string", "format": "uri" },
+          "label": { "type": "string" }
+        }
+      }
+    },
+    "categories": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/categoryAssessment" }
+    },
+    "insights": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/insight" }
+    },
+    "summary": {
+      "type": "object",
+      "required": ["overallCondition", "headline", "counts"],
+      "properties": {
+        "overallCondition": { "type": "string", "enum": ["excellent", "good", "fair", "poor"] },
+        "headline": { "type": "string", "description": "One calm sentence an agent could say to a client" },
+        "counts": {
+          "type": "object",
+          "properties": {
+            "critical": { "type": "integer" },
+            "warning": { "type": "integer" },
+            "info": { "type": "integer" },
+            "good": { "type": "integer" }
+          }
+        },
+        "estimatedCostRange": {
+          "type": ["object", "null"],
+          "properties": {
+            "low": { "type": "number" },
+            "high": { "type": "number" },
+            "currency": { "type": "string" }
+          }
+        }
+      }
+    },
+    "error": { "type": "string" }
+  },
+  "$defs": {
+    "category": {
+      "type": "string",
+      "enum": [
+        "windows", "hvac", "foundation", "roof", "siding", "plumbing",
+        "electrical", "cabinetry", "appliances", "tile", "countertops",
+        "lighting", "wall_finishes", "flooring", "landscaping"
+      ]
+    },
+    "severity": {
+      "type": "string",
+      "enum": ["critical", "warning", "info", "good"],
+      "description": "Matches the product app's Issue severity vocabulary exactly. 'good' is a genuine positive finding, not the absence of a problem."
+    },
+    "confidence": { "type": "string", "enum": ["low", "medium", "high"] },
+    "categoryAssessment": {
+      "type": "object",
+      "required": ["category", "rating", "confidence", "summary"],
+      "properties": {
+        "category": { "$ref": "#/$defs/category" },
+        "rating": {
+          "type": "string",
+          "enum": ["excellent", "good", "fair", "poor", "not_visible"],
+          "description": "Single reconciled value. Never a delimited list of per-run values."
+        },
+        "confidence": { "$ref": "#/$defs/confidence" },
+        "summary": { "type": "string", "description": "One paragraph. Never concatenated per-run summaries." },
+        "provenance": {
+          "type": "object",
+          "description": "How this assessment was reconciled, for debugging and trust.",
+          "properties": {
+            "runs": { "type": "integer", "minimum": 1 },
+            "agreement": { "type": "number", "minimum": 0, "maximum": 1 },
+            "photosConsidered": { "type": "integer" }
+          }
+        }
+      }
+    },
+    "insight": {
+      "type": "object",
+      "required": ["id", "category", "title", "description", "severity", "confidence", "evidence"],
+      "properties": {
+        "id": { "type": "string" },
+        "category": { "$ref": "#/$defs/category" },
+        "title": {
+          "type": "string",
+          "maxLength": 80,
+          "description": "Short noun phrase naming the finding. Required by the product app."
+        },
+        "description": {
+          "type": "string",
+          "description": "What this means for the buyer, in plain language."
+        },
+        "severity": { "$ref": "#/$defs/severity" },
+        "confidence": { "$ref": "#/$defs/confidence" },
+        "costEstimate": {
+          "type": ["object", "null"],
+          "description": "Null when the finding needs no spend or cannot be estimated from photos.",
+          "properties": {
+            "low": { "type": "number" },
+            "high": { "type": "number" },
+            "currency": { "type": "string", "default": "USD" },
+            "basis": { "type": "string", "description": "What the range assumes" }
+          }
+        },
+        "recommendedAction": { "type": "string" },
+        "evidence": {
+          "type": "array",
+          "minItems": 1,
+          "description": "Every insight must be anchored to at least one photo. No evidence, no insight.",
+          "items": {
+            "type": "object",
+            "required": ["photoId", "observed"],
+            "properties": {
+              "photoId": { "type": "string" },
+              "photoUrl": { "type": "string", "format": "uri" },
+              "observed": {
+                "type": "string",
+                "description": "Only what is literally visible in the photo. No speculation, no hedging."
+              },
+              "inference": {
+                "type": "string",
+                "description": "What the observation implies. Uncertainty belongs here, not in 'observed'."
+              },
+              "region": {
+                "type": ["object", "null"],
+                "description": "Bounding box of the observation as percentages of image dimensions, so the UI can place a marker.",
+                "properties": {
+                  "x": { "type": "number", "minimum": 0, "maximum": 100 },
+                  "y": { "type": "number", "minimum": 0, "maximum": 100 },
+                  "width": { "type": "number", "minimum": 0, "maximum": 100 },
+                  "height": { "type": "number", "minimum": 0, "maximum": 100 }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

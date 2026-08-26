@@ -1,0 +1,33 @@
+# Photo Analyst Service Dockerfile
+FROM node:20-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Install pnpm
+RUN npm install -g pnpm
+
+# Copy package files for dependency resolution
+COPY package.json pnpm-workspace.yaml pnpm-lock.yaml ./
+COPY packages/shared/package.json ./packages/shared/
+COPY packages/photo-analyst/package.json ./packages/photo-analyst/
+
+# Install dependencies
+RUN pnpm install --frozen-lockfile
+
+# Copy source code
+COPY packages/shared ./packages/shared
+COPY packages/photo-analyst ./packages/photo-analyst
+COPY tsconfig.json ./
+
+# Build the shared package first
+RUN pnpm --filter @bones-report/shared run build
+
+# Build the photo-analyst service
+RUN pnpm --filter @bones-report/photo-analyst run build
+
+# Set user for security
+USER node
+
+# Start the photo-analyst service
+CMD ["node", "packages/photo-analyst/dist/index.js"]

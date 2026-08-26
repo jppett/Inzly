@@ -1,6 +1,9 @@
 // Zod schemas for runtime validation based on JSON schemas
 import { z } from 'zod';
 
+export * from './insights.js';
+
+
 // EventEnvelope schema
 export const EventEnvelopeSchema = z.object({
   type: z.string(),

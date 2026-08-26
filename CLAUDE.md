@@ -6,7 +6,7 @@ them.
 ## Layout
 
 - `frontend/` — the product. React 19 client + Express BFF + Postgres. npm, tsx.
-- `backend/` — the data platform. Event-driven services on Redpanda + Redis. pnpm workspace.
+- `backend/` — the data platform. Event-driven services on Redpanda + Redis, including the photo-analyst vision agents. pnpm workspace.
 - `docs/` — architecture, integration contract, brand guide, known issues.
 
 They build and deploy independently. Do not merge their toolchains or lockfiles.
@@ -52,10 +52,17 @@ is exactly what this setup replaced.
 **Events.** Topics are `<noun>.<operation>`; envelopes are `{ type, ts, data }`.
 `backend/schemas/*.json` is the source of truth for bodies.
 
+**Photo analysis.** The expert vision agents in
+`backend/packages/photo-analyst/src/agents/` carry rules that each fix an
+observed failure — read [docs/PHOTO_ANALYSIS.md](docs/PHOTO_ANALYSIS.md) before
+editing a prompt. Photos are cached across agents; making the prompt prefix vary
+per agent is a silent cost regression.
+
 **Secrets.** Never commit real values. Both halves ship `.env.example`.
 
 ## Agents
 
 `.claude/agents/` holds specialists for this codebase: `frontend-ui`,
-`platform-services`, `api-contract`, `data-integration`, `db-schema`. Use them
-for work squarely in their area; they carry the conventions above.
+`platform-services`, `photo-agents`, `api-contract`, `data-integration`,
+`db-schema`. Use them for work squarely in their area; they carry the
+conventions above.

@@ -207,8 +207,13 @@ function CategoryGroupedInsights({
                           setActiveIssueId(issue.id);
                           window.scrollTo({ top: 0, behavior: 'smooth' });
                         } else if (refPhotos.length > 0) {
-                          const urls = refPhotos.map(filename =>
-                            `${API_BASE_URL}/properties/${propertyId}/static/${filename}`
+                          // Database-backed issues store bare filenames served
+                          // by this app; platform photo analysis stores absolute
+                          // URLs to the listing photos themselves.
+                          const urls = refPhotos.map(ref =>
+                            /^https?:\/\//.test(ref)
+                              ? ref
+                              : `${API_BASE_URL}/properties/${propertyId}/static/${ref}`
                           );
                           onOpenLightbox(urls, refPhotos, issue.title);
                         }

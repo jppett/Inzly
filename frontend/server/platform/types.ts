@@ -95,3 +95,70 @@ export interface PlatformListResponse<T> {
   count: number;
   timestamp: string;
 }
+
+// --- Photo analysis -------------------------------------------------------
+// Mirrors backend/schemas/property-insights-result.json and the types in
+// backend/packages/shared/src/insights.ts.
+
+export type InsightSeverity = "critical" | "warning" | "info" | "good";
+export type Confidence = "low" | "medium" | "high";
+export type CategoryRating = "excellent" | "good" | "fair" | "poor" | "not_visible";
+
+export interface InsightPhotoRef {
+  id: string;
+  url: string;
+  label?: string;
+}
+
+export interface InsightEvidence {
+  photoId: string;
+  photoUrl?: string;
+  /** What is literally visible. */
+  observed: string;
+  /** What it implies, including uncertainty. */
+  inference?: string;
+  region?: { x: number; y: number; width: number; height: number } | null;
+}
+
+export interface PropertyInsight {
+  id: string;
+  category: string;
+  title: string;
+  description: string;
+  severity: InsightSeverity;
+  confidence: Confidence;
+  costEstimate?: {
+    low: number;
+    high: number;
+    currency?: string;
+    basis?: string;
+  } | null;
+  recommendedAction?: string;
+  evidence: InsightEvidence[];
+}
+
+export interface CategoryAssessment {
+  category: string;
+  rating: CategoryRating;
+  confidence: Confidence;
+  summary: string;
+  provenance?: { runs: number; agreement: number; photosConsidered: number };
+}
+
+export interface PropertyInsightsResult {
+  id: string;
+  address_request_id: string;
+  status: "completed" | "partial" | "failed";
+  created_at: string;
+  model?: string;
+  photos: InsightPhotoRef[];
+  categories: CategoryAssessment[];
+  insights: PropertyInsight[];
+  summary: {
+    overallCondition: "excellent" | "good" | "fair" | "poor";
+    headline: string;
+    counts: Record<InsightSeverity, number>;
+    estimatedCostRange?: { low: number; high: number; currency: string } | null;
+  };
+  error?: string;
+}

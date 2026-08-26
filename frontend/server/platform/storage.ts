@@ -8,8 +8,8 @@ import type {
 } from "@shared/schema";
 import type { IStorage } from "../storage-types";
 import { PlatformClient, PlatformError } from "./client";
-import { mapReportToProperty, type MappedProperty } from "./mapper";
-import type { MLSListingResult } from "./types";
+import { mapReportToProperty, mapInsightsToIssues, scoreFromInsights, type MappedProperty } from "./mapper";
+import type { MLSListingResult, PropertyInsightsResult } from "./types";
 
 /**
  * Reads properties from the Inzly data platform instead of the local database.
@@ -61,12 +61,19 @@ export class PlatformStorage implements IStorage {
     const request = await this.client.getAddressRequest(id);
     if (!request) return undefined;
 
-    const [report, mls] = await Promise.all([
+    const [report, mls, insights] = await Promise.all([
       this.client.getLatestReport(id).catch(() => undefined),
       this.mlsByAddress(),
+      this.client.getLatestInsights(id).catch(() => undefined),
     ]);
 
-    return mapReportToProperty(request, report, mls.get(normalizeAddress(request.address)));
+    const property = mapReportToProperty(
+      request,
+      report,
+      mls.get(normalizeAddress(request.address)),
+    );
+
+    return withInsights(property, insights);
   }
 
   /**
@@ -98,7 +105,19 @@ export class PlatformStorage implements IStorage {
 
   // --- Not modelled by the platform: delegated to the database -------------
 
-  getIssuesByPropertyId(propertyId: string): Promise<Issue[]> {
+  /**
+   * Photo-analysis findings from the platform, when it has any.
+   *
+   * Falls back to the database so properties analysed by the older text-only
+   * endpoint keep rendering while the pipeline is being rolled out.
+   */
+  async getIssuesByPropertyId(propertyId: string): Promise<Issue[]> {
+    const insights = await this.client.getLatestInsights(propertyId).catch(() => undefined);
+
+    if (insights && insights.insights.length > 0) {
+      return mapInsightsToIssues(propertyId, insights.insights);
+    }
+
     return this.db.getIssuesByPropertyId(propertyId);
   }
 
@@ -157,3 +176,30 @@ function normalizeAddress(address: string): string {
 }
 
 export type { MappedProperty };
+
+/**
+ * Fold a photo-analysis report into the property.
+ *
+ * The analyst's photo manifest becomes the property's images, because insight
+ * evidence cites those ids — using them here is what lets the UI put a marker
+ * on the right photo. The Inzly Score comes from the findings rather than being
+ * left null.
+ */
+function withInsights(
+  property: MappedProperty,
+  insights?: PropertyInsightsResult,
+): MappedProperty {
+  if (!insights || insights.status === "failed") return property;
+
+  return {
+    ...property,
+    images: insights.photos.length
+      ? insights.photos.map((photo, index) => ({
+          id: photo.id,
+          url: photo.url,
+          label: photo.label ?? `Photo ${index + 1}`,
+        }))
+      : property.images,
+    foundlyScore: insights.insights.length ? scoreFromInsights(insights.insights) : property.foundlyScore,
+  };
+}

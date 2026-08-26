@@ -3,6 +3,9 @@
 // Core type definitions
 export * from './types.js';
 
+// Property insight types (photo-analyst output)
+export * from './insights.js';
+
 // Runtime validation schemas
 export * from './schemas/index.js';
 
@@ -18,6 +21,8 @@ export {
   createMLSListingRequestUpdateEvent,
   createMLSListingResultCreateEvent,
   createMLSListingResultUpdateEvent,
+  createPropertyInsightsResultCreateEvent,
+  createPropertyInsightsResultUpdateEvent,
   type EventTopic,
   type AppEvent,
   type AddressRequestCreateEvent,
@@ -28,6 +33,8 @@ export {
   type MLSListingRequestUpdateEvent,
   type MLSListingResultCreateEvent,
   type MLSListingResultUpdateEvent,
+  type PropertyInsightsResultCreateEvent,
+  type PropertyInsightsResultUpdateEvent,
 } from './events/index.js';
 
 // General utilities

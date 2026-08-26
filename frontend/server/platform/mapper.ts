@@ -1,5 +1,12 @@
-import type { Property } from "@shared/schema";
-import type { AddressRequest, BonesReportData, BonesReportResult, MLSListingResult } from "./types";
+import type { Property, Issue } from "@shared/schema";
+import type {
+  AddressRequest,
+  BonesReportData,
+  BonesReportResult,
+  MLSListingResult,
+  PropertyInsight as PlatformPropertyInsight,
+  PropertyInsightsResult,
+} from "./types";
 
 /**
  * Optional feature block the Property Details tab renders. Only non-null
@@ -174,4 +181,108 @@ function buildDescription(report: BonesReportData, neighborhood?: string): strin
       : "";
 
   return `${type}${where}.${size}`.trim();
+}
+
+// --- Photo analysis -------------------------------------------------------
+
+/**
+ * Turn photo-analysis insights into the Issue rows the product app renders.
+ *
+ * The shapes line up closely by design: the platform's severity vocabulary is
+ * the same four values the UI already styles, so nothing is lost in
+ * translation. Two things need care:
+ *
+ *   - `referencePhotos` carries absolute URLs here, where database-backed
+ *     issues carry bare filenames. PropertyDetails handles both.
+ *   - `imageLocation` is derived from the evidence region's centre, so markers
+ *     land where the model actually looked instead of on the fixed per-category
+ *     coordinates the old text-only analysis used.
+ */
+export function mapInsightsToIssues(
+  propertyId: string,
+  insights: PlatformPropertyInsight[],
+): Issue[] {
+  return insights.map((insight) => {
+    const anchor = insight.evidence.find((e) => e.region) ?? insight.evidence[0];
+
+    return {
+      id: insight.id,
+      propertyId,
+      title: insight.title,
+      description: buildIssueDescription(insight),
+      severity: insight.severity,
+      category: humaniseCategory(insight.category),
+      costEstimate: formatCost(insight.costEstimate),
+      imageLocation: anchor?.region
+        ? {
+            imageId: anchor.photoId,
+            x: anchor.region.x + anchor.region.width / 2,
+            y: anchor.region.y + anchor.region.height / 2,
+          }
+        : null,
+      referencePhotos: insight.evidence
+        .map((e) => e.photoUrl)
+        .filter((url): url is string => Boolean(url)),
+      createdAt: new Date(),
+    } as Issue;
+  });
+}
+
+/**
+ * The evidence split is the point of the new analysis, so surface it: what was
+ * seen, then what it means. Falls back to the description alone when an agent
+ * gave no inference.
+ */
+function buildIssueDescription(insight: PlatformPropertyInsight): string {
+  const parts = [insight.description];
+
+  const observed = insight.evidence.map((e) => e.observed).filter(Boolean);
+  if (observed.length > 0) {
+    parts.push(`In the photos: ${observed.join(" ")}`);
+  }
+
+  if (insight.recommendedAction) {
+    parts.push(insight.recommendedAction);
+  }
+
+  if (insight.confidence === "low") {
+    parts.push("This one is hard to judge from photographs alone and is worth confirming in person.");
+  }
+
+  return parts.join("\n\n");
+}
+
+function formatCost(cost: PlatformPropertyInsight["costEstimate"]): string | null {
+  if (!cost) return null;
+  const currency = cost.currency ?? "USD";
+  const symbol = currency === "USD" ? "$" : `${currency} `;
+  if (cost.low === cost.high) return `${symbol}${cost.low.toLocaleString()}`;
+  return `${symbol}${cost.low.toLocaleString()}–${symbol}${cost.high.toLocaleString()}`;
+}
+
+function humaniseCategory(category: string): string {
+  return category
+    .split("_")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+
+/**
+ * The Inzly Score, derived from what the agents actually found.
+ *
+ * Weighted by severity and softened by low confidence, so a report built from
+ * uncertain readings does not swing the score as hard as a confident one.
+ */
+export function scoreFromInsights(insights: PlatformPropertyInsight[]): number {
+  let penalty = 0;
+  let bonus = 0;
+
+  for (const insight of insights) {
+    const weight = insight.confidence === "high" ? 1 : insight.confidence === "medium" ? 0.7 : 0.4;
+    if (insight.severity === "critical") penalty += 20 * weight;
+    else if (insight.severity === "warning") penalty += 8 * weight;
+    else if (insight.severity === "good") bonus += 4 * weight;
+  }
+
+  return Math.max(0, Math.min(100, Math.round(100 - penalty + bonus)));
 }
