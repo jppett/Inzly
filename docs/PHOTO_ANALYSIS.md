@@ -147,6 +147,14 @@ pnpm --filter @bones-report/photo-analyst analyse --list
 The CLI needs no Redis, Kafka or running stack. Use it when editing a brief: run
 before, edit, run again on the same photos, compare.
 
+## Calibrating it
+
+Judging whether a brief is working by reading a few findings does not scale and
+is not repeatable. [CALIBRATION.md](CALIBRATION.md) describes the loop: run the
+agents on a house, have a working agent review every finding in a walkthrough
+page, and score future runs against those verdicts. Overstated and understated
+severity are tracked separately, because they are different failures.
+
 ## Watch for
 
 - **Photo URLs must be publicly reachable.** Images are passed by URL, so an

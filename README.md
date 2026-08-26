@@ -79,6 +79,7 @@ See [docs/PHOTO_ANALYSIS.md](docs/PHOTO_ANALYSIS.md).
 - [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — how the whole system fits together
 - [docs/INTEGRATION.md](docs/INTEGRATION.md) — the contract between the two halves
 - [docs/PHOTO_ANALYSIS.md](docs/PHOTO_ANALYSIS.md) — the expert vision agents and why their instructions read as they do
+- [docs/CALIBRATION.md](docs/CALIBRATION.md) — tuning the agents against professional judgement
 - [docs/BRAND.md](docs/BRAND.md) — brand and UI design guide
 - [docs/KNOWN_ISSUES.md](docs/KNOWN_ISSUES.md) — inherited problems worth knowing about
 - [backend/docs/](backend/docs/) — platform API spec, events, decisions

@@ -47,7 +47,18 @@ These each fix an observed failure. Removing one brings the failure back.
 
 ## Editing a brief
 
-Change one brief at a time and compare on the same photos:
+If a golden file exists for a reviewed house, use it — a brief edit that does
+not move the score is not an improvement:
+
+```bash
+pnpm --filter @bones-report/photo-analyst score \
+  --bundle calibration/<label>.bundle.json --golden calibration/<label>.golden.json
+```
+
+Edits must be concrete. "Be more careful about severity" changes nothing;
+naming the boundary case does. See `docs/CALIBRATION.md`.
+
+Otherwise change one brief at a time and compare on the same photos:
 
 ```bash
 cd backend

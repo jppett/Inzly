@@ -11,7 +11,10 @@
     "analyse": "tsx src/cli.ts",
     "clean": "rm -rf dist",
     "test": "echo \"No tests yet\"",
-    "lint": "echo \"No linting yet\""
+    "lint": "echo \"No linting yet\"",
+    "review": "tsx src/review-cli.ts review",
+    "score": "tsx src/review-cli.ts score",
+    "page": "tsx src/review/cli.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.120.0",
