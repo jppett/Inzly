@@ -10,16 +10,20 @@
 import { randomUUID } from 'node:crypto';
 import { PhotoAnalyst } from './services/analyst.js';
 import { createVisionProvider } from './providers/index.js';
+import { loadPermits } from './services/permits.js';
 import { EXPERT_AGENTS } from './agents/definitions.js';
 
 async function main(): Promise<void> {
   const args = process.argv.slice(2);
   const categories: string[] = [];
   const urls: string[] = [];
+  let address: string | undefined;
 
   for (let i = 0; i < args.length; i += 1) {
     if (args[i] === '--category' || args[i] === '-c') {
       categories.push(args[++i]);
+    } else if (args[i] === '--address' || args[i] === '-a') {
+      address = args[++i];
     } else if (args[i] === '--list') {
       console.log(EXPERT_AGENTS.map((a) => `${a.category.padEnd(16)} ${a.label}`).join('\n'));
       return;
@@ -30,20 +34,27 @@ async function main(): Promise<void> {
 
   if (urls.length === 0) {
     console.error(
-      'Usage: analyse [--category <name>]... <photo-url> [photo-url...]\n' +
-        '       analyse --list    (show available agents)',
+      'Usage: analyse [--address "<address>"] [--category <name>]... <photo-url> [photo-url...]\n' +
+        '       analyse --list    (show available agents)\n\n' +
+        'Passing --address pulls permit history so the agents can corroborate what they see.',
     );
     process.exit(1);
   }
 
+  const permits = await loadPermits(address);
   const provider = createVisionProvider();
   const analyst = new PhotoAnalyst(provider);
 
-  console.log(`\nAnalysing ${urls.length} photo(s) with ${provider.model}...\n`);
+  console.log(
+    `\nAnalysing ${urls.length} photo(s) with ${provider.model}` +
+      (permits.length ? ` and ${permits.length} permits on record` : '') +
+      '...\n',
+  );
   const started = Date.now();
 
   const { result, usage, failures } = await analyst.analyse(randomUUID(), urls, {
     categories: categories.length ? categories : undefined,
+    permits,
   });
 
   const elapsed = ((Date.now() - started) / 1000).toFixed(1);

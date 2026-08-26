@@ -2,6 +2,7 @@
 import { z } from 'zod';
 
 export * from './insights.js';
+export * from './permits.js';
 
 
 // EventEnvelope schema

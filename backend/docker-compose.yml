@@ -176,6 +176,34 @@ services:
       - /app/packages/shared/node_modules
     restart: unless-stopped
 
+  permits-fetcher:
+    build:
+      context: .
+      dockerfile: Dockerfile.permits-fetcher
+    container_name: bones-permits-fetcher
+    depends_on:
+      redis:
+        condition: service_healthy
+      redpanda:
+        condition: service_healthy
+    environment:
+      - NODE_ENV=${NODE_ENV:-development}
+      - REDIS_URL=redis://redis:6379
+      - REDPANDA_BROKERS=redpanda:9092
+      # Without a key the service uses a real captured permit history as a
+      # fixture, so the stack still runs end to end with no credentials.
+      - SHOVELS_API_KEY=${SHOVELS_API_KEY:-}
+      - SHOVELS_BASE_URL=${SHOVELS_BASE_URL:-https://api.shovels.ai/v2}
+      - SHOVELS_PERMIT_FROM=${SHOVELS_PERMIT_FROM:-2000-01-01}
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+    volumes:
+      - ./packages/permits-fetcher:/app/packages/permits-fetcher
+      - ./packages/shared:/app/packages/shared
+      - /app/node_modules
+      - /app/packages/permits-fetcher/node_modules
+      - /app/packages/shared/node_modules
+    restart: unless-stopped
+
 volumes:
   redis_data:
   redpanda_data:

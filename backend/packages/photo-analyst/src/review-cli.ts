@@ -13,6 +13,7 @@ import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { PhotoAnalyst } from './services/analyst.js';
 import { createVisionProvider } from './providers/index.js';
+import { loadPermits } from './services/permits.js';
 import { toReviewBundle, scoreRun, formatReport } from './calibration/index.js';
 import { EXPERT_AGENTS } from './agents/definitions.js';
 import type { GoldenFile, ReviewBundle } from './calibration/types.js';
@@ -52,12 +53,20 @@ async function review(): Promise<void> {
     return;
   }
 
+  const permits = await loadPermits(arg('address'));
+  if (permits.length) {
+    console.log(`${permits.length} permits on record — agents will corroborate against them.`);
+  }
+
   const provider = createVisionProvider();
   const analyst = new PhotoAnalyst(provider);
 
   console.log(`\nAnalysing with ${provider.model}...`);
   const started = Date.now();
-  const outcome = await analyst.analyse(randomUUID(), urls, { maxPhotos: urls.length });
+  const outcome = await analyst.analyse(randomUUID(), urls, {
+    maxPhotos: urls.length,
+    permits,
+  });
   const bundle = toReviewBundle(outcome, label, provider.model);
 
   mkdirSync(dirname(resolve(out)), { recursive: true });

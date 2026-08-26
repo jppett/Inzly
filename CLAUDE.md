@@ -52,6 +52,10 @@ is exactly what this setup replaced.
 **Events.** Topics are `<noun>.<operation>`; envelopes are `{ type, ts, data }`.
 `backend/schemas/*.json` is the source of truth for bodies.
 
+**Permits.** `permits-fetcher` puts building permits on record, and the photo
+agents use them to corroborate what they see — see
+[docs/PERMITS.md](docs/PERMITS.md). Shovels reports money in cents.
+
 **Photo analysis.** The expert vision agents in
 `backend/packages/photo-analyst/src/agents/` carry rules that each fix an
 observed failure — read [docs/PHOTO_ANALYSIS.md](docs/PHOTO_ANALYSIS.md) before

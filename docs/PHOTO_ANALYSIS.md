@@ -147,6 +147,14 @@ pnpm --filter @bones-report/photo-analyst analyse --list
 The CLI needs no Redis, Kafka or running stack. Use it when editing a brief: run
 before, edit, run again on the same photos, compare.
 
+## Permit corroboration
+
+Where building permits are on record, each agent receives the ones bearing on
+its category, and is told not to estimate the age of anything a permit covers.
+A roof permitted in 2023 is three years old whatever the shingles look like, and
+a genuine conflict between photo and record becomes a finding in its own right.
+See [PERMITS.md](PERMITS.md).
+
 ## Calibrating it
 
 Judging whether a brief is working by reading a few findings does not scale and

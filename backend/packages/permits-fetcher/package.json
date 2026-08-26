@@ -1,28 +1,22 @@
 {
-  "name": "@bones-report/photo-analyst",
+  "name": "@bones-report/permits-fetcher",
   "version": "1.0.0",
-  "description": "Expert vision agents that analyse property photographs and produce buyer-facing insights",
+  "description": "Building permit history via Shovels, used to corroborate what the photo agents see",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc -b",
     "dev": "nodemon --exec tsx src/index.ts",
     "start": "node dist/index.js",
-    "analyse": "tsx src/cli.ts",
+    "lookup": "tsx src/cli.ts",
     "clean": "rm -rf dist",
     "test": "echo \"No tests yet\"",
-    "lint": "echo \"No linting yet\"",
-    "review": "tsx src/review-cli.ts review",
-    "score": "tsx src/review-cli.ts score",
-    "page": "tsx src/review/cli.ts"
+    "lint": "echo \"No linting yet\""
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.120.0",
     "@bones-report/shared": "workspace:*",
     "kafkajs": "^2.2.0",
-    "redis": "^4.6.0",
-    "zod": "^3.22.0",
-    "@bones-report/permits-fetcher": "workspace:*"
+    "redis": "^4.6.0"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",

@@ -5,6 +5,7 @@ export * from './bones-report-result.js';
 export * from './mls-listing-request.js';
 export * from './mls-listing-result.js';
 export * from './property-insights-result.js';
+export * from './permit-history-result.js';
 
 // Import types and functions for internal use
 import {
@@ -32,6 +33,11 @@ import {
   PropertyInsightsResultRepository,
 } from './property-insights-result.js';
 
+import {
+  getPermitHistoryResultRepository,
+  PermitHistoryResultRepository,
+} from './permit-history-result.js';
+
 // Convenience function to get all repositories
 export interface AllRepositories {
   addressRequest: AddressRequestRepository;
@@ -39,6 +45,7 @@ export interface AllRepositories {
   mlsListingRequest: MLSListingRequestRepository;
   mlsListingResult: MLSListingResultRepository;
   propertyInsightsResult: PropertyInsightsResultRepository;
+  permitHistoryResult: PermitHistoryResultRepository;
 }
 
 export function getAllRepositories(): AllRepositories {
@@ -48,6 +55,7 @@ export function getAllRepositories(): AllRepositories {
     mlsListingRequest: getMLSListingRequestRepository(),
     mlsListingResult: getMLSListingResultRepository(),
     propertyInsightsResult: getPropertyInsightsResultRepository(),
+    permitHistoryResult: getPermitHistoryResultRepository(),
   };
 }
 
@@ -103,6 +111,7 @@ export async function initializeAllRepositories(): Promise<void> {
     repos.mlsListingRequest.count(),
     repos.mlsListingResult.count(),
     repos.propertyInsightsResult.count(),
+    repos.permitHistoryResult.count(),
   ]);
 
   console.log('All repositories initialized');

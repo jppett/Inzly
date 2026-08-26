@@ -19,6 +19,8 @@ export const EVENT_TOPICS = {
   MLS_LISTING_RESULT_UPDATE: 'MLSListingResult.update',
   PROPERTY_INSIGHTS_RESULT_CREATE: 'PropertyInsightsResult.create',
   PROPERTY_INSIGHTS_RESULT_UPDATE: 'PropertyInsightsResult.update',
+  PERMIT_HISTORY_RESULT_CREATE: 'PermitHistoryResult.create',
+  PERMIT_HISTORY_RESULT_UPDATE: 'PermitHistoryResult.update',
 } as const;
 
 export type EventTopic = typeof EVENT_TOPICS[keyof typeof EVENT_TOPICS];
@@ -128,6 +130,26 @@ export interface PropertyInsightsResultUpdateEvent {
   };
 }
 
+export interface PermitHistoryResultCreateEvent {
+  type: typeof EVENT_TOPICS.PERMIT_HISTORY_RESULT_CREATE;
+  data: {
+    id: string;
+    address_request_id: string;
+    created_at: string;
+    status: 'completed' | 'not_found' | 'failed';
+    permitCount: number;
+  };
+}
+
+export interface PermitHistoryResultUpdateEvent {
+  type: typeof EVENT_TOPICS.PERMIT_HISTORY_RESULT_UPDATE;
+  data: {
+    id: string;
+    status?: 'completed' | 'not_found' | 'failed';
+    updated_at: string;
+  };
+}
+
 // Union type for all events
 export type AppEvent = 
   | AddressRequestCreateEvent
@@ -139,7 +161,9 @@ export type AppEvent =
   | MLSListingResultCreateEvent
   | MLSListingResultUpdateEvent
   | PropertyInsightsResultCreateEvent
-  | PropertyInsightsResultUpdateEvent;
+  | PropertyInsightsResultUpdateEvent
+  | PermitHistoryResultCreateEvent
+  | PermitHistoryResultUpdateEvent;
 
 // Utility functions for creating event envelopes
 export function createEventEnvelope<T>(type: EventTopic, data: T): EventEnvelope<T> {
@@ -187,4 +211,12 @@ export function createPropertyInsightsResultCreateEvent(data: PropertyInsightsRe
 
 export function createPropertyInsightsResultUpdateEvent(data: PropertyInsightsResultUpdateEvent['data']): EventEnvelope<PropertyInsightsResultUpdateEvent['data']> {
   return createEventEnvelope(EVENT_TOPICS.PROPERTY_INSIGHTS_RESULT_UPDATE, data);
+}
+
+export function createPermitHistoryResultCreateEvent(data: PermitHistoryResultCreateEvent['data']): EventEnvelope<PermitHistoryResultCreateEvent['data']> {
+  return createEventEnvelope(EVENT_TOPICS.PERMIT_HISTORY_RESULT_CREATE, data);
+}
+
+export function createPermitHistoryResultUpdateEvent(data: PermitHistoryResultUpdateEvent['data']): EventEnvelope<PermitHistoryResultUpdateEvent['data']> {
+  return createEventEnvelope(EVENT_TOPICS.PERMIT_HISTORY_RESULT_UPDATE, data);
 }

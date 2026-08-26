@@ -6,6 +6,9 @@ export * from './types.js';
 // Property insight types (photo-analyst output)
 export * from './insights.js';
 
+// Permit history types (permits-fetcher output)
+export * from './permits.js';
+
 // Runtime validation schemas
 export * from './schemas/index.js';
 
@@ -23,6 +26,8 @@ export {
   createMLSListingResultUpdateEvent,
   createPropertyInsightsResultCreateEvent,
   createPropertyInsightsResultUpdateEvent,
+  createPermitHistoryResultCreateEvent,
+  createPermitHistoryResultUpdateEvent,
   type EventTopic,
   type AppEvent,
   type AddressRequestCreateEvent,
@@ -35,6 +40,8 @@ export {
   type MLSListingResultUpdateEvent,
   type PropertyInsightsResultCreateEvent,
   type PropertyInsightsResultUpdateEvent,
+  type PermitHistoryResultCreateEvent,
+  type PermitHistoryResultUpdateEvent,
 } from './events/index.js';
 
 // General utilities

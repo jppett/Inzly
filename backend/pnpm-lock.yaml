@@ -156,11 +156,39 @@ importers:
         specifier: ^5.3.0
         version: 5.9.3
 
+  packages/permits-fetcher:
+    dependencies:
+      '@bones-report/shared':
+        specifier: workspace:*
+        version: link:../shared
+      kafkajs:
+        specifier: ^2.2.0
+        version: 2.2.4
+      redis:
+        specifier: ^4.6.0
+        version: 4.7.1
+    devDependencies:
+      '@types/node':
+        specifier: ^20.10.0
+        version: 20.19.23
+      nodemon:
+        specifier: ^3.0.0
+        version: 3.1.10
+      tsx:
+        specifier: ^4.6.0
+        version: 4.20.6
+      typescript:
+        specifier: ^5.3.0
+        version: 5.9.3
+
   packages/photo-analyst:
     dependencies:
       '@anthropic-ai/sdk':
         specifier: ^0.120.0
         version: 0.120.0(zod@3.25.76)
+      '@bones-report/permits-fetcher':
+        specifier: workspace:*
+        version: link:../permits-fetcher
       '@bones-report/shared':
         specifier: workspace:*
         version: link:../shared

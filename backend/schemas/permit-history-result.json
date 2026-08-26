@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PermitHistoryResult",
+  "description": "Building permits on record for a property. Used to corroborate or contradict what the photo agents believe they see.",
+  "type": "object",
+  "required": ["id", "address_request_id", "status", "created_at", "permits"],
+  "properties": {
+    "id": { "type": "string", "format": "uuid" },
+    "address_request_id": { "type": "string", "format": "uuid" },
+    "status": { "type": "string", "enum": ["completed", "not_found", "failed"] },
+    "created_at": { "type": "string", "format": "date-time" },
+    "source": { "type": "string", "description": "shovels | mock" },
+    "matchedAddress": { "type": ["string", "null"] },
+    "geoId": { "type": ["string", "null"] },
+    "permits": { "type": "array", "items": { "$ref": "#/$defs/permit" } },
+    "error": { "type": "string" }
+  },
+  "$defs": {
+    "permit": {
+      "type": "object",
+      "required": ["id", "description", "tags"],
+      "properties": {
+        "id": { "type": "string" },
+        "number": { "type": ["string", "null"] },
+        "description": { "type": "string" },
+        "type": { "type": ["string", "null"] },
+        "subtype": { "type": ["string", "null"] },
+        "status": { "type": ["string", "null"] },
+        "jurisdiction": { "type": ["string", "null"] },
+        "issueDate": { "type": ["string", "null"], "description": "ISO date" },
+        "finalDate": { "type": ["string", "null"] },
+        "jobValue": {
+          "type": ["number", "null"],
+          "description": "Whole currency units. Shovels reports cents; the fetcher divides."
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Shovels work tags, e.g. roofing, plumbing, window_door"
+        },
+        "categories": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Inzly insight categories this permit is relevant to, mapped from tags"
+        }
+      }
+    }
+  }
+}

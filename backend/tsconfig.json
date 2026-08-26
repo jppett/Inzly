@@ -40,6 +40,9 @@
     },
     {
       "path": "./packages/photo-analyst"
+    },
+    {
+      "path": "./packages/permits-fetcher"
     }
   ]
 }

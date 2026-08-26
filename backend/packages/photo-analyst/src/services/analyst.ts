@@ -1,6 +1,7 @@
 import { randomUUID, createHash } from 'node:crypto';
 import type {
   AgentCategoryResponse,
+  PermitRecord,
   CategoryAssessment,
   CreatePropertyInsightsResultInput,
   InsightsSummary,
@@ -10,6 +11,7 @@ import type {
 } from '@bones-report/shared';
 import { EXPERT_AGENTS, type ExpertAgent } from '../agents/definitions.js';
 import { SHARED_RUBRIC, OUTPUT_CONTRACT } from '../agents/rubric.js';
+import { permitContext } from '../agents/permit-context.js';
 import type { VisionProvider, VisionUsage } from '../providers/index.js';
 import { reconcileCategory, severityRank } from './reconcile.js';
 
@@ -20,6 +22,11 @@ export interface AnalyseOptions {
   categories?: string[];
   /** Run at most this many agents concurrently. */
   concurrency?: number;
+  /**
+   * Permits on record. Handed to each agent for the categories they bear on,
+   * so findings corroborate the record instead of guessing at age.
+   */
+  permits?: PermitRecord[];
 }
 
 export interface AnalyseOutcome {
@@ -78,11 +85,11 @@ export class PhotoAnalyst {
     // racing several cold writers.
     const [first, ...rest] = agents;
     if (first) {
-      await this.runOne(first, photos, manifest, assessments, insights, failures, usage);
+      await this.runOne(first, photos, manifest, assessments, insights, failures, usage, options.permits);
     }
 
     await inBatches(rest, options.concurrency ?? DEFAULT_CONCURRENCY, (agent) =>
-      this.runOne(agent, photos, manifest, assessments, insights, failures, usage),
+      this.runOne(agent, photos, manifest, assessments, insights, failures, usage, options.permits),
     );
 
     insights.sort((a, b) => severityRank(b.severity) - severityRank(a.severity));
@@ -114,6 +121,7 @@ export class PhotoAnalyst {
     insights: PropertyInsight[],
     failures: Array<{ category: string; error: string }>,
     usage: VisionUsage,
+    permits?: PermitRecord[],
   ): Promise<void> {
     const runs: AgentCategoryResponse[] = [];
 
@@ -123,7 +131,9 @@ export class PhotoAnalyst {
           systemPrompt: SHARED_RUBRIC,
           photos,
           photoManifest: manifest,
-          brief: `${agent.brief}\n\n${OUTPUT_CONTRACT}`,
+          // Permit context sits with the brief, after the cache breakpoint,
+          // so the photo prefix stays identical across agents.
+          brief: `${agent.brief}${permitContext(permits, agent.category)}\n\n${OUTPUT_CONTRACT}`,
         });
         runs.push(response.result);
         if (response.usage) {

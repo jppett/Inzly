@@ -10,6 +10,7 @@ import { bonesReportResultRouter } from './routes/bones-report-results.js';
 import { mlsListingRequestRouter } from './routes/mls-listing-requests.js';
 import { mlsListingResultRouter } from './routes/mls-listing-results.js';
 import { propertyInsightsRouter } from './routes/property-insights.js';
+import { permitHistoryRouter } from './routes/permit-history.js';
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -59,6 +60,7 @@ app.use('/bones-report-results', bonesReportResultRouter);
 app.use('/mls-listing-requests', mlsListingRequestRouter);
 app.use('/mls-listing-results', mlsListingResultRouter);
 app.use('/property-insights', propertyInsightsRouter);
+app.use('/permit-history', permitHistoryRouter);
 
 // 404 handler
 app.use('*', (req, res) => {
@@ -81,4 +83,5 @@ app.listen(PORT, () => {
   console.log(`🏘️ MLSListingRequest API: http://localhost:${PORT}/mls-listing-requests`);
   console.log(`📍 MLSListingResult API: http://localhost:${PORT}/mls-listing-results`);
   console.log(`📸 PropertyInsights API: http://localhost:${PORT}/property-insights`);
+  console.log(`🏗️ PermitHistory API: http://localhost:${PORT}/permit-history`);
 });

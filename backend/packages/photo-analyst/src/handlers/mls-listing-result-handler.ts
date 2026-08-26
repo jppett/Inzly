@@ -4,6 +4,7 @@ import {
   getPropertyInsightsResultRepository,
   getMLSListingRequestRepository,
   getAddressRequestRepository,
+  getPermitHistoryResultRepository,
 } from '@bones-report/shared';
 import { PhotoAnalyst } from '../services/analyst.js';
 import { createVisionProvider } from '../providers/index.js';
@@ -52,14 +53,23 @@ export class MLSListingResultHandler {
       return;
     }
 
+    // Permits are an optional enrichment: they sharpen findings where they
+    // exist, and their absence must not block analysis.
+    const permitHistory = await getPermitHistoryResultRepository()
+      .getLatestForAddressRequest(addressRequestId)
+      .catch(() => null);
+    const permits = permitHistory?.permits ?? [];
+
     console.log(
-      `📸 [photo-analyst] Analysing ${photoUrls.length} photos for ${result.listing_data.address}`,
+      `📸 [photo-analyst] Analysing ${photoUrls.length} photos for ${result.listing_data.address}` +
+        (permits.length ? ` with ${permits.length} permits on record` : ' (no permits on record)'),
     );
 
     try {
       const { result: insights, usage, failures } = await this.analyst.analyse(
         addressRequestId,
         photoUrls,
+        { permits },
       );
 
       const stored = await repo.create(insights);
