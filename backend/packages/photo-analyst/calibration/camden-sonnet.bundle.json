@@ -1,0 +1,1798 @@
+{
+  "bundleId": "6bd878b9-2638-42fa-91d5-730541da2c91",
+  "createdAt": "2026-08-27T18:16:06.291Z",
+  "label": "camden-sonnet",
+  "model": "claude-sonnet-5",
+  "photos": [
+    {
+      "id": "aa15ed8f1f",
+      "url": "https://photos.zillowstatic.com/fp/7e4cf4e62e9e29bdc859447da5620408-d_d.jpg",
+      "label": "Photo 1"
+    },
+    {
+      "id": "220988cb7d",
+      "url": "https://photos.zillowstatic.com/fp/ce0448e6f7e7052e5677e404c92dd260-d_d.jpg",
+      "label": "Photo 2"
+    },
+    {
+      "id": "9937365884",
+      "url": "https://photos.zillowstatic.com/fp/5d182445507f5c138d01d7387d1b9f7b-d_d.jpg",
+      "label": "Photo 3"
+    },
+    {
+      "id": "2715700b3c",
+      "url": "https://photos.zillowstatic.com/fp/d85d3568de5535d58d490232793990ec-d_d.jpg",
+      "label": "Photo 4"
+    },
+    {
+      "id": "c6e78f599f",
+      "url": "https://photos.zillowstatic.com/fp/00998ff431cf9c2a0529f2d64f08aa78-d_d.jpg",
+      "label": "Photo 5"
+    },
+    {
+      "id": "495667a862",
+      "url": "https://photos.zillowstatic.com/fp/75a579020382b5d9ca095d082d51e105-d_d.jpg",
+      "label": "Photo 6"
+    },
+    {
+      "id": "77d299d443",
+      "url": "https://photos.zillowstatic.com/fp/83fa7a7da3e56c2a139f8716c1e1c28a-d_d.jpg",
+      "label": "Photo 7"
+    },
+    {
+      "id": "2cabd701fc",
+      "url": "https://photos.zillowstatic.com/fp/dea0d46db7ad97642877b0da8d16eebd-d_d.jpg",
+      "label": "Photo 8"
+    },
+    {
+      "id": "c99e534db3",
+      "url": "https://photos.zillowstatic.com/fp/cfb4bc7d6cb84a8041ba6cf70de3b133-d_d.jpg",
+      "label": "Photo 9"
+    },
+    {
+      "id": "4d8a91c22a",
+      "url": "https://photos.zillowstatic.com/fp/cd29766793ed18d6c691b1f8704edd9e-d_d.jpg",
+      "label": "Photo 10"
+    },
+    {
+      "id": "4f501770c4",
+      "url": "https://photos.zillowstatic.com/fp/b6a1118f6a117e12936bede5da774a0e-d_d.jpg",
+      "label": "Photo 11"
+    },
+    {
+      "id": "aa2a0f0f07",
+      "url": "https://photos.zillowstatic.com/fp/04b2824688f070d39429710e61540e7d-d_d.jpg",
+      "label": "Photo 12"
+    },
+    {
+      "id": "1b607d8f3d",
+      "url": "https://photos.zillowstatic.com/fp/94941aceebfc51613137ede66a510ec8-d_d.jpg",
+      "label": "Photo 13"
+    },
+    {
+      "id": "9c62717389",
+      "url": "https://photos.zillowstatic.com/fp/e82993ac6a4c88773c687a80dbcb3356-d_d.jpg",
+      "label": "Photo 14"
+    },
+    {
+      "id": "2aa628877c",
+      "url": "https://photos.zillowstatic.com/fp/952ba6a879695c146133e3229e6c65e8-d_d.jpg",
+      "label": "Photo 15"
+    },
+    {
+      "id": "f97ac997cc",
+      "url": "https://photos.zillowstatic.com/fp/e1cbe5935d0e36e82db096dbc602296d-d_d.jpg",
+      "label": "Photo 16"
+    },
+    {
+      "id": "fd97ded1b1",
+      "url": "https://photos.zillowstatic.com/fp/57927a4b62ef22222b34823f031ccad3-d_d.jpg",
+      "label": "Photo 17"
+    },
+    {
+      "id": "d6aa3da199",
+      "url": "https://photos.zillowstatic.com/fp/780032e07d316d2498445c0fa09a6ad3-d_d.jpg",
+      "label": "Photo 18"
+    },
+    {
+      "id": "f4fbabdb1e",
+      "url": "https://photos.zillowstatic.com/fp/53cb01dc0798e2408d0889d78b2c6105-d_d.jpg",
+      "label": "Photo 19"
+    },
+    {
+      "id": "c9e4b730f2",
+      "url": "https://photos.zillowstatic.com/fp/0e2308a828618c95e5b0abe772b3b16d-d_d.jpg",
+      "label": "Photo 20"
+    },
+    {
+      "id": "4b3ad56750",
+      "url": "https://photos.zillowstatic.com/fp/83a95dfc8e852e4724b9782174bcf9eb-d_d.jpg",
+      "label": "Photo 21"
+    },
+    {
+      "id": "b4430e255e",
+      "url": "https://photos.zillowstatic.com/fp/63a0e35a0f0ee455b5938739b925a08e-d_d.jpg",
+      "label": "Photo 22"
+    },
+    {
+      "id": "65683fbddb",
+      "url": "https://photos.zillowstatic.com/fp/6e4bb66fe59b23192aecf1dbe674fb5c-d_d.jpg",
+      "label": "Photo 23"
+    },
+    {
+      "id": "bf050e645e",
+      "url": "https://photos.zillowstatic.com/fp/efb319f911000d85517a1987d2457da3-d_d.jpg",
+      "label": "Photo 24"
+    },
+    {
+      "id": "0db38b7fd0",
+      "url": "https://photos.zillowstatic.com/fp/df7d987f68ba5e2fdb158025c7b93381-d_d.jpg",
+      "label": "Photo 25"
+    },
+    {
+      "id": "b0ec472419",
+      "url": "https://photos.zillowstatic.com/fp/ac3f5ba4428819ee145cffc605fc6d4c-d_d.jpg",
+      "label": "Photo 26"
+    },
+    {
+      "id": "c3adcdd076",
+      "url": "https://photos.zillowstatic.com/fp/bab9793610b6c0ff20ce29ab4134d93e-d_d.jpg",
+      "label": "Photo 27"
+    },
+    {
+      "id": "9aa0b39332",
+      "url": "https://photos.zillowstatic.com/fp/4905308e8fbc1af49a71ed9b9c6ebf3f-d_d.jpg",
+      "label": "Photo 28"
+    },
+    {
+      "id": "ec47f5fcbe",
+      "url": "https://photos.zillowstatic.com/fp/26df38822eec4422bbcd9217ff25047d-d_d.jpg",
+      "label": "Photo 29"
+    },
+    {
+      "id": "b55e404cda",
+      "url": "https://photos.zillowstatic.com/fp/c4c5350c887fa649849bb85ac10b9958-d_d.jpg",
+      "label": "Photo 30"
+    }
+  ],
+  "categories": [
+    {
+      "category": "ventilation",
+      "model": "claude-sonnet-5",
+      "rating": "fair",
+      "confidence": "medium",
+      "summary": "Ventilation is difficult to confirm from these photographs and appears incomplete in places. Both bathrooms have windows that can provide some natural ventilation, but no exhaust fan is visible in either, and the kitchen's range hood cannot be confirmed as ducted to the outside rather than recirculating. None of this is disqualifying, but a buyer should walk through and check each of these in person.",
+      "provenance": {
+        "runs": 1,
+        "agreement": 1,
+        "photosConsidered": 30
+      }
+    },
+    {
+      "category": "siding",
+      "model": "claude-sonnet-5",
+      "rating": "good",
+      "confidence": "medium",
+      "summary": "The house is clad in cream-colored vinyl siding, horizontal lap on the main walls and a vertical board pattern on the gable ends, a common combination for vinyl installations of this era. In the available exterior photos the siding is intact and uniform in color with no visible cracking, buckling, warping, or chalking, and window and door trim is straight and well-fitted. The exposed painted concrete-block foundation sits well above grade with no siding-to-soil contact visible. The main dated feature is the set of scalloped aluminum awnings over the windows and front door, a period detail rather than a defect.",
+      "provenance": {
+        "runs": 1,
+        "agreement": 1,
+        "photosConsidered": 30
+      }
+    },
+    {
+      "category": "deck",
+      "model": "claude-sonnet-5",
+      "rating": "good",
+      "confidence": "medium",
+      "summary": "This house has no elevated wood or composite deck; the exterior circulation consists of small concrete stoops and short flights of concrete steps at the front and side/rear entries, each fitted with a simple black wrought-iron pipe railing and a scalloped aluminum entry awning. From what is visible the concrete is uncracked and the railings show no rust or looseness, but the railings run along only one side of the steps rather than both, which is common on older bungalows of this type but worth a quick in-person check for stability and code compliance.",
+      "provenance": {
+        "runs": 1,
+        "agreement": 1,
+        "photosConsidered": 30
+      }
+    },
+    {
+      "category": "foundation",
+      "model": "claude-sonnet-5",
+      "rating": "good",
+      "confidence": "medium",
+      "summary": "The house sits on a full basement with painted concrete block (CMU) foundation walls. Where the foundation is visible \u2014 the exterior perimeter and the unfinished mechanical/laundry areas of the basement \u2014 the walls appear straight and intact, with no cracking, bowing, or offset visible in these photographs. However, roughly half of the basement has been finished with tongue-and-groove wood paneling that fully covers the block walls, so a real structural check of that portion cannot be done from these photos and would need an in-person look behind or around the paneling.",
+      "provenance": {
+        "runs": 2,
+        "agreement": 1,
+        "photosConsidered": 30
+      }
+    },
+    {
+      "category": "roof",
+      "model": "claude-sonnet-5",
+      "rating": "good",
+      "confidence": "medium",
+      "summary": "The main roof is a moderate-pitch asphalt (likely architectural) shingle roof, visible mostly in three-quarter and aerial exterior shots rather than close-up detail. The visible planes show uniform coloring, straight ridge and hip lines, and no sagging, missing shingles, or exposed decking. Flashing at the chimney and roof-wall intersections is not clearly visible in any photo. Gutters and downspouts appear serviceable, but at least one downspout discharges directly onto grade at the foundation without an extension or splash block. Given the steep pitch and the ground-level/aerial vantage points available, close-in defects such as granule loss or minor cupping cannot be ruled out, so a hands-on roof inspection is still worthwhile before closing.",
+      "provenance": {
+        "runs": 2,
+        "agreement": 0.5,
+        "photosConsidered": 30
+      }
+    },
+    {
+      "category": "windows",
+      "model": "claude-sonnet-5",
+      "rating": "good",
+      "confidence": "medium",
+      "summary": "The windows are original wood-framed double-hung units paired with aluminum storm windows, a common and effective combination for a house of this age, and the painted trim looks intact and recently refreshed with no visible rot, cracked glazing, or peeling paint on the sashes photographed. The front entry has a decorative wrought-iron security gate over the door, and several windows are shaded by scalloped aluminum awnings, a retro but functional detail rather than a defect. A frosted-glass window in the main bathroom is a deliberate privacy choice. No fogging, broken glass, or frame damage is visible in any photo, though interior close-ups are not sharp enough to fully confirm seal integrity on every unit.",
+      "provenance": {
+        "runs": 1,
+        "agreement": 1,
+        "photosConsidered": 30
+      }
+    },
+    {
+      "category": "electrical",
+      "model": "claude-sonnet-5",
+      "rating": "fair",
+      "confidence": "low",
+      "summary": "No electrical panel is visible in any of the listing photographs, so brand, breaker versus fuse configuration, and overall condition of the service panel cannot be assessed from these images. What can be seen \u2014 an overhead service drop at the roofline, conventional-looking outlets in the living areas and bedrooms, and open wiring runs in the unfinished portion of the basement \u2014 shows nothing alarming: no exposed conductors, scorching, or obvious amateur work. That said, this is a house with visible cloth-topped baseboard heaters and a mix of original and updated finishes, so the age and adequacy of the wiring and panel should be confirmed by an in-person inspection rather than inferred from photos.",
+      "provenance": {
+        "runs": 1,
+        "agreement": 1,
+        "photosConsidered": 30
+      }
+    },
+    {
+      "category": "plumbing",
+      "model": "claude-sonnet-5",
+      "rating": "good",
+      "confidence": "medium",
+      "summary": "Plumbing fixtures and the mechanical areas visible in these photos show no signs of active leaks, staining, or corrosion. The water heater in the utility room is a gas-fired tank unit that appears to be a newer replacement, with no visible corrosion at the tank or fittings, though a drain pan and TPR discharge line are not clearly visible and should be confirmed on a walkthrough. The kitchen sink and the upstairs bathroom both appear to be updated within an otherwise original house, and the basement bathroom and laundry sink are older in style but show no signs of deterioration or leakage. Exposed supply and drain piping visible along the basement ceiling appears to be copper and plastic, with no galvanized pipe visible in these photographs, though the full supply run and the main shutoff are not shown.",
+      "provenance": {
+        "runs": 1,
+        "agreement": 1,
+        "photosConsidered": 30
+      }
+    },
+    {
+      "category": "hvac",
+      "model": "claude-sonnet-5",
+      "rating": "good",
+      "confidence": "medium",
+      "summary": "A handful of photos give a partial but useful look at the mechanical systems: a gas-fired furnace and water heater are visible in the basement utility area with ductwork overhead, an exterior condenser unit confirms central air conditioning, and the finished attic rooms appear to rely on electric baseboard heat rather than ducted supply. Nothing in the photographs shows rust, damage, or an obvious safety issue, but the images are too small and distant to read any data plates or confirm the age of the furnace, water heater, or condenser.",
+      "provenance": {
+        "runs": 1,
+        "agreement": 1,
+        "photosConsidered": 30
+      }
+    },
+    {
+      "category": "tile",
+      "model": "claude-sonnet-5",
+      "rating": "good",
+      "confidence": "medium",
+      "summary": "Only one true tile wet area is visible in the listing photos: the main bathroom's tub surround, which is finished in white subway tile with what appears to be intact, unstained grout and no visible cracking, chipping, or displacement. The second bathroom, in the finished basement, uses a fiberglass or acrylic shower stall rather than tile, so grout and caulk failure are not a concern there. Caulk lines at the tub-to-tile and tub-to-floor junctions are not clearly visible in the available photo, so sealant condition in the main bath cannot be fully confirmed from these images.",
+      "provenance": {
+        "runs": 1,
+        "agreement": 1,
+        "photosConsidered": 30
+      }
+    },
+    {
+      "category": "countertops",
+      "model": "claude-sonnet-5",
+      "rating": "good",
+      "confidence": "medium",
+      "summary": "The kitchen countertops are a light, wood-toned laminate that appears intact throughout the run, with a stainless double-basin sink dropped into the counter and a white subway-tile backsplash set into the wall above. No chips, scorching, or water staining are visible in any of the photographs, though the images are taken from a moderate distance and close inspection of the sink cutout and seams was not possible.",
+      "provenance": {
+        "runs": 1,
+        "agreement": 1,
+        "photosConsidered": 30
+      }
+    },
+    {
+      "category": "cabinetry",
+      "model": "claude-sonnet-5",
+      "rating": "good",
+      "confidence": "medium",
+      "summary": "The kitchen cabinets are traditional oak-style raised-panel boxes with butcher-block-pattern laminate countertops, likely dating to a 1990s-era update; doors and drawers appear aligned with no delamination or water staining visible at the sink base. The house also has several built-in millwork features \u2014 a solid wood pantry cabinet off the kitchen, and extensive pine-paneled built-in cabinetry in both the finished attic and finished basement \u2014 that appear to be handmade, solid, and in good condition. None of the cabinetry shown is high-end, but nothing photographed shows structural failure, swelling, or hardware damage.",
+      "provenance": {
+        "runs": 1,
+        "agreement": 1,
+        "photosConsidered": 30
+      }
+    },
+    {
+      "category": "appliances",
+      "model": "claude-sonnet-5",
+      "rating": "fair",
+      "confidence": "medium",
+      "summary": "The kitchen holds a basic white gas range and a stainless refrigerator that visibly postdates it, with no dishwasher or microwave anywhere in the photographed spaces; a plain washer and dryer are present in the unfinished basement. Nothing here shows damage, but the appliance package is dated, unbranded as far as can be read, and clearly not a matched suite, consistent with a starter-tier home that has not been updated in the kitchen.",
+      "provenance": {
+        "runs": 1,
+        "agreement": 1,
+        "photosConsidered": 30
+      }
+    },
+    {
+      "category": "lighting",
+      "model": "claude-sonnet-5",
+      "rating": "fair",
+      "confidence": "medium",
+      "summary": "Lighting throughout the house is functional but dated, consisting almost entirely of builder-grade flush-mount ceiling fixtures from an earlier renovation era, with no recessed cans, under-cabinet lighting, or ceiling fans anywhere in the home. The one clearly updated fixture is the bathroom vanity light bar. None of this rises to a defect \u2014 swapping dated fixtures is inexpensive \u2014 but a buyer should expect to budget for fixture updates if they want a more current look, and should note the kitchen has no task lighting over the counters.",
+      "provenance": {
+        "runs": 1,
+        "agreement": 1,
+        "photosConsidered": 30
+      }
+    },
+    {
+      "category": "wall_finishes",
+      "model": "claude-sonnet-5",
+      "rating": "good",
+      "confidence": "high",
+      "summary": "Wall and ceiling finishes are in good, well-maintained condition throughout. The main living areas show a consistent, apparently recent coat of gray paint over a light knockdown texture with no cracking, staining or deformation visible on any ceiling. Original features remain in the kitchen (wood wainscoting) and upper level (knotty-pine paneled attic with an older acoustic drop-tile ceiling), both dated in style but structurally intact. The finished basement has been refreshed with new paneling, laminate flooring and a matching drop ceiling. No water staining, sagging, or crack displacement is visible in any interior photograph.",
+      "provenance": {
+        "runs": 1,
+        "agreement": 1,
+        "photosConsidered": 30
+      }
+    },
+    {
+      "category": "landscaping",
+      "model": "claude-sonnet-5",
+      "rating": "good",
+      "confidence": "medium",
+      "summary": "The lot drains reasonably well with downspout extensions carrying roof water away from the foundation, and the perimeter is enclosed by galvanized chain-link fencing in serviceable condition. The one clear defect is cracking in the detached garage's concrete driveway. Overall grading could not be fully judged because the yard is blanketed in fallen leaves in every exterior photo, and the lot itself reads as a fairly tight, closely-spaced urban parcel typical of the neighborhood.",
+      "provenance": {
+        "runs": 1,
+        "agreement": 1,
+        "photosConsidered": 30
+      }
+    },
+    {
+      "category": "flooring",
+      "model": "claude-sonnet-5",
+      "rating": "good",
+      "confidence": "medium",
+      "summary": "The main living areas and bedrooms retain original solid hardwood flooring in sound, well-maintained condition with tight seams and no visible cupping, gapping, or staining. The kitchen and adjoining pantry area use a dated sheet-vinyl floor that was not part of the cosmetic refresh applied elsewhere in the house. Upstairs, the finished attic space is carpeted with what appears to be a modest builder-grade pile. In the basement, the finished rec room has been upgraded with a water-resistant luxury vinyl plank, a sensible choice for a below-grade space, while the adjacent unfinished utility and laundry area still has an older vinyl tile floor, marking where the basement renovation stopped.",
+      "provenance": {
+        "runs": 1,
+        "agreement": 1,
+        "photosConsidered": 30
+      }
+    }
+  ],
+  "insights": [
+    {
+      "title": "No visible exhaust fan in main bathroom",
+      "description": "The tiled tub/shower bathroom has an operable window but no ceiling-mounted exhaust fan visible in the photograph. Without mechanical ventilation, shower moisture relies on the window alone, which is often left closed in cold or wet weather.",
+      "severity": "warning",
+      "confidence": "medium",
+      "costEstimate": {
+        "low": 250,
+        "high": 500,
+        "unit": "per_unit",
+        "quantity": 1,
+        "currency": "USD",
+        "basis": "Installing a new bath exhaust fan with ducting to the exterior in an existing wall/ceiling, typical for a home in this price range"
+      },
+      "recommendedAction": "Check the bathroom ceiling in person for a fan the photo may have cropped out. If none exists, budget for adding one, particularly since the room relies on an operable window for moisture control.",
+      "evidence": [
+        {
+          "photoId": "fd97ded1b1",
+          "observed": "Subway-tiled tub and shower surround with an operable double-hung window above the tub. No fan grille or fan housing is visible on the ceiling in the frame.",
+          "inference": "The photo angle may crop part of the ceiling, so a fan could exist outside the frame. If none is present, shower steam has only the window for relief, which is a weaker form of ventilation than a vented fan and more prone to being left unused in winter.",
+          "region": {
+            "x": 0,
+            "y": 0,
+            "width": 100,
+            "height": 40
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/57927a4b62ef22222b34823f031ccad3-d_d.jpg"
+        }
+      ],
+      "category": "ventilation",
+      "id": "5a079389-e8fa-418c-8bad-7623f3642efc"
+    },
+    {
+      "title": "No visible exhaust fan in basement bathroom",
+      "description": "The lower-level bathroom also shows a window but no ceiling fan in view. This is a second, separate room from the main bathroom, so the same ventilation gap applies here as well.",
+      "severity": "warning",
+      "confidence": "medium",
+      "costEstimate": {
+        "low": 250,
+        "high": 500,
+        "unit": "per_unit",
+        "quantity": 1,
+        "currency": "USD",
+        "basis": "Installing a fan with ducting to the exterior in a below-grade bathroom, which can be more involved due to duct routing"
+      },
+      "recommendedAction": "Confirm whether a fan is installed in this bathroom. Below-grade rooms are especially prone to trapped moisture if ventilation is inadequate.",
+      "evidence": [
+        {
+          "photoId": "bf050e645e",
+          "observed": "Toilet, vanity, and mirror light fixture with an awning-style window above. No fan grille is visible on the ceiling in the frame.",
+          "inference": "As with the upstairs bathroom, the ceiling may extend beyond the frame. If there truly is no fan, a below-grade bathroom without mechanical exhaust is more likely to develop mildew or musty odors than one with a fan.",
+          "photoUrl": "https://photos.zillowstatic.com/fp/efb319f911000d85517a1987d2457da3-d_d.jpg"
+        },
+        {
+          "photoId": "c99e534db3",
+          "observed": "A separate small window with a wood frame is visible near the attic stair landing area, unrelated to the basement bath.",
+          "inference": "Not additional evidence of bathroom ventilation; included only to note the general absence of visible ductwork or fan housings elsewhere in the lower level photos.",
+          "region": null,
+          "photoUrl": "https://photos.zillowstatic.com/fp/cfb4bc7d6cb84a8041ba6cf70de3b133-d_d.jpg"
+        }
+      ],
+      "category": "ventilation",
+      "id": "fb3b293c-0f2b-47d3-bb21-267446a9dd2e"
+    },
+    {
+      "title": "Downspout discharges at grade near foundation",
+      "description": "At least one downspout empties directly onto the ground close to the foundation wall rather than into an extension that carries water further away.",
+      "severity": "warning",
+      "confidence": "medium",
+      "costEstimate": {
+        "low": 60,
+        "high": 250,
+        "unit": "total",
+        "quantity": null,
+        "currency": "USD",
+        "basis": "Adding downspout extensions or splash blocks at visible discharge points; exact count of downspouts needing correction not fully verifiable from photos."
+      },
+      "recommendedAction": "Add downspout extensions or splash blocks directing water at least several feet from the foundation, and confirm grading slopes away from the house.",
+      "evidence": [
+        {
+          "photoId": "aa15ed8f1f",
+          "observed": "A white downspout runs down the corner of the house near the entry steps and appears to terminate at grade without a visible extension.",
+          "inference": "Water discharging directly at the foundation over time can contribute to soil saturation and basement moisture; a low-cost extension typically resolves this.",
+          "region": {
+            "x": 48,
+            "y": 70,
+            "width": 8,
+            "height": 20
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/7e4cf4e62e9e29bdc859447da5620408-d_d.jpg"
+        }
+      ],
+      "category": "roof",
+      "id": "51517d1d-b0ab-4eef-9c49-68dedd05dcbb"
+    },
+    {
+      "title": "Aged asphalt shingle roof with visible staining",
+      "description": "The shingle roof shows dark streaking and a dulled, weathered surface across the visible planes. This pattern is typically algae or biological staining combined with UV wear rather than a structural problem, but it usually accompanies a roof that is well into its service life. A buyer should budget for replacement within the next several years rather than assume the roof is new.",
+      "severity": "warning",
+      "confidence": "medium",
+      "costEstimate": {
+        "low": 7000,
+        "high": 12000,
+        "unit": "total",
+        "quantity": null,
+        "currency": "USD",
+        "basis": "Estimated for a full tear-off and re-shingle of a roof this size (roughly 1,200-1,600 sq ft of roof plane based on the footprint visible in the aerial photo); exact area should be confirmed by a roofer, and no permit record was provided to establish actual roof age."
+      },
+      "recommendedAction": "Have a roofer or inspector examine the shingles up close for granule loss, cupping, and remaining service life before closing, and ask the seller for any roofing invoices or permits.",
+      "evidence": [
+        {
+          "photoId": "c3adcdd076",
+          "observed": "Aerial view shows the full gable roof with a uniformly dulled gray surface and darker streaking running down several roof planes.",
+          "inference": "Streaking of this kind is commonly algae or moss growth on aging asphalt shingles. It does not by itself indicate leaking, but combined with the dulled color it suggests the shingles are not recent.",
+          "region": {
+            "x": 15,
+            "y": 10,
+            "width": 70,
+            "height": 65
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/bab9793610b6c0ff20ce29ab4134d93e-d_d.jpg"
+        },
+        {
+          "photoId": "aa15ed8f1f",
+          "observed": "Front-facing roof plane shows gray shingles with visible dark discoloration along the lower courses near the eaves.",
+          "inference": "Consistent with the aerial view; supports the read that this covering is aged rather than newly installed.",
+          "region": {
+            "x": 25,
+            "y": 8,
+            "width": 55,
+            "height": 30
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/7e4cf4e62e9e29bdc859447da5620408-d_d.jpg"
+        },
+        {
+          "photoId": "bf050e645e",
+          "observed": "Rear roof plane and chimney stack are visible in daylight; shingle color is uniform gray with the same dulled, weathered appearance as the front elevation.",
+          "inference": "Confirms the wear pattern is present on more than one roof face rather than being a lighting artifact from a single angle.",
+          "region": {
+            "x": 10,
+            "y": 5,
+            "width": 60,
+            "height": 30
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/efb319f911000d85517a1987d2457da3-d_d.jpg"
+        }
+      ],
+      "category": "roof",
+      "id": "506373c1-655d-47b9-b06e-d0845c95a003"
+    },
+    {
+      "title": "Cracking in garage driveway concrete",
+      "description": "The concrete driveway leading to the detached garage shows visible cracking across its surface. This is cosmetic and functional at this stage rather than structural, but left unaddressed it can widen with freeze-thaw cycles.",
+      "severity": "warning",
+      "confidence": "medium",
+      "costEstimate": {
+        "low": 400,
+        "high": 1200,
+        "unit": "total",
+        "quantity": null,
+        "currency": "USD",
+        "basis": "Crack sealing and localized patching of a single-car driveway apron; full replacement would run higher and is not clearly warranted from this photo."
+      },
+      "recommendedAction": "Have a concrete contractor assess whether the cracks are surface-level or indicate settlement, and seal them to prevent water intrusion and further widening.",
+      "evidence": [
+        {
+          "photoId": "b55e404cda",
+          "observed": "Diagonal and linear cracks run across the concrete driveway slab in front of the garage.",
+          "inference": "Cracking of this kind is common in older driveway slabs and is usually cosmetic, but it should be checked for any vertical offset that would suggest sub-base settlement.",
+          "region": {
+            "x": 20,
+            "y": 70,
+            "width": 60,
+            "height": 25
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/c4c5350c887fa649849bb85ac10b9958-d_d.jpg"
+        }
+      ],
+      "category": "landscaping",
+      "id": "b29ef6eb-22ae-428d-9afa-1110835ee799"
+    },
+    {
+      "title": "Finished basement paneling conceals foundation walls",
+      "description": "A large section of the basement has been finished with wood paneling covering the walls floor-to-ceiling, so the block foundation behind it cannot be inspected from these photos.",
+      "severity": "warning",
+      "confidence": "medium",
+      "costEstimate": null,
+      "recommendedAction": "Ask the seller or an inspector to check behind or through an access point in the paneling for cracking, moisture staining, or efflorescence before closing, since finished walls can hide problems.",
+      "evidence": [
+        {
+          "photoId": "ec47f5fcbe",
+          "observed": "Basement room with walls fully covered in wood paneling from floor to ceiling, no block or concrete surface visible.",
+          "inference": "The condition of the foundation wall behind this paneling is unknown from the photo; finished basements sometimes conceal past water intrusion or cracking that would otherwise be visible.",
+          "region": {
+            "x": 0,
+            "y": 0,
+            "width": 100,
+            "height": 100
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/26df38822eec4422bbcd9217ff25047d-d_d.jpg"
+        },
+        {
+          "photoId": "b55e404cda",
+          "observed": "Adjacent finished basement room, also fully paneled, with built-in wood cabinetry along the walls.",
+          "inference": "Confirms the paneling extends through most of the finished basement footprint, limiting visual assessment of the foundation in this area.",
+          "region": {
+            "x": 0,
+            "y": 0,
+            "width": 100,
+            "height": 100
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/c4c5350c887fa649849bb85ac10b9958-d_d.jpg"
+        }
+      ],
+      "category": "foundation",
+      "id": "360e7555-ed85-4859-8400-2e3c4f6c0e32"
+    },
+    {
+      "title": "Kitchen range hood ducting not confirmed",
+      "description": "A hood unit sits above the gas range, but the photographs do not show whether it exhausts to the outside or simply recirculates filtered air back into the kitchen. On a gas range this distinction matters more, since a recirculating unit does not remove combustion byproducts, heat, or steam.",
+      "severity": "warning",
+      "confidence": "low",
+      "costEstimate": null,
+      "recommendedAction": "Ask the seller or check the unit and attic/wall above the hood for ducting to the exterior. If it is recirculating only, a ducted replacement typically runs $300\u2013$800 for the unit plus installation.",
+      "evidence": [
+        {
+          "photoId": "4d8a91c22a",
+          "observed": "A white hood is mounted under the upper cabinets directly above the gas range, with a grille on its underside.",
+          "inference": "The style is consistent with either a ducted range hood or a recirculating unit; nothing in the photo confirms an exterior vent run. This should be verified in person.",
+          "photoUrl": "https://photos.zillowstatic.com/fp/cd29766793ed18d6c691b1f8704edd9e-d_d.jpg"
+        },
+        {
+          "photoId": "aa2a0f0f07",
+          "observed": "A closer view of the same white hood above the range, showing the underside grille and control knobs.",
+          "inference": "Confirms the same fixture from a different angle; ducting still cannot be determined from this image.",
+          "photoUrl": "https://photos.zillowstatic.com/fp/04b2824688f070d39429710e61540e7d-d_d.jpg"
+        }
+      ],
+      "category": "ventilation",
+      "id": "50670d8e-3970-42e6-9c12-1e12c62ef2a4"
+    },
+    {
+      "title": "Dated flush-mount ceiling fixtures throughout",
+      "description": "The kitchen, breakfast nook, and bedrooms are lit with older-style flush-mount dome and bowl fixtures rather than recessed or modern surface-mount lighting. These are functional and not a defect, but they read as original to a prior renovation and are an easy, low-cost upgrade for a buyer wanting a more current look.",
+      "severity": "info",
+      "confidence": "high",
+      "costEstimate": {
+        "low": 50,
+        "high": 150,
+        "unit": "per_unit",
+        "quantity": null,
+        "currency": "USD",
+        "basis": "Typical cost to swap a flush-mount fixture for a new one, fixture plus basic install, per room"
+      },
+      "recommendedAction": "No action needed for function; budget for fixture replacement only if a style update is desired.",
+      "evidence": [
+        {
+          "photoId": "4f501770c4",
+          "observed": "A round flush-mount dome ceiling fixture centered over the kitchen.",
+          "inference": "Style and finish suggest an older fixture, likely original to a prior kitchen update rather than recently installed.",
+          "photoUrl": "https://photos.zillowstatic.com/fp/b6a1118f6a117e12936bede5da774a0e-d_d.jpg"
+        },
+        {
+          "photoId": "9c62717389",
+          "observed": "A frosted glass bowl-style flush-mount ceiling fixture in the bedroom.",
+          "inference": "Consistent with the same era of fixtures as the kitchen; purely cosmetic and not indicative of any wiring issue.",
+          "photoUrl": "https://photos.zillowstatic.com/fp/e82993ac6a4c88773c687a80dbcb3356-d_d.jpg"
+        }
+      ],
+      "category": "lighting",
+      "id": "7cfde17a-5862-43d0-9eb5-00cd23f2084e"
+    },
+    {
+      "title": "Laminate countertops, dated but intact",
+      "description": "The counters throughout the kitchen are a light wood-grain laminate rather than a natural stone or engineered surface. This is a functional, budget-tier material rather than a defect \u2014 it shows no visible chipping, delamination, or scorch marks in these photos, and the finish looks consistent along the full run.",
+      "severity": "info",
+      "confidence": "medium",
+      "costEstimate": {
+        "low": 25,
+        "high": 45,
+        "unit": "per_sq_ft",
+        "quantity": null,
+        "currency": "USD",
+        "basis": "Laminate countertop replacement (material + install) at a mid-tier finish level; footage not measurable from the photos, so no total is given. This appears to be a compact U-shaped run \u2014 likely under 25 linear feet of counter."
+      },
+      "recommendedAction": "No immediate action needed. If updating the kitchen, budget for laminate or a low-cost quartz alternative depending on target finish level.",
+      "evidence": [
+        {
+          "photoId": "4f501770c4",
+          "observed": "Light wood-toned laminate countertop surrounding a stainless sink, with a white tile backsplash above. No chips, cracks, or discoloration are visible at the visible edge or around the faucet base.",
+          "inference": "Laminate in this condition is functional and likely original or an older replacement; it does not need repair, though it is a dated finish a buyer may choose to upgrade eventually.",
+          "region": {
+            "x": 10,
+            "y": 45,
+            "width": 55,
+            "height": 40
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/b6a1118f6a117e12936bede5da774a0e-d_d.jpg"
+        },
+        {
+          "photoId": "77d299d443",
+          "observed": "Same wood-toned laminate counter continues around the corner toward the range, with visible tile backsplash and no scorch marks near the stove.",
+          "inference": "Confirms the countertop material and condition are consistent across the run; no additional damage found from this angle.",
+          "region": {
+            "x": 20,
+            "y": 50,
+            "width": 50,
+            "height": 35
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/83fa7a7da3e56c2a139f8716c1e1c28a-d_d.jpg"
+        },
+        {
+          "photoId": "aa2a0f0f07",
+          "observed": "Laminate counter surface adjacent to the gas range, unmarked and clean.",
+          "inference": "Further confirms uniform condition; no localized damage near the heat source.",
+          "region": {
+            "x": 15,
+            "y": 55,
+            "width": 60,
+            "height": 30
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/04b2824688f070d39429710e61540e7d-d_d.jpg"
+        }
+      ],
+      "category": "countertops",
+      "id": "0d6927f6-84f5-4109-be5f-8a8553a1fa0a"
+    },
+    {
+      "title": "Dated but sound kitchen cabinetry",
+      "description": "The kitchen cabinets are oak-style raised-panel doors with a warm stained finish, tile backsplash, and laminate countertops. The style reads as an older renovation rather than a recent one, but the doors and drawer fronts are square and evenly aligned, with no visible swelling, cracking, or missing hardware. This is a cosmetic dated look rather than a functional defect \u2014 a buyer who dislikes the finish could reface or replace, but there is no evidence the boxes themselves need replacing.",
+      "severity": "info",
+      "confidence": "medium",
+      "costEstimate": {
+        "low": 6000,
+        "high": 12000,
+        "unit": "total",
+        "quantity": null,
+        "currency": "USD",
+        "basis": "Full replacement of a small U-shaped kitchen run of this size with mid-grade stock cabinetry and laminate counters, if the buyer chooses to update rather than keep the existing cabinets."
+      },
+      "recommendedAction": "No repair needed. Budget for eventual refacing or replacement only if updating the look is a priority.",
+      "evidence": [
+        {
+          "photoId": "77d299d443",
+          "observed": "Oak-toned raised-panel cabinet doors with dark round pulls, white tile backsplash, and a light laminate countertop with a butcher-block pattern.",
+          "inference": "Style and materials are consistent with cabinetry installed in the 1990s or earlier. No signs of structural wear are visible from this angle.",
+          "region": {
+            "x": 0,
+            "y": 15,
+            "width": 60,
+            "height": 70
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/83fa7a7da3e56c2a139f8716c1e1c28a-d_d.jpg"
+        },
+        {
+          "photoId": "4f501770c4",
+          "observed": "Cabinet doors and drawer fronts on both sides of the range sit flush and evenly spaced, with consistent reveal gaps.",
+          "inference": "Even alignment suggests the boxes and hinges are not sagging or warped, a sign the cabinets have been reasonably maintained.",
+          "region": {
+            "x": 0,
+            "y": 10,
+            "width": 100,
+            "height": 80
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/b6a1118f6a117e12936bede5da774a0e-d_d.jpg"
+        },
+        {
+          "photoId": "4d8a91c22a",
+          "observed": "Sink base cabinet front and adjacent toe kick show no discoloration, swelling, or separation of the laminate at the countertop edge.",
+          "inference": "No visible evidence of a past or current leak at this sink location; this is a positive sign but does not rule out issues hidden behind the cabinet back.",
+          "region": {
+            "x": 30,
+            "y": 40,
+            "width": 40,
+            "height": 50
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/cd29766793ed18d6c691b1f8704edd9e-d_d.jpg"
+        }
+      ],
+      "category": "cabinetry",
+      "id": "71d48f13-6435-4837-94a2-8b6814d95210"
+    },
+    {
+      "title": "Gas-fueled range, dated style",
+      "description": "Cooking is done on natural gas or propane rather than electric or induction, and the range itself is a basic freestanding unit with simple rotary controls and a plain oven window. No manufacturer badge is legible in any photo, so the brand cannot be confirmed. The unit shows no visible damage or scorching, just an older, builder-grade look.",
+      "severity": "info",
+      "confidence": "medium",
+      "costEstimate": {
+        "low": 600,
+        "high": 1200,
+        "unit": "total",
+        "quantity": 1,
+        "currency": "USD",
+        "basis": "Freestanding basic gas range replacement at a starter-home price point; brand unconfirmed so mid-range estimate used"
+      },
+      "recommendedAction": "Confirm the fuel line and shutoff are in good condition; budget for eventual range replacement as a cosmetic/functional upgrade rather than a repair.",
+      "evidence": [
+        {
+          "photoId": "c99e534db3",
+          "observed": "White freestanding gas range with four sealed burners, rotary knobs, and an oven window, set beneath a white under-cabinet hood.",
+          "inference": "Styling and control layout suggest an older, entry-level model rather than a recent purchase; no brand marking is visible to confirm make or age.",
+          "region": {
+            "x": 35,
+            "y": 35,
+            "width": 35,
+            "height": 55
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/cfb4bc7d6cb84a8041ba6cf70de3b133-d_d.jpg"
+        },
+        {
+          "photoId": "1b607d8f3d",
+          "observed": "Close view of the same white gas range showing four burner grates, a control panel with knobs across the front lip, and no visible rust, scorching, or damage.",
+          "inference": "The range appears functional and undamaged from this angle; condition of the oven interior and ignition system cannot be judged from a photograph.",
+          "region": {
+            "x": 15,
+            "y": 15,
+            "width": 65,
+            "height": 75
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/94941aceebfc51613137ede66a510ec8-d_d.jpg"
+        }
+      ],
+      "category": "appliances",
+      "id": "d284773f-e746-41fb-8007-c4ea0416d8a8"
+    },
+    {
+      "title": "Stainless refrigerator newer than surrounding kitchen",
+      "description": "A stainless-finish refrigerator sits in the kitchen alongside cabinetry, backsplash, and a range that all read as considerably older. The finish and clean panel lines suggest a more recent purchase than the rest of the kitchen. No brand badge is legible.",
+      "severity": "info",
+      "confidence": "medium",
+      "costEstimate": {
+        "low": 900,
+        "high": 1800,
+        "unit": "total",
+        "quantity": 1,
+        "currency": "USD",
+        "basis": "Standard stainless refrigerator replacement at this home's price tier, brand unconfirmed"
+      },
+      "recommendedAction": "Confirm with the listing agent whether the refrigerator conveys with the sale, since newer appliances in older kitchens are sometimes excluded.",
+      "evidence": [
+        {
+          "photoId": "aa2a0f0f07",
+          "observed": "Stainless-finish refrigerator with vertical door panel and no visible manufacturer logo, positioned next to older wood cabinets and a tile backsplash.",
+          "inference": "The finish and lack of wear point to a more recent unit than the cabinetry and range, meaning the kitchen's appliances were likely replaced piecemeal rather than as a set.",
+          "photoUrl": "https://photos.zillowstatic.com/fp/04b2824688f070d39429710e61540e7d-d_d.jpg"
+        },
+        {
+          "photoId": "4f501770c4",
+          "observed": "Same stainless refrigerator visible at the far end of the galley kitchen alongside the white range and brown cabinetry.",
+          "inference": "Confirms the refrigerator does not match the age or finish of the rest of the kitchen; this is a cosmetic mismatch rather than a defect.",
+          "photoUrl": "https://photos.zillowstatic.com/fp/b6a1118f6a117e12936bede5da774a0e-d_d.jpg"
+        }
+      ],
+      "category": "appliances",
+      "id": "d9348fc3-5615-4c30-8bc5-8e528a1e68e9"
+    },
+    {
+      "title": "No under-cabinet or task lighting in kitchen",
+      "description": "The kitchen counters are lit only by the single central ceiling fixture and the window; there is no under-cabinet lighting to illuminate the countertop work surfaces.",
+      "severity": "info",
+      "confidence": "medium",
+      "costEstimate": {
+        "low": 150,
+        "high": 400,
+        "unit": "total",
+        "quantity": null,
+        "currency": "USD",
+        "basis": "LED under-cabinet strip lighting for a galley kitchen of this size, materials and basic install"
+      },
+      "recommendedAction": "Optional upgrade; not required for function.",
+      "evidence": [
+        {
+          "photoId": "c99e534db3",
+          "observed": "Upper cabinets with no visible light fixtures or wiring on their undersides above the countertop.",
+          "inference": "Counter work areas rely solely on the overhead fixture; adding under-cabinet lighting is a straightforward upgrade if desired.",
+          "photoUrl": "https://photos.zillowstatic.com/fp/cfb4bc7d6cb84a8041ba6cf70de3b133-d_d.jpg"
+        }
+      ],
+      "category": "lighting",
+      "id": "8683278e-cf3c-4c83-9c36-327e77b0bee2"
+    },
+    {
+      "title": "Vintage scalloped aluminum awnings",
+      "description": "Metal awnings with a scalloped edge shade the front windows and door. This is a period-correct feature on a mid-century home rather than a defect, though it is a dated style some buyers may want to remove or keep for character.",
+      "severity": "info",
+      "confidence": "high",
+      "costEstimate": null,
+      "recommendedAction": "No action required; a buyer who prefers a more contemporary look could remove them, otherwise they appear serviceable.",
+      "evidence": [
+        {
+          "photoId": "aa15ed8f1f",
+          "observed": "Metal awnings with scalloped edges are mounted above the front window and front door, painted to match the trim.",
+          "inference": "These are original or period-style additions common to homes of this construction era; they do not indicate a problem with the underlying siding.",
+          "region": {
+            "x": 15,
+            "y": 40,
+            "width": 40,
+            "height": 25
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/7e4cf4e62e9e29bdc859447da5620408-d_d.jpg"
+        }
+      ],
+      "category": "siding",
+      "id": "3ec98666-b0d7-4eac-b2b9-4e226f9de6a5"
+    },
+    {
+      "title": "Full basement, concrete block foundation",
+      "description": "The house has a full basement rather than a crawlspace or slab. The foundation walls are painted concrete masonry unit (CMU) block, visible in the unfinished mechanical and laundry areas.",
+      "severity": "info",
+      "confidence": "high",
+      "costEstimate": null,
+      "recommendedAction": "No action needed; useful to know for storage, mechanical access, and future waterproofing or finishing work.",
+      "evidence": [
+        {
+          "photoId": "65683fbddb",
+          "observed": "Painted concrete block wall visible behind the water heater and furnace, with exposed floor joists above.",
+          "inference": "Confirms a full basement with a block foundation, a common and generally sound foundation type for houses of this era in this region.",
+          "region": {
+            "x": 0,
+            "y": 30,
+            "width": 45,
+            "height": 55
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/6e4bb66fe59b23192aecf1dbe674fb5c-d_d.jpg"
+        },
+        {
+          "photoId": "0db38b7fd0",
+          "observed": "White painted concrete block wall visible in the laundry area alongside the stairs.",
+          "inference": "Second view confirming the same block foundation construction throughout the basement perimeter.",
+          "region": {
+            "x": 45,
+            "y": 30,
+            "width": 40,
+            "height": 55
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/df7d987f68ba5e2fdb158025c7b93381-d_d.jpg"
+        }
+      ],
+      "category": "foundation",
+      "id": "e3310b03-b36a-4ba9-948f-e49b293488f0"
+    },
+    {
+      "title": "Scalloped aluminum window awnings",
+      "description": "Several windows and the porch entry have mid-century scalloped aluminum awnings. These are a period style choice that provides shade and reduces direct sun on the glass; they are functional rather than a defect, though some buyers may consider the look dated.",
+      "severity": "info",
+      "confidence": "high",
+      "costEstimate": null,
+      "recommendedAction": "No action needed; retain or remove based on aesthetic preference.",
+      "evidence": [
+        {
+          "photoId": "9937365884",
+          "observed": "Metal scalloped-edge awnings mounted above the two front windows and the entry porch.",
+          "inference": "Original or vintage aluminum awnings, a period-appropriate detail providing shade rather than indicating any window problem.",
+          "region": {
+            "x": 15,
+            "y": 30,
+            "width": 60,
+            "height": 25
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/5d182445507f5c138d01d7387d1b9f7b-d_d.jpg"
+        }
+      ],
+      "category": "windows",
+      "id": "7c00d510-de9d-46e1-8c71-5684de9d63eb"
+    },
+    {
+      "title": "Electrical panel not visible in any photo",
+      "description": "No photograph shows the service panel, so the brand, amperage, breaker versus fuse type, and general condition (rust, double-tapping, overcrowding) cannot be evaluated. This is the single most important electrical fact for a buyer and it is simply not available from these listing images.",
+      "severity": "info",
+      "confidence": "high",
+      "costEstimate": null,
+      "recommendedAction": "Have a licensed electrician or the home inspector open the panel cover and evaluate capacity, breaker condition, and any recalled or hazard-prone panel brands before closing.",
+      "evidence": [
+        {
+          "photoId": "0db38b7fd0",
+          "observed": "Basement mechanical area shows the water heater, furnace, and overhead ductwork and conduit, but no panel is visible in the frame.",
+          "inference": "The panel is likely located elsewhere in the basement, out of view of any photograph provided. Its condition and capacity are unknown.",
+          "region": null,
+          "photoUrl": "https://photos.zillowstatic.com/fp/df7d987f68ba5e2fdb158025c7b93381-d_d.jpg"
+        }
+      ],
+      "category": "electrical",
+      "id": "54cd68de-dad8-4cd9-a712-f65b4b0c5ca0"
+    },
+    {
+      "title": "Original wood wainscoting in kitchen",
+      "description": "The kitchen retains its original dark wood paneling on the lower walls with tile backsplash above, a dated but functional finish. No water damage, warping or separation is visible in the paneling.",
+      "severity": "info",
+      "confidence": "high",
+      "costEstimate": null,
+      "recommendedAction": "No action required; cosmetic update only if a more modern look is desired.",
+      "evidence": [
+        {
+          "photoId": "c99e534db3",
+          "observed": "Dark wood wainscoting paneling on the lower half of the kitchen walls, white tile backsplash above, gray upper wall paint.",
+          "inference": "Original 1950s-60s finish retained during the recent repaint; intact and not indicative of any defect.",
+          "region": {
+            "x": 0,
+            "y": 40,
+            "width": 60,
+            "height": 50
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/cfb4bc7d6cb84a8041ba6cf70de3b133-d_d.jpg"
+        }
+      ],
+      "category": "wall_finishes",
+      "id": "3b5276c7-9d36-495c-8614-b2e2488757b5"
+    },
+    {
+      "title": "Concrete stoops and steps, no elevated deck",
+      "description": "Both the front and side entrances use small poured-concrete stoops and short concrete stair runs rather than a raised wood or composite deck. This is typical for a house of this size and era, and the concrete visible in the photos is intact and free of any obvious spalling or cracking.",
+      "severity": "info",
+      "confidence": "medium",
+      "costEstimate": null,
+      "recommendedAction": "No action needed beyond a general walk of the steps to confirm the concrete is sound and not settling away from the foundation.",
+      "evidence": [
+        {
+          "photoId": "aa15ed8f1f",
+          "observed": "A short flight of concrete steps leads to a covered stoop at the front door, with a black wrought-iron pipe railing on one side only. A scalloped metal awning covers the stoop and matching awnings sit over the front windows.",
+          "inference": "Single-side railings were standard practice on mid-century bungalows and are not by themselves a defect, though a buyer relying on the rail for support should note it is only on one side.",
+          "region": {
+            "x": 15,
+            "y": 45,
+            "width": 40,
+            "height": 50
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/7e4cf4e62e9e29bdc859447da5620408-d_d.jpg"
+        },
+        {
+          "photoId": "b0ec472419",
+          "observed": "A second set of concrete steps at a side door, again with a single wrought-iron pipe railing and a matching aluminum scalloped awning over the door.",
+          "inference": "Consistent detailing with the front entry suggests both stoops were built or updated at the same time; no signs of movement or cracking are visible in this photo.",
+          "region": {
+            "x": 15,
+            "y": 50,
+            "width": 45,
+            "height": 45
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/ac3f5ba4428819ee145cffc605fc6d4c-d_d.jpg"
+        }
+      ],
+      "category": "deck",
+      "id": "2543dbeb-e5d0-4c1d-a9af-fec73e1be9ac"
+    },
+    {
+      "title": "Finished basement walls conceal foundation in part of the house",
+      "description": "A portion of the basement has been finished with wood paneling, drop ceiling, and new laminate flooring. This looks like a nice usable space, but it also means the foundation walls behind the paneling cannot be assessed from these photographs.",
+      "severity": "info",
+      "confidence": "medium",
+      "costEstimate": null,
+      "recommendedAction": "Ask the seller or inspector to check for any known history of water intrusion or repair behind the paneled walls, since this area can't be visually confirmed from listing photos.",
+      "evidence": [
+        {
+          "photoId": "9aa0b39332",
+          "observed": "Basement room fully finished with vertical wood paneling on all walls and a drop ceiling, new laminate-look flooring installed.",
+          "inference": "The foundation wall condition in this room is unknown from photos alone; finishing can sometimes be done to cover past moisture staining or minor cracking, though it may simply be a cosmetic update.",
+          "region": {
+            "x": 0,
+            "y": 0,
+            "width": 100,
+            "height": 100
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/4905308e8fbc1af49a71ed9b9c6ebf3f-d_d.jpg"
+        }
+      ],
+      "category": "foundation",
+      "id": "7daf157b-d446-44f9-a3e1-4929a966edc5"
+    },
+    {
+      "title": "Roof detail not fully visible in available photos",
+      "description": "None of the listing photos offer a close, well-lit view of shingle texture, flashing at the chimney or roof-wall junctions, or the rear-facing roof slope, so wear indicators like granule loss, cupping, or flashing deterioration cannot be confirmed either way.",
+      "severity": "info",
+      "confidence": "medium",
+      "costEstimate": null,
+      "recommendedAction": "Have a roofer or inspector walk the roof or use a ladder to check shingle condition and flashing before finalizing the purchase.",
+      "evidence": [
+        {
+          "photoId": "b4430e255e",
+          "observed": "Rear elevation photo shows only the lower roof edge and fascia; the main roof field is out of frame.",
+          "inference": "Without a full view of this slope, localized wear or flashing issues on the rear plane cannot be ruled out from the photo set alone.",
+          "region": {
+            "x": 0,
+            "y": 0,
+            "width": 100,
+            "height": 15
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/63a0e35a0f0ee455b5938739b925a08e-d_d.jpg"
+        }
+      ],
+      "category": "roof",
+      "id": "f00e7f69-00ce-47e3-ae35-f56329726333"
+    },
+    {
+      "title": "Dated basement bathroom fixtures, no visible damage",
+      "description": "The basement half bath has older-style fixtures - a small vanity, wall-mounted mirror cabinet, and what appears to be an aluminum-track shower enclosure at the edge of frame - but nothing suggests active water problems.",
+      "severity": "info",
+      "confidence": "medium",
+      "costEstimate": null,
+      "recommendedAction": "Check that the shower enclosure seals properly and that there is no moisture trapped behind it, since this cannot be judged from a photo.",
+      "evidence": [
+        {
+          "photoId": "b4430e255e",
+          "observed": "A freestanding vanity, wall-mounted mirrored medicine cabinet, and toilet are visible, with the edge of an aluminum-frame shower enclosure at the right of the frame. No staining is visible on the walls, floor, or ceiling.",
+          "inference": "The fixtures are dated in style but show no sign of leakage. Confirm the shower door seals and drain function during an in-person visit.",
+          "region": {
+            "x": 0,
+            "y": 0,
+            "width": 100,
+            "height": 100
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/63a0e35a0f0ee455b5938739b925a08e-d_d.jpg"
+        }
+      ],
+      "category": "plumbing",
+      "id": "123d8bfa-dbeb-4eb6-8d6b-c96026e30f7d"
+    },
+    {
+      "title": "Kitchen sink and faucet appear to be a newer replacement",
+      "description": "The stainless sink and faucet look newer than the surrounding cabinetry and countertops, with no staining or mineral buildup visible.",
+      "severity": "info",
+      "confidence": "medium",
+      "costEstimate": null,
+      "recommendedAction": "No action needed beyond a normal functional check of water flow and drainage.",
+      "evidence": [
+        {
+          "photoId": "4f501770c4",
+          "observed": "A stainless steel sink with a chrome gooseneck faucet sits in a laminate countertop. No staining, corrosion, or gap at the sink-to-countertop seam is visible.",
+          "inference": "The sink and faucet appear to have been replaced more recently than the original cabinets, suggesting some past kitchen upkeep. No plumbing concerns are indicated here.",
+          "region": {
+            "x": 0,
+            "y": 40,
+            "width": 45,
+            "height": 40
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/b6a1118f6a117e12936bede5da774a0e-d_d.jpg"
+        }
+      ],
+      "category": "plumbing",
+      "id": "63af3463-b302-4ea8-ad7d-8641a7696bc8"
+    },
+    {
+      "title": "Basement laundry sink and exposed supply/drain lines",
+      "description": "A utility sink and visible overhead piping in the laundry area show no signs of leakage or corrosion at the joints.",
+      "severity": "info",
+      "confidence": "medium",
+      "costEstimate": null,
+      "recommendedAction": "No action needed; a general inspection of joints and valves is still worthwhile as with any older home.",
+      "evidence": [
+        {
+          "photoId": "c3adcdd076",
+          "observed": "A two-basin utility sink stands beside the washer and dryer. Copper piping and plastic drain lines run along the ceiling joists overhead. No dripping, staining, or mineral crusting is visible at any visible joint.",
+          "inference": "The visible plumbing in this area appears sound. Exposed piping in an unfinished section of the basement allows for easier future access if repairs are ever needed.",
+          "region": {
+            "x": 30,
+            "y": 10,
+            "width": 60,
+            "height": 60
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/bab9793610b6c0ff20ce29ab4134d93e-d_d.jpg"
+        }
+      ],
+      "category": "plumbing",
+      "id": "b84e3ef2-b25b-4510-81ef-523724758567"
+    },
+    {
+      "title": "Gas furnace and water heater in basement utility room",
+      "description": "The basement utility area shows a gas-fired water heater with a visible rating plate and draft hood, a furnace cabinet behind it, and sheet-metal ductwork running overhead \u2014 confirming the house is on a central forced-air gas system rather than electric heat or a boiler. The rating plate is too small in the photo to read a manufacture date, so age cannot be confirmed from this image alone.",
+      "severity": "info",
+      "confidence": "medium",
+      "costEstimate": null,
+      "recommendedAction": "Ask the seller for the furnace and water heater age/model, or have an inspector read the data plates in person to establish remaining service life.",
+      "evidence": [
+        {
+          "photoId": "65683fbddb",
+          "observed": "A white cylindrical gas water heater with a visible rating plate and flue draft hood stands beside a tan furnace cabinet. Sheet-metal ductwork runs along the ceiling, partly wrapped in insulation, above a concrete-block wall.",
+          "inference": "This is a standard gas forced-air heating and gas water heater setup. The equipment appears intact with no visible corrosion or damage, but the plate text is not legible at this resolution, so exact age and remaining life cannot be determined from the photo.",
+          "region": {
+            "x": 38,
+            "y": 15,
+            "width": 30,
+            "height": 65
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/6e4bb66fe59b23192aecf1dbe674fb5c-d_d.jpg"
+        }
+      ],
+      "category": "hvac",
+      "id": "708b6174-adbf-42f8-a7e6-0eb738ee2c81"
+    },
+    {
+      "title": "Electric baseboard heat in finished attic rooms",
+      "description": "The finished knee-wall rooms upstairs show low white baseboard heating units along the wall base rather than floor or ceiling registers, indicating this level is served by supplemental electric baseboard heat instead of the home's central ductwork. This is typical for older attic conversions where ducts were never extended upward, but it means the upper floor's comfort depends on a separate system that should be tested independently of the furnace.",
+      "severity": "info",
+      "confidence": "medium",
+      "costEstimate": null,
+      "recommendedAction": "Confirm during a walkthrough that the baseboard units in the upper rooms power on and heat properly, and ask whether they are on a separate electrical circuit or thermostat.",
+      "evidence": [
+        {
+          "photoId": "c9e4b730f2",
+          "observed": "A low white finned baseboard heating unit runs along the base of the knee wall in the finished attic room, below the wood paneling.",
+          "inference": "The upper-level rooms are heated by electric baseboard rather than the home's central forced-air system, which is common in converted attic spaces but should be verified as functional and adequately sized for the room.",
+          "region": {
+            "x": 5,
+            "y": 72,
+            "width": 28,
+            "height": 14
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/0e2308a828618c95e5b0abe772b3b16d-d_d.jpg"
+        },
+        {
+          "photoId": "4b3ad56750",
+          "observed": "A similar low baseboard heating unit is visible along the wall base in the adjoining finished attic room.",
+          "inference": "Confirms the same supplemental baseboard heating system extends through the upper-level rooms rather than a single isolated unit.",
+          "region": {
+            "x": 60,
+            "y": 75,
+            "width": 25,
+            "height": 12
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/83a95dfc8e852e4724b9782174bcf9eb-d_d.jpg"
+        }
+      ],
+      "category": "hvac",
+      "id": "0f912ce2-a13e-4852-9344-e3aa20bcc84f"
+    },
+    {
+      "title": "Basic washer and dryer in unfinished basement",
+      "description": "A white top-load washer and dryer sit in the basement utility area next to a laundry sink. Both appear to be standard, unbranded builder-grade units with no visible rust, leaks, or damage.",
+      "severity": "info",
+      "confidence": "medium",
+      "costEstimate": null,
+      "recommendedAction": "No action needed; confirm with the listing whether the washer and dryer convey with the sale.",
+      "evidence": [
+        {
+          "photoId": "9aa0b39332",
+          "observed": "White top-load washer and dryer positioned side by side against a concrete block wall, next to a freestanding laundry sink, with visible water supply lines overhead.",
+          "inference": "Units appear functional and ordinary; no manufacturer markings are legible, and actual age or working condition cannot be confirmed from a photograph.",
+          "photoUrl": "https://photos.zillowstatic.com/fp/4905308e8fbc1af49a71ed9b9c6ebf3f-d_d.jpg"
+        }
+      ],
+      "category": "appliances",
+      "id": "9cee2330-1164-4290-bd9a-b7580c45d5ab"
+    },
+    {
+      "title": "No overhead light fixture in living room",
+      "description": "The main living room ceiling has no visible light fixture; the only light source shown is a freestanding floor lamp.",
+      "severity": "info",
+      "confidence": "medium",
+      "costEstimate": null,
+      "recommendedAction": "Confirm in person whether the room has a switched outlet only (common in older homes) or an overhead fixture just outside the frame; consider adding ceiling lighting if desired.",
+      "evidence": [
+        {
+          "photoId": "2715700b3c",
+          "observed": "Plain ceiling with no light fixture visible; a floor lamp provides the only lighting shown in the room.",
+          "inference": "Many houses of this age wire living rooms to a switched wall outlet rather than an overhead fixture; this is a style limitation, not a defect.",
+          "region": {
+            "x": 20,
+            "y": 0,
+            "width": 50,
+            "height": 20
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/d85d3568de5535d58d490232793990ec-d_d.jpg"
+        }
+      ],
+      "category": "lighting",
+      "id": "696acbd2-4a52-4d9a-bd0d-f05ae76fad94"
+    },
+    {
+      "title": "Finished attic uses surface-mounted panel lighting",
+      "description": "The upstairs finished attic rooms are lit with flat panel fixtures set into the drop-tile ceiling, appropriate for the low sloped ceilings in this space.",
+      "severity": "info",
+      "confidence": "medium",
+      "costEstimate": null,
+      "recommendedAction": "None.",
+      "evidence": [
+        {
+          "photoId": "f4fbabdb1e",
+          "observed": "A flush panel light fixture set into a suspended ceiling tile in the finished attic room.",
+          "inference": "A practical fixture choice for a low-clearance knee-wall space; no issues apparent.",
+          "photoUrl": "https://photos.zillowstatic.com/fp/53cb01dc0798e2408d0889d78b2c6105-d_d.jpg"
+        }
+      ],
+      "category": "lighting",
+      "id": "d1fd2a1c-aff7-4e93-b899-5704e37d91bf"
+    },
+    {
+      "title": "Knotty-pine paneled attic with older acoustic tile ceiling",
+      "description": "The finished upper-level space is fully lined in tongue-and-groove knotty-pine paneling with a fissured acoustic drop-tile ceiling, both consistent with an older finish-out rather than a recent renovation. No sagging, staining or discoloration is visible on the ceiling tiles.",
+      "severity": "info",
+      "confidence": "medium",
+      "costEstimate": null,
+      "recommendedAction": "If any of this ceiling tile is to be removed or disturbed during future work, have it tested for asbestos given the age of the home; testing is the only reliable way to confirm.",
+      "evidence": [
+        {
+          "photoId": "fd97ded1b1",
+          "observed": "Wood tongue-and-groove paneling on knee walls and sloped ceilings, with a fissured-texture acoustic drop ceiling tile above the flat portion of the room.",
+          "inference": "Finish appears original to an older attic conversion; sound and unstained, but the tile composition cannot be confirmed from a photograph.",
+          "region": {
+            "x": 10,
+            "y": 0,
+            "width": 80,
+            "height": 50
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/57927a4b62ef22222b34823f031ccad3-d_d.jpg"
+        }
+      ],
+      "category": "wall_finishes",
+      "id": "6dd4258c-244e-43d6-ad20-6aa220b60f63"
+    },
+    {
+      "title": "Chain-link fencing encloses the yard",
+      "description": "The property is fully enclosed with galvanized chain-link fencing, which appears intact and free of leaning sections or damage in the photographs.",
+      "severity": "info",
+      "confidence": "medium",
+      "costEstimate": null,
+      "recommendedAction": "No action needed; confirm at walkthrough that gates latch properly.",
+      "evidence": [
+        {
+          "photoId": "ec47f5fcbe",
+          "observed": "An aerial view shows chain-link fencing running along the front, side, and rear property lines.",
+          "inference": "The fencing appears to be a single consistent type around the lot, suggesting it belongs to this property rather than being a patchwork with neighbors.",
+          "region": {
+            "x": 20,
+            "y": 30,
+            "width": 60,
+            "height": 50
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/26df38822eec4422bbcd9217ff25047d-d_d.jpg"
+        }
+      ],
+      "category": "landscaping",
+      "id": "70c10787-1de6-4d29-80c4-5574989ecd15"
+    },
+    {
+      "title": "Compact lot with houses closely spaced",
+      "description": "The aerial photo shows this house sitting on a narrow lot with minimal side-yard separation from neighboring homes, consistent with an older, dense residential grid.",
+      "severity": "info",
+      "confidence": "medium",
+      "costEstimate": null,
+      "recommendedAction": "Confirm the recorded lot dimensions and setbacks in the listing documents if outdoor space or privacy is a priority.",
+      "evidence": [
+        {
+          "photoId": "ec47f5fcbe",
+          "observed": "The subject house and its detached garage occupy a lot with narrow side yards, flanked closely by similar homes on adjacent lots.",
+          "inference": "Side-yard width appears limited, which may affect privacy and access for larger equipment or projects along the sides of the house.",
+          "region": {
+            "x": 30,
+            "y": 20,
+            "width": 40,
+            "height": 60
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/26df38822eec4422bbcd9217ff25047d-d_d.jpg"
+        }
+      ],
+      "category": "landscaping",
+      "id": "920f7659-bd9f-4e8f-9da8-14cb5d2103cf"
+    },
+    {
+      "title": "Dated sheet-vinyl flooring in kitchen",
+      "description": "The kitchen and adjoining pantry-style room have an older patterned sheet-vinyl or linoleum floor that does not match the refreshed paint and hardwood seen elsewhere in the house. It appears intact and functional, just visually dated.",
+      "severity": "info",
+      "confidence": "medium",
+      "costEstimate": null,
+      "recommendedAction": "Cosmetic only; budget for replacement if a kitchen update is planned, but no immediate repair is needed.",
+      "evidence": [
+        {
+          "photoId": "77d299d443",
+          "observed": "A light beige floor with a small repeating diamond pattern covers the kitchen, distinct from the wood flooring in adjacent rooms.",
+          "inference": "The kitchen floor was likely not replaced during the recent interior paint refresh, suggesting the kitchen update was limited to walls and possibly cabinets.",
+          "photoUrl": "https://photos.zillowstatic.com/fp/83fa7a7da3e56c2a139f8716c1e1c28a-d_d.jpg"
+        },
+        {
+          "photoId": "4d8a91c22a",
+          "observed": "The same patterned vinyl floor continues through the kitchen in this wider view, with no visible tears, lifting, or staining.",
+          "inference": "Confirms the flooring is original to an earlier renovation and remains serviceable, though it reads as dated next to the rest of the house.",
+          "photoUrl": "https://photos.zillowstatic.com/fp/cd29766793ed18d6c691b1f8704edd9e-d_d.jpg"
+        }
+      ],
+      "category": "flooring",
+      "id": "9b082da8-f2d7-4071-b528-695a3c951fe7"
+    },
+    {
+      "title": "Carpeted attic bonus room",
+      "description": "The finished attic space under the roofline has wall-to-wall carpet over what is likely a plywood subfloor, paired with knotty pine paneling. The carpet looks clean but appears to be a basic, moderate-pile product rather than a higher-end weave.",
+      "severity": "info",
+      "confidence": "medium",
+      "costEstimate": null,
+      "recommendedAction": "No action needed now; factor in eventual carpet replacement as routine maintenance for this bonus space.",
+      "evidence": [
+        {
+          "photoId": "d6aa3da199",
+          "observed": "Gray carpet with a moderate, cut-pile texture covers the floor of the paneled attic room, with no visible staining, matting, or seams pulling apart.",
+          "inference": "The carpet appears to be a standard mid-grade product; without closer inspection of density and backing, a precise cost tier cannot be set.",
+          "photoUrl": "https://photos.zillowstatic.com/fp/780032e07d316d2498445c0fa09a6ad3-d_d.jpg"
+        }
+      ],
+      "category": "flooring",
+      "id": "0a9a3c84-72f3-4cb7-9596-a87a1fb16675"
+    },
+    {
+      "title": "Older vinyl tile in basement utility area",
+      "description": "The unfinished portion of the basement housing the water heater, furnace, and laundry has a separate, older beige vinyl tile floor, distinct from the new LVP in the finished rec room next door.",
+      "severity": "info",
+      "confidence": "medium",
+      "costEstimate": null,
+      "recommendedAction": "No action needed for functionality; this section was simply not part of the recent basement finish and can be updated later if that area is finished out.",
+      "evidence": [
+        {
+          "photoId": "65683fbddb",
+          "observed": "A beige tile-pattern vinyl floor covers the mechanical area around the water heater and furnace, with a different pattern and tone than the gray LVP seen elsewhere in the basement.",
+          "inference": "This marks the boundary of the recent basement renovation; the mechanical and laundry area was left as-is while the rec room was upgraded.",
+          "photoUrl": "https://photos.zillowstatic.com/fp/6e4bb66fe59b23192aecf1dbe674fb5c-d_d.jpg"
+        },
+        {
+          "photoId": "0db38b7fd0",
+          "observed": "The same older beige vinyl tile flooring is visible in the laundry area alongside the washer, dryer, and utility sink.",
+          "inference": "Confirms the utility side of the basement retains its original flooring, consistent with an unfinished or utilitarian space.",
+          "photoUrl": "https://photos.zillowstatic.com/fp/df7d987f68ba5e2fdb158025c7b93381-d_d.jpg"
+        }
+      ],
+      "category": "flooring",
+      "id": "40055d99-7fc3-42f2-8d58-52cd85a37633"
+    },
+    {
+      "title": "Basement bathroom awning window shows age",
+      "description": "The small crank-style window in the lower-level bathroom has a wood frame with visibly aged, amber-toned trim and glass compared to the newer fixtures around it.",
+      "severity": "info",
+      "confidence": "low",
+      "costEstimate": null,
+      "recommendedAction": "Have an inspector check operation and weatherseal of this window during a walkthrough, given its age relative to the surrounding updated finishes.",
+      "evidence": [
+        {
+          "photoId": "0db38b7fd0",
+          "observed": "Small wood-framed awning-style window set high on the wall above the vanity, with a yellowed frame finish distinct from the white walls and newer fixtures.",
+          "inference": "The frame's finish and style suggest it predates the recent cosmetic updates in this room; likely original single-pane glazing, functional but not modernized.",
+          "region": {
+            "x": 60,
+            "y": 5,
+            "width": 25,
+            "height": 30
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/df7d987f68ba5e2fdb158025c7b93381-d_d.jpg"
+        }
+      ],
+      "category": "windows",
+      "id": "808505de-d819-4c1a-90fc-d9e80e5f114d"
+    },
+    {
+      "title": "Central air conditioning condenser present",
+      "description": "An exterior condensing unit is visible at the rear of the house, confirming central air conditioning in addition to the gas furnace. The unit's finish looks clean with no obvious rust or fin damage, and it sits near the foundation with a chain-link fence nearby, but the photo is too far away to check the data plate, fin condition, or whether the pad is level.",
+      "severity": "info",
+      "confidence": "low",
+      "costEstimate": null,
+      "recommendedAction": "Have the inspector confirm the condenser's age from its data plate, check refrigerant lines and fin condition up close, and verify the pad is level and clear of plantings.",
+      "evidence": [
+        {
+          "photoId": "bf050e645e",
+          "observed": "A light-colored condenser unit sits at grade near the rear foundation wall of the house, with dry leaf litter around its base and no vegetation directly against it.",
+          "inference": "Central air conditioning is present and the unit shows no visible damage or rust at this distance, but age and internal condition cannot be assessed from a listing photo; a closer inspection would be needed to judge remaining service life.",
+          "region": {
+            "x": 38,
+            "y": 58,
+            "width": 14,
+            "height": 18
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/efb319f911000d85517a1987d2457da3-d_d.jpg"
+        }
+      ],
+      "category": "hvac",
+      "id": "cc7e7123-ff03-4715-a972-dd723d679126"
+    },
+    {
+      "title": "Basement bathroom shower is a fiberglass stall, not tile",
+      "description": "The lower-level bathroom has a one-piece fiberglass or acrylic shower stall visible at the edge of the frame rather than a tiled shower. This construction type has fewer grout and caulk joints and correspondingly lower risk of hidden water intrusion, but it is a different, lower-cost fixture than a tiled shower.",
+      "severity": "info",
+      "confidence": "low",
+      "costEstimate": null,
+      "recommendedAction": "No action needed. Note the finish difference between the two bathrooms when evaluating the property.",
+      "evidence": [
+        {
+          "photoId": "0db38b7fd0",
+          "observed": "A metallic-edged shower stall enclosure is visible at the right side of the basement bathroom, distinct from tiled surfaces.",
+          "inference": "A prefabricated shower unit rather than a site-built tiled shower; the photo does not show enough of the unit to assess its condition or seal at the wall.",
+          "region": {
+            "x": 75,
+            "y": 30,
+            "width": 25,
+            "height": 60
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/df7d987f68ba5e2fdb158025c7b93381-d_d.jpg"
+        }
+      ],
+      "category": "tile",
+      "id": "ffa63173-2924-4703-808e-08fac48598e1"
+    },
+    {
+      "title": "Grading obscured by leaf cover",
+      "description": "Every exterior ground-level photo shows the yard completely covered in fallen leaves, making it impossible to confirm how the ground slopes relative to the foundation.",
+      "severity": "info",
+      "confidence": "low",
+      "costEstimate": null,
+      "recommendedAction": "Walk the perimeter in person after leaf removal to confirm positive grading away from the foundation on all sides, particularly near the downspout extension points.",
+      "evidence": [
+        {
+          "photoId": "9937365884",
+          "observed": "The entire front yard is covered in a thick layer of orange and brown fallen leaves, with only the sidewalk and steps clear.",
+          "inference": "The leaf cover prevents visual confirmation of soil grade, low spots, or erosion channels near the foundation from these photographs alone.",
+          "region": {
+            "x": 0,
+            "y": 60,
+            "width": 100,
+            "height": 40
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/5d182445507f5c138d01d7387d1b9f7b-d_d.jpg"
+        }
+      ],
+      "category": "landscaping",
+      "id": "865a29c6-0eed-4221-8ac1-448b64dd03f6"
+    },
+    {
+      "title": "Frosted privacy glass in bathroom window",
+      "description": "The main bathroom window uses frosted or textured glass, allowing daylight while maintaining privacy from the exterior \u2014 a sensible, intentional design choice for this location.",
+      "severity": "good",
+      "confidence": "high",
+      "costEstimate": null,
+      "recommendedAction": "None.",
+      "evidence": [
+        {
+          "photoId": "fd97ded1b1",
+          "observed": "Double-hung window in the tiled bathroom with opaque/frosted glass panes.",
+          "inference": "Frosted glazing is a deliberate privacy feature and not a sign of damage or fogging.",
+          "region": {
+            "x": 55,
+            "y": 10,
+            "width": 25,
+            "height": 35
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/57927a4b62ef22222b34823f031ccad3-d_d.jpg"
+        }
+      ],
+      "category": "windows",
+      "id": "9b5381af-22c1-4a39-a5ac-eb17a3b4f965"
+    },
+    {
+      "title": "Fresh paint and consistent textured drywall on main level",
+      "description": "The living room, dining area and bedrooms show a uniform gray paint finish over a light knockdown texture, with crisp white trim and no visible cracking or staining. This reads as a recent repaint across the main floor, which is a positive sign of move-in readiness.",
+      "severity": "good",
+      "confidence": "high",
+      "costEstimate": null,
+      "recommendedAction": "No action needed. Confirm with the seller whether painting was part of a broader recent renovation.",
+      "evidence": [
+        {
+          "photoId": "2715700b3c",
+          "observed": "Gray textured walls with white crown molding and baseboards, smooth uncracked ceiling.",
+          "inference": "Uniform, unblemished finish across multiple rooms suggests a recent whole-house repaint rather than spot touch-ups.",
+          "region": {
+            "x": 10,
+            "y": 10,
+            "width": 80,
+            "height": 70
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/d85d3568de5535d58d490232793990ec-d_d.jpg"
+        }
+      ],
+      "category": "wall_finishes",
+      "id": "44111963-f6cd-4a5b-b285-c5ba68617963"
+    },
+    {
+      "title": "Original hardwood floors in good condition",
+      "description": "The living room, hallway, and bedrooms have solid strip hardwood flooring, likely red oak, that appears tight, level, and free of cupping or staining. This is a durable, desirable material that can be sanded and refinished multiple times if it ever needs it.",
+      "severity": "good",
+      "confidence": "high",
+      "costEstimate": null,
+      "recommendedAction": "No action needed. If a light refresh is wanted, refinishing solid hardwood typically runs $3-$6 per square foot.",
+      "evidence": [
+        {
+          "photoId": "2715700b3c",
+          "observed": "Medium-toned wood strip flooring runs continuously through the living room, with tight board seams and consistent color, no visible gaps or dark staining near the entry door.",
+          "inference": "Flooring in this condition suggests it has been maintained or refinished and has years of life left before any work is needed.",
+          "photoUrl": "https://photos.zillowstatic.com/fp/d85d3568de5535d58d490232793990ec-d_d.jpg"
+        },
+        {
+          "photoId": "aa2a0f0f07",
+          "observed": "The same wood strip flooring continues into the bedroom, flat and evenly toned with no visible wear patterns.",
+          "inference": "Confirms the hardwood extends consistently through the main living spaces rather than being patched only in showcase rooms.",
+          "photoUrl": "https://photos.zillowstatic.com/fp/04b2824688f070d39429710e61540e7d-d_d.jpg"
+        }
+      ],
+      "category": "flooring",
+      "id": "3d4db10d-57e0-431d-947a-f966e030972c"
+    },
+    {
+      "title": "Railings and steps appear structurally sound",
+      "description": "Where visible, the wrought-iron railings are straight, securely mounted, and free of visible rust or corrosion, and the concrete steps show no chipping, unevenness, or displacement.",
+      "severity": "good",
+      "confidence": "medium",
+      "costEstimate": null,
+      "recommendedAction": "None; a routine inspection walk-through is sufficient to confirm footing attachment is still secure.",
+      "evidence": [
+        {
+          "photoId": "220988cb7d",
+          "observed": "Wrought-iron railing runs alongside the front steps and continues along a portion of the fence line; no bending, rust staining, or gaps at the post connections are visible.",
+          "inference": "Metal railings in this condition typically need only occasional repainting rather than replacement, though the below-grade post anchors were not visible in any photo and could not be assessed.",
+          "region": {
+            "x": 10,
+            "y": 45,
+            "width": 40,
+            "height": 45
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/ce0448e6f7e7052e5677e404c92dd260-d_d.jpg"
+        }
+      ],
+      "category": "deck",
+      "id": "91c9b10b-796d-4875-a0a3-8b3a029bb56c"
+    },
+    {
+      "title": "No visible sag or structural roof deck issues",
+      "description": "On every roof plane visible in these photographs, the ridge lines are straight and the surface reads flat between rafters, with no waviness or dipping that would suggest decking or framing trouble.",
+      "severity": "good",
+      "confidence": "medium",
+      "costEstimate": null,
+      "recommendedAction": "No action needed based on these photos; a physical inspection from the attic side would still be the final word on decking condition.",
+      "evidence": [
+        {
+          "photoId": "c3adcdd076",
+          "observed": "Aerial view shows a continuous, evenly pitched roof plane with straight ridge and hip lines and no visible dips or waves.",
+          "inference": "A wavy or sagging plane would typically show as a visible shadow irregularity from this angle; its absence is a reasonable, though not conclusive, sign that the decking and framing are sound.",
+          "region": {
+            "x": 15,
+            "y": 10,
+            "width": 70,
+            "height": 65
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/bab9793610b6c0ff20ce29ab4134d93e-d_d.jpg"
+        },
+        {
+          "photoId": "220988cb7d",
+          "observed": "Side elevation shows the roof valley where the front gable meets the main roof running in a clean, unbroken line.",
+          "inference": "A clean valley line without dips supports that the underlying framing at this intersection is sound, though the valley flashing itself cannot be judged from this distance.",
+          "region": {
+            "x": 15,
+            "y": 5,
+            "width": 70,
+            "height": 40
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/ce0448e6f7e7052e5677e404c92dd260-d_d.jpg"
+        }
+      ],
+      "category": "roof",
+      "id": "1c8ecb2e-b75f-4a75-a810-de171b8a6f41"
+    },
+    {
+      "title": "Downspout extension directs water away from foundation",
+      "description": "At least one downspout is fitted with a corrugated extension pipe that carries roof runoff away from the foundation and toward the yard rather than dumping it at the base of the wall.",
+      "severity": "good",
+      "confidence": "medium",
+      "costEstimate": null,
+      "recommendedAction": "None; confirm extensions are present on all downspouts and are not damaged or disconnected.",
+      "evidence": [
+        {
+          "photoId": "9937365884",
+          "observed": "A white corrugated pipe runs along the ground from the base of the front downspout out across the lawn.",
+          "inference": "Directing water away from the foundation reduces the risk of basement moisture intrusion; this is good practice and worth noting favorably.",
+          "region": {
+            "x": 25,
+            "y": 65,
+            "width": 20,
+            "height": 30
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/5d182445507f5c138d01d7387d1b9f7b-d_d.jpg"
+        }
+      ],
+      "category": "roof",
+      "id": "323b5ec9-92b4-4aa3-8fef-0a7a26fdb02a"
+    },
+    {
+      "title": "Subway tile tub surround in sound condition",
+      "description": "The main bathroom's tub surround is finished in classic white subway tile running to the ceiling. From what is visible, the tile is intact and the grout lines are white and consistent, with no cracking, staining, or missing sections apparent.",
+      "severity": "good",
+      "confidence": "medium",
+      "costEstimate": null,
+      "recommendedAction": "No action needed based on photos. Have an inspector check the tub-to-tile caulk joint and press on tiles near the tub for drumminess, since that junction is not clearly visible here.",
+      "evidence": [
+        {
+          "photoId": "f4fbabdb1e",
+          "observed": "White subway tile extends from tub rim to ceiling on the walls surrounding the tub. Grout lines are uniform in color with no visible cracks, gaps, or discoloration.",
+          "inference": "Tile and grout in visible condition suggest the surround has been well maintained or is relatively recent. The tub-to-tile caulk seam, which is the highest-risk point for water intrusion, is not visible in this frame and should be checked in person.",
+          "region": {
+            "x": 10,
+            "y": 10,
+            "width": 70,
+            "height": 70
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/53cb01dc0798e2408d0889d78b2c6105-d_d.jpg"
+        }
+      ],
+      "category": "tile",
+      "id": "cd61f420-de01-41ab-8622-30905fd44dc1"
+    },
+    {
+      "title": "Solid wood built-in pantry cabinet",
+      "description": "A tall built-in cabinet with paneled wood doors stands in the room adjoining the kitchen, matching the wood wainscoting in that space. It appears to be site-built rather than a mass-produced unit, with doors that close flush and hardware intact.",
+      "severity": "good",
+      "confidence": "medium",
+      "costEstimate": null,
+      "recommendedAction": "No action needed; a functional storage feature.",
+      "evidence": [
+        {
+          "photoId": "2cabd701fc",
+          "observed": "A floor-to-ceiling wood cabinet with paneled doors and visible pull hardware, set into the wall next to wood wainscoting.",
+          "inference": "Custom or site-built construction of this type is typically solid wood rather than particleboard, and adds functional storage not found in many homes this size.",
+          "region": {
+            "x": 55,
+            "y": 15,
+            "width": 30,
+            "height": 70
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/dea0d46db7ad97642877b0da8d16eebd-d_d.jpg"
+        }
+      ],
+      "category": "cabinetry",
+      "id": "05c4f310-f851-4e83-bf63-2c6152aa0151"
+    },
+    {
+      "title": "Custom pine built-ins in attic and basement",
+      "description": "Both the finished attic space and the finished basement room feature extensive built-in cabinetry constructed from knotty pine paneling, matching the wall treatment in each space. Doors close evenly and the cabinet fronts show no cracking, warping, or water staining. This is clearly custom carpentry rather than stock cabinetry, and adds real storage capacity to both finished areas.",
+      "severity": "good",
+      "confidence": "medium",
+      "costEstimate": null,
+      "recommendedAction": "No action needed. Note the style is rustic and may not suit every buyer's taste, but the construction appears sound.",
+      "evidence": [
+        {
+          "photoId": "d6aa3da199",
+          "observed": "Built-in pine cabinet doors set into the knee-wall under the attic roofline, with a matching pine paneled interior visible through an open door.",
+          "inference": "Custom-built storage integrated into the roof framing, likely built at the same time as the room's finishing.",
+          "region": {
+            "x": 15,
+            "y": 45,
+            "width": 25,
+            "height": 35
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/780032e07d316d2498445c0fa09a6ad3-d_d.jpg"
+        },
+        {
+          "photoId": "c3adcdd076",
+          "observed": "A second pine-paneled cabinet door visible on the opposite knee wall of the same attic room.",
+          "inference": "Confirms the built-in storage runs along both sides of the finished attic, consistent construction quality throughout.",
+          "region": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/bab9793610b6c0ff20ce29ab4134d93e-d_d.jpg"
+        },
+        {
+          "photoId": "b55e404cda",
+          "observed": "Basement room walls lined with pine-paneled built-in cabinets and open shelving, doors closed flush with no visible gaps or damage.",
+          "inference": "Matching millwork style to the attic suggests the same builder finished both spaces; cabinets appear structurally sound.",
+          "region": {
+            "x": 0,
+            "y": 10,
+            "width": 100,
+            "height": 80
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/c4c5350c887fa649849bb85ac10b9958-d_d.jpg"
+        }
+      ],
+      "category": "cabinetry",
+      "id": "3693c830-e8d2-4961-b4f7-df01b47de0e0"
+    },
+    {
+      "title": "Updated basement finish with paneling and new flooring",
+      "description": "The finished basement area has been refreshed with new light-colored laminate flooring and a clean, unstained drop ceiling, paired with existing wood paneling and built-in cabinetry. No staining or deformation is visible in the ceiling tiles.",
+      "severity": "good",
+      "confidence": "medium",
+      "costEstimate": null,
+      "recommendedAction": "No action needed.",
+      "evidence": [
+        {
+          "photoId": "b0ec472419",
+          "observed": "Light gray laminate flooring, wood paneled walls with built-in cabinetry, and a clean white drop ceiling with no visible staining.",
+          "inference": "Flooring and possibly the ceiling tile appear recently updated, while the paneling and cabinetry are retained from an earlier finish; suggests a partial basement refresh.",
+          "region": {
+            "x": 0,
+            "y": 0,
+            "width": 100,
+            "height": 100
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/ac3f5ba4428819ee145cffc605fc6d4c-d_d.jpg"
+        }
+      ],
+      "category": "wall_finishes",
+      "id": "d91585f2-357f-4937-a2fb-b89f4910c6f2"
+    },
+    {
+      "title": "No visible water staining on any ceiling",
+      "description": "Across all interior photographs, including bathrooms and the basement, no ceilings show brown or yellow staining, bubbling, or sagging that would indicate a past or active leak.",
+      "severity": "good",
+      "confidence": "medium",
+      "costEstimate": null,
+      "recommendedAction": "No action needed; still worth a firsthand walkthrough, especially in the attic and around bathroom plumbing, since photographs cannot capture everything.",
+      "evidence": [
+        {
+          "photoId": "d6aa3da199",
+          "observed": "Clean white ceiling in bathroom with subway tile walls, no discoloration or staining visible.",
+          "inference": "Absence of staining in the areas most prone to moisture problems is a good sign, though it does not rule out issues in unphotographed areas.",
+          "region": {
+            "x": 0,
+            "y": 0,
+            "width": 100,
+            "height": 30
+          },
+          "photoUrl": "https://photos.zillowstatic.com/fp/780032e07d316d2498445c0fa09a6ad3-d_d.jpg"
+        }
+      ],
+      "category": "wall_finishes",
+      "id": "83cbbb42-6ad4-41f5-9f99-72a735669c56"
+    }
+  ],
+  "summary": {
+    "overallCondition": "fair",
+    "headline": "Generally fair condition, with 7 items to budget for.",
+    "counts": {
+      "critical": 0,
+      "warning": 7,
+      "info": 32,
+      "good": 11
+    },
+    "estimatedCostRange": {
+      "low": 15610,
+      "high": 29850,
+      "currency": "USD"
+    }
+  }
+}

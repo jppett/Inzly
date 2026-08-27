@@ -88,7 +88,10 @@ async function review(): Promise<void> {
     permits,
     property,
   });
-  const bundle = toReviewBundle(outcome, label, provider.model);
+  // outcome.result.model reflects the models each category actually used,
+  // which can differ from the provider's own static default once agents run
+  // on different tiers — provider.model here would silently mislabel the bundle.
+  const bundle = toReviewBundle(outcome, label, outcome.result.model ?? provider.model);
 
   mkdirSync(dirname(resolve(out)), { recursive: true });
   writeFileSync(resolve(out), JSON.stringify(bundle, null, 2));
