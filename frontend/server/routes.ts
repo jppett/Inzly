@@ -4,13 +4,8 @@ import { storage, DATA_SOURCE } from "./storage";
 import { registerChatRoutes } from "./replit_integrations/chat";
 import { registerImageRoutes } from "./replit_integrations/image";
 import { insertPropertySchema, insertIssueSchema } from "@shared/schema";
-import OpenAI from "openai";
+import { getOpenAI, isAiConfigured, AiNotConfiguredError } from "./openai-client";
 import bcrypt from "bcrypt";
-
-const openai = new OpenAI({
-  apiKey: process.env.AI_INTEGRATIONS_OPENAI_API_KEY,
-  baseURL: process.env.AI_INTEGRATIONS_OPENAI_BASE_URL,
-});
 
 function requireAuth(req: Request, res: Response, next: NextFunction) {
   if (!req.session.userId) {
@@ -212,7 +207,7 @@ Provide a JSON array of inspection insights. Each insight should have:
 
 Generate 4-7 realistic insights based on the property age, location, and typical issues for homes of this era. Include at least one positive "good" finding if applicable.`;
 
-      const response = await openai.chat.completions.create({
+      const response = await getOpenAI().chat.completions.create({
         model: "gpt-5.1",
         messages: [
           {
@@ -340,7 +335,7 @@ Be helpful, concise, and specific to this property. If asked about something not
       res.setHeader("Cache-Control", "no-cache");
       res.setHeader("Connection", "keep-alive");
 
-      const stream = await openai.chat.completions.create({
+      const stream = await getOpenAI().chat.completions.create({
         model: "gpt-5.1",
         messages: [
           { role: "system", content: systemPrompt },

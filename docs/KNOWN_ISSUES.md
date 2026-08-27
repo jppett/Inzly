@@ -30,6 +30,20 @@ from building at all:
 
 `pnpm run build` at `backend/` is green as of the import.
 
+## Fixed: the app would not start without an OpenAI key
+
+`server/routes.ts` and both Replit integrations constructed an OpenAI client at
+module scope. The SDK throws when no key is present, so the server refused to
+boot without `AI_INTEGRATIONS_OPENAI_API_KEY` — even running against the mock
+backend, which never calls OpenAI. This made the app undeployable anywhere the
+key was not set.
+
+Clients are now built on first use (`server/openai-client.ts`). The app boots
+with no credentials at all; AI endpoints return 503 with an actionable message.
+
+Sessions likewise fall back to an in-memory store when `DATABASE_URL` is absent,
+so the app can be browsed without provisioning a database.
+
 ## Naming drift
 
 - The database column and API field are `foundlyScore`; the product calls it the

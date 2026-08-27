@@ -1,10 +1,14 @@
 import fs from "node:fs";
-import OpenAI, { toFile } from "openai";
+import { toFile } from "openai";
 import { Buffer } from "node:buffer";
 
-export const openai = new OpenAI({
-  apiKey: process.env.AI_INTEGRATIONS_OPENAI_API_KEY,
-  baseURL: process.env.AI_INTEGRATIONS_OPENAI_BASE_URL,
+import { getOpenAI } from "../../openai-client";
+
+/** Lazy: constructing at import time breaks boot without an AI key. */
+export const openai = new Proxy({} as ReturnType<typeof getOpenAI>, {
+  get(_target, prop) {
+    return Reflect.get(getOpenAI(), prop);
+  },
 });
 
 /**

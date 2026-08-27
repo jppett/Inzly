@@ -81,6 +81,7 @@ See [docs/PHOTO_ANALYSIS.md](docs/PHOTO_ANALYSIS.md).
 - [docs/PHOTO_ANALYSIS.md](docs/PHOTO_ANALYSIS.md) — the expert vision agents and why their instructions read as they do
 - [docs/CALIBRATION.md](docs/CALIBRATION.md) — tuning the agents against professional judgement
 - [docs/PERMITS.md](docs/PERMITS.md) — permit history, and how it corroborates what the agents see
+- [docs/DEPLOY.md](docs/DEPLOY.md) — standing the app up on Railway
 - [docs/BRAND.md](docs/BRAND.md) — brand and UI design guide
 - [docs/KNOWN_ISSUES.md](docs/KNOWN_ISSUES.md) — inherited problems worth knowing about
 - [backend/docs/](backend/docs/) — platform API spec, events, decisions

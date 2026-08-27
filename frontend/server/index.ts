@@ -1,6 +1,7 @@
 import express, { type Request, Response, NextFunction } from "express";
 import session from "express-session";
 import connectPgSimple from "connect-pg-simple";
+import createMemoryStore from "memorystore";
 import { registerRoutes } from "./routes";
 import { serveStatic } from "./static";
 import { createServer } from "http";
@@ -34,13 +35,30 @@ app.use(
 
 app.use(express.urlencoded({ extended: false }));
 
-const PgStore = connectPgSimple(session);
-app.use(
-  session({
-    store: new PgStore({
+/**
+ * Sessions go to Postgres when there is one, and to memory when there is not.
+ *
+ * The memory store is single-process and clears on restart, so it is for
+ * preview and local use only — but it lets the app run and be browsed without
+ * provisioning a database, which is what a first deploy usually wants.
+ */
+function createSessionStore() {
+  if (process.env.DATABASE_URL) {
+    const PgStore = connectPgSimple(session);
+    return new PgStore({
       conString: process.env.DATABASE_URL,
       createTableIfMissing: true,
-    }),
+    });
+  }
+
+  log("no DATABASE_URL — using in-memory sessions (logins reset on restart)");
+  const MemoryStore = createMemoryStore(session);
+  return new MemoryStore({ checkPeriod: 24 * 60 * 60 * 1000 });
+}
+
+app.use(
+  session({
+    store: createSessionStore(),
     secret: process.env.SESSION_SECRET || "inzly-dev-secret-change-in-production",
     resave: false,
     saveUninitialized: false,

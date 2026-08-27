@@ -1,0 +1,3 @@
+# Pin Node 20 to match the engines field and what CI builds against.
+[phases.setup]
+nixPkgs = ["nodejs_20"]

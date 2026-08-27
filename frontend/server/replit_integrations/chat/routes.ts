@@ -1,10 +1,12 @@
 import type { Express, Request, Response } from "express";
-import OpenAI from "openai";
 import { chatStorage } from "./storage";
 
-const openai = new OpenAI({
-  apiKey: process.env.AI_INTEGRATIONS_OPENAI_API_KEY,
-  baseURL: process.env.AI_INTEGRATIONS_OPENAI_BASE_URL,
+import { getOpenAI } from "../../openai-client";
+
+const openai = new Proxy({} as ReturnType<typeof getOpenAI>, {
+  get(_target, prop) {
+    return Reflect.get(getOpenAI(), prop);
+  },
 });
 
 export function registerChatRoutes(app: Express): void {
