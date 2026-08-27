@@ -42,6 +42,9 @@ five minutes. Everything else can follow.
    this anyway, and `npm start` sets `NODE_ENV=production` itself for the
    runtime. There is nothing to gain by setting it yourself.
 
+   If a build log shows `npm warn config production Use --omit=dev instead`,
+   `NODE_ENV=production` is still set as a variable. Remove it.
+
 5. **Settings → Networking → Generate Domain** for a public URL.
 
 `railway.json` in `frontend/` already sets the build and start commands and
@@ -81,6 +84,27 @@ normally, and the analysis and chat endpoints return 503 naming the variable to
 set rather than crashing the process. (With no database *and* no AI key you will
 see a 500 from the database first, since the route loads the property before it
 reaches the model — `/api/data-source` tells you which is missing.)
+
+## If the build fails with EBUSY
+
+```
+npm error code EBUSY
+npm error syscall rmdir
+npm error path /app/node_modules/.cache
+npm error EBUSY: resource busy or locked, rmdir '/app/node_modules/.cache'
+```
+
+Nixpacks mounts a build cache **inside** `node_modules/.cache`. `npm ci` deletes
+`node_modules` wholesale before installing, so it tries to remove a live mount
+and fails. Nothing about the project is wrong; the two are simply incompatible.
+
+The build command therefore uses `npm install --include=dev` rather than
+`npm ci`. `npm install` reconciles in place instead of wiping the tree, so the
+cache mount is never touched. The trade is a slightly less hermetic install than
+`npm ci` gives — acceptable here, and the lockfile is still respected.
+
+Do not "fix" this by switching back to `npm ci` for reproducibility. It will
+fail on every build that gets a warm cache.
 
 ## Deploying the platform
 
