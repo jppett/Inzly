@@ -34,10 +34,15 @@ export const AGENT_RESPONSE_JSON_SCHEMA = {
           costEstimate: {
             type: ['object', 'null'],
             additionalProperties: false,
-            required: ['low', 'high'],
+            required: ['low', 'high', 'unit'],
             properties: {
               low: { type: 'number' },
               high: { type: 'number' },
+              unit: {
+                type: 'string',
+                enum: ['total', 'per_sq_ft', 'per_linear_ft', 'per_unit', 'per_opening'],
+              },
+              quantity: { type: ['number', 'null'] },
               currency: { type: 'string' },
               basis: { type: 'string' },
             },

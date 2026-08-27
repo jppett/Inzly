@@ -12,6 +12,7 @@ import { PhotoAnalyst } from './services/analyst.js';
 import { createVisionProvider } from './providers/index.js';
 import { loadPermits } from './services/permits.js';
 import { EXPERT_AGENTS } from './agents/definitions.js';
+import { formatCost } from '@bones-report/shared';
 
 async function main(): Promise<void> {
   const args = process.argv.slice(2);
@@ -85,9 +86,8 @@ async function main(): Promise<void> {
     }
     console.log(`   ${category.summary}`);
     for (const insight of found) {
-      const cost = insight.costEstimate
-        ? ` [$${insight.costEstimate.low.toLocaleString()}–$${insight.costEstimate.high.toLocaleString()}]`
-        : '';
+      const formatted = formatCost(insight.costEstimate);
+      const cost = formatted ? ` [${formatted}]` : '';
       console.log(`   • [${insight.severity}] ${insight.title}${cost}`);
       for (const e of insight.evidence) {
         console.log(`       saw: ${e.observed}`);

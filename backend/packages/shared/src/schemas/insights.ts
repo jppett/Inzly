@@ -13,9 +13,20 @@ export const PhotoRefSchema = z.object({
   label: z.string().optional(),
 });
 
+export const CostUnitSchema = z.enum([
+  'total',
+  'per_sq_ft',
+  'per_linear_ft',
+  'per_unit',
+  'per_opening',
+]);
+
 export const CostEstimateSchema = z.object({
   low: z.number().nonnegative(),
   high: z.number().nonnegative(),
+  unit: CostUnitSchema.optional(),
+  quantity: z.number().positive().nullish(),
+  total: z.object({ low: z.number(), high: z.number() }).nullish(),
   currency: z.string().optional(),
   basis: z.string().optional(),
 });

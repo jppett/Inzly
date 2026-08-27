@@ -252,12 +252,44 @@ function buildIssueDescription(insight: PlatformPropertyInsight): string {
   return parts.join("\n\n");
 }
 
+const COST_UNIT_LABELS: Record<string, string> = {
+  total: "",
+  per_sq_ft: " per sq ft",
+  per_linear_ft: " per linear ft",
+  per_unit: " each",
+  per_opening: " per opening",
+};
+
+/**
+ * Render a cost without letting a rate masquerade as a total.
+ *
+ * Agents are asked for unit rates where trades price that way, so "$4–$8" on a
+ * roof is per square foot, not the job. Printing it bare — which is what this
+ * did first — makes a full roof replacement look like pocket change.
+ */
 function formatCost(cost: PlatformPropertyInsight["costEstimate"]): string | null {
   if (!cost) return null;
+
   const currency = cost.currency ?? "USD";
   const symbol = currency === "USD" ? "$" : `${currency} `;
-  if (cost.low === cost.high) return `${symbol}${cost.low.toLocaleString()}`;
-  return `${symbol}${cost.low.toLocaleString()}–${symbol}${cost.high.toLocaleString()}`;
+  const money = (n: number) => `${symbol}${Math.round(n).toLocaleString()}`;
+  const range = (lo: number, hi: number) =>
+    lo === hi ? money(lo) : `${money(lo)}\u2013${money(hi)}`;
+
+  const unit = cost.unit ?? "total";
+  const rate = `${range(cost.low, cost.high)}${COST_UNIT_LABELS[unit] ?? ""}`;
+
+  if (unit === "total") return rate;
+
+  // A quantity of one extends to the same number, so the parenthetical would
+  // just repeat the rate.
+  const extended =
+    cost.total ??
+    (typeof cost.quantity === "number" && cost.quantity > 1
+      ? { low: cost.low * cost.quantity, high: cost.high * cost.quantity }
+      : null);
+
+  return extended ? `${rate} (about ${range(extended.low, extended.high)})` : rate;
 }
 
 function humaniseCategory(category: string): string {

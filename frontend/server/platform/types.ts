@@ -130,6 +130,10 @@ export interface PropertyInsight {
   costEstimate?: {
     low: number;
     high: number;
+    /** How to read low/high. Absent means total. */
+    unit?: 'total' | 'per_sq_ft' | 'per_linear_ft' | 'per_unit' | 'per_opening';
+    quantity?: number | null;
+    total?: { low: number; high: number } | null;
     currency?: string;
     basis?: string;
   } | null;

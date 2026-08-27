@@ -1,4 +1,5 @@
 import { randomUUID, createHash } from 'node:crypto';
+import { costTotal } from '@bones-report/shared';
 import type {
   AgentCategoryResponse,
   PermitRecord,
@@ -233,13 +234,18 @@ function buildSummary(
   };
   for (const insight of insights) counts[insight.severity] += 1;
 
+  // Only sum costs that are genuinely totals. Adding a $4/sq ft roof rate to a
+  // $900 dishwasher produces a number that means nothing, which is what the
+  // first version of this did.
   let low = 0;
   let high = 0;
+  let summed = 0;
   for (const insight of insights) {
-    if (insight.costEstimate) {
-      low += insight.costEstimate.low;
-      high += insight.costEstimate.high;
-    }
+    const total = costTotal(insight.costEstimate);
+    if (!total) continue;
+    low += total.low;
+    high += total.high;
+    summed += 1;
   }
 
   const overallCondition = deriveCondition(counts, assessments);
@@ -248,7 +254,7 @@ function buildSummary(
     overallCondition,
     headline: buildHeadline(counts, overallCondition),
     counts,
-    estimatedCostRange: high > 0 ? { low, high, currency: 'USD' } : null,
+    estimatedCostRange: summed > 0 ? { low, high, currency: 'USD' } : null,
   };
 }
 

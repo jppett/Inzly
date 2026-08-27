@@ -1,3 +1,4 @@
+import { formatCost } from '@bones-report/shared';
 import type { PropertyInsight, CategoryAssessment } from '@bones-report/shared';
 import type { ReviewBundle } from '../calibration/types.js';
 import { PAGE_CSS } from './page-css.js';
@@ -18,10 +19,9 @@ function safeJson(value: unknown): string {
   return JSON.stringify(value).replace(/</g, '\\u003c');
 }
 
+/** Never print a unit rate as though it were a total. */
 function money(cost: PropertyInsight['costEstimate']): string {
-  if (!cost) return '';
-  const f = (n: number) => `$${n.toLocaleString()}`;
-  return cost.low === cost.high ? f(cost.low) : `${f(cost.low)}–${f(cost.high)}`;
+  return formatCost(cost) ?? '';
 }
 
 function humanise(category: string): string {
@@ -195,7 +195,7 @@ export function buildReviewPage(bundle: ReviewBundle, options: BuildPageOptions 
     .map((p) => `<img src="${esc(p.url)}" alt="" loading="lazy">`)
     .join('');
 
-  return `<title>Camden Walkthrough Review</title>
+  return `<title>Camden Findings Review</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:wght@400;500;600;700&display=swap">

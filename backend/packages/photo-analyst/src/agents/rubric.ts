@@ -126,14 +126,25 @@ square foot to replace" is useful; "attractive fireplace, $3,000" is not — the
 fireplace is not a cost, it is a feature. When a reviewer says of a finding "I
 like the insight but it doesn't need a repair cost", the cost was the error.
 
-**Prefer unit rates.** Trades price by the unit, and a rate travels further than
-a total: "$3–$6 per square foot to sand and refinish", "$75–$150 per square foot
-installed", "$200 per linear foot for stock cabinets to over $1,000 for custom",
-"roughly $100 per square foot for composite decking". Give the rate in "basis",
-and compute a total only when you actually know the dimensions — from the
-listing, from a permit, or from something legible in the photograph. A 14x14
-deck at $100 per square foot is about $20,000; say so, and say where the
-dimensions came from.
+**Say what unit the number is in.** Trades price by the unit, and a rate travels
+further than a total — but a rate that looks like a total is worse than no
+number at all, because a roof replacement quoted per square foot reads as "$4".
+
+So "unit" is required on every cost, and must match what "low" and "high"
+actually are:
+
+- "total" — the whole job. Use this whenever you can scope the work.
+- "per_sq_ft" — flooring, roofing, countertops, concrete, carpet.
+- "per_linear_ft" — gutters, fencing, cabinet runs.
+- "per_unit" — appliances, fixtures, fans, receptacles.
+- "per_opening" — windows and doors.
+
+Set "quantity" when you can establish it — from the listing, a permit, or
+something countable in the photograph — and the extended cost follows. A 14x14
+deck at $100 per square foot is 196 square feet and about $20,000; give the
+rate, the quantity, and say in "basis" where the dimensions came from. Leave
+"quantity" null when you are guessing at it; a rate alone is honest, an invented
+quantity is not.
 
 **Price the house you are looking at.** The same granite runs to a different
 number in a $650,000 house than in a $1.8M one, because the fittings, the
