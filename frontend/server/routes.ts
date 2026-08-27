@@ -7,6 +7,20 @@ import { insertPropertySchema, insertIssueSchema } from "@shared/schema";
 import { getOpenAI, isAiConfigured, AiNotConfiguredError } from "./openai-client";
 import bcrypt from "bcrypt";
 
+/**
+ * Turn a caught error into a response.
+ *
+ * Missing AI configuration is a 503 naming the variable to set, not a 500:
+ * on a fresh deploy without an AI key it is the single most likely failure,
+ * and "Failed to analyze property" gives nobody anything to act on.
+ */
+function sendError(res: Response, error: unknown, fallback: string) {
+  if (error instanceof AiNotConfiguredError) {
+    return res.status(error.status).json({ error: error.message });
+  }
+  return res.status(500).json({ error: fallback });
+}
+
 function requireAuth(req: Request, res: Response, next: NextFunction) {
   if (!req.session.userId) {
     return res.status(401).json({ error: "Not authenticated" });
@@ -24,6 +38,11 @@ export async function registerRoutes(
     res.json({
       source: DATA_SOURCE,
       platformUrl: DATA_SOURCE === "platform" ? process.env.PLATFORM_API_URL : undefined,
+      // Reported so a deployment can be diagnosed without reading logs.
+      // Names only — never values.
+      database: Boolean(process.env.DATABASE_URL),
+      ai: isAiConfigured(),
+      sessions: process.env.DATABASE_URL ? "postgres" : "memory",
     });
   });
 
@@ -280,7 +299,7 @@ Generate 4-7 realistic insights based on the property age, location, and typical
       });
     } catch (error) {
       console.error("Error analyzing property:", error);
-      res.status(500).json({ error: "Failed to analyze property" });
+      sendError(res, error, "Failed to analyze property");
     }
   });
 
@@ -360,7 +379,7 @@ Be helpful, concise, and specific to this property. If asked about something not
         res.write(`data: ${JSON.stringify({ error: "Failed to answer question" })}\n\n`);
         res.end();
       } else {
-        res.status(500).json({ error: "Failed to answer question" });
+        sendError(res, error, "Failed to answer question");
       }
     }
   });

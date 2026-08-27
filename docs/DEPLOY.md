@@ -24,20 +24,37 @@ five minutes. Everything else can follow.
    This is the step people miss: without it Railway builds the repository root,
    which has no app in it.
 3. Set the branch you want to watch. Every push to that branch redeploys.
-4. **Variables** — the minimum is nothing at all; it will boot and serve the
-   mock backend. To be explicit:
+4. **Variables** — the minimum is nothing at all; it boots and serves the mock
+   backend with no variables set. Worth setting:
 
    ```
-   NODE_ENV=production
    VITE_API_TARGET=mock
    SESSION_SECRET=<a long random string>
    ```
 
+   **Do not set `NODE_ENV=production` as a Railway variable.** Railway applies
+   variables to the build as well as the runtime, and `npm ci` under
+   `NODE_ENV=production` skips devDependencies — which is where `vite`, `tsx`
+   and `esbuild` live. The build then fails with `tsx: not found`. This was
+   verified, not assumed: 342 packages installed instead of 450.
+
+   The build command in `railway.json` passes `--include=dev` so it survives
+   this anyway, and `npm start` sets `NODE_ENV=production` itself for the
+   runtime. There is nothing to gain by setting it yourself.
+
 5. **Settings → Networking → Generate Domain** for a public URL.
 
 `railway.json` in `frontend/` already sets the build and start commands and
-points the healthcheck at `/api/data-source`, which reports which data source is
-live and is the quickest way to confirm a deploy is healthy.
+points the healthcheck at `/api/data-source`. That endpoint reports how the
+deployment is configured, which is the fastest way to diagnose one:
+
+```json
+{ "source": "database", "database": false, "ai": false, "sessions": "memory" }
+```
+
+Names only, never values. `database: false` with `source: "database"` means the
+app is trying to read properties from Postgres and there is none — set
+`VITE_API_TARGET=mock` or add the database.
 
 ### Adding a database
 
@@ -60,8 +77,10 @@ for populated data.
 ### Turning on AI features
 
 Set `AI_INTEGRATIONS_OPENAI_API_KEY`. Without it the app boots and browses
-normally, and the analysis, chat and image endpoints return a 503 explaining
-what is missing rather than crashing the process.
+normally, and the analysis and chat endpoints return 503 naming the variable to
+set rather than crashing the process. (With no database *and* no AI key you will
+see a 500 from the database first, since the route loads the property before it
+reaches the model — `/api/data-source` tells you which is missing.)
 
 ## Deploying the platform
 
