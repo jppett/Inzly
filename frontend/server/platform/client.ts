@@ -4,6 +4,7 @@ import type {
   MLSListingResult,
   PlatformListResponse,
   PropertyInsightsResult,
+  PropertySummaryResult,
 } from "./types";
 
 export interface PlatformClientOptions {
@@ -142,6 +143,32 @@ export class PlatformClient {
   /** Most recent usable photo-analysis report for an address request. */
   async getLatestInsights(addressRequestId: string): Promise<PropertyInsightsResult | undefined> {
     const results = await this.listPropertyInsights(addressRequestId);
+    return results
+      .filter((r) => r.status !== "failed")
+      .sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at))[0];
+  }
+
+  async listPropertySummaries(addressRequestId?: string): Promise<PropertySummaryResult[]> {
+    const query = addressRequestId
+      ? `?address_request_id=${encodeURIComponent(addressRequestId)}`
+      : "";
+    const res = await this.request<PlatformListResponse<PropertySummaryResult>>(
+      `/property-summary${query}`,
+    );
+    return res.data ?? [];
+  }
+
+  /**
+   * The precomputed report for a property, if the Summary Agent has run.
+   *
+   * This is the read the product app should prefer: it is the only thing in
+   * the platform pipeline that reasons across every category agent and the
+   * full permit history at once, and reading it is a plain lookup — no model
+   * call sits in this request's path, which is what makes a property view
+   * fast regardless of how long the analysis behind it took.
+   */
+  async getLatestSummary(addressRequestId: string): Promise<PropertySummaryResult | undefined> {
+    const results = await this.listPropertySummaries(addressRequestId);
     return results
       .filter((r) => r.status !== "failed")
       .sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at))[0];

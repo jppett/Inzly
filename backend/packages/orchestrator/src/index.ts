@@ -2,6 +2,7 @@
 import { EventConsumer } from './consumer.js';
 import { AddressRequestHandler } from './handlers/address-request-handler.js';
 import { CompletionHandler } from './handlers/completion-handler.js';
+import { SummaryTriggerHandler } from './handlers/summary-trigger-handler.js';
 
 async function main() {
   console.log('Orchestrator service starting...');
@@ -15,6 +16,7 @@ async function main() {
   const consumer = new EventConsumer();
   const addressHandler = new AddressRequestHandler();
   const completionHandler = new CompletionHandler();
+  const summaryTriggerHandler = new SummaryTriggerHandler();
 
   // Register AddressRequest event handlers
   consumer.registerHandler('AddressRequest.create', (envelope) => 
@@ -42,12 +44,23 @@ async function main() {
     completionHandler.handleMLSListingResultUpdate(envelope)
   );
 
+  // Summary Agent trigger — independent of AddressRequest.processed, so
+  // photo analysis and permits (both slower than RentCast + MLS) never
+  // block the existing completion signal other consumers depend on.
+  consumer.registerHandler('PropertyInsightsResult.create', (envelope) =>
+    summaryTriggerHandler.handlePropertyInsightsCreate(envelope)
+  );
+
+  consumer.registerHandler('PermitHistoryResult.create', (envelope) =>
+    summaryTriggerHandler.handlePermitHistoryCreate(envelope)
+  );
+
   // Start consuming events
   console.log('Starting event consumer...');
   await consumer.start();
   console.log('Orchestrator service ready and listening for events');
-  console.log('📋 Handling: AddressRequest, BonesReportResult, MLSListingResult events');
-  console.log('🎯 Functions: Workflow initiation + Completion detection');
+  console.log('📋 Handling: AddressRequest, BonesReportResult, MLSListingResult, PropertyInsightsResult, PermitHistoryResult events');
+  console.log('🎯 Functions: Workflow initiation + Completion detection + Summary Agent trigger');
 
   // Perform initial manual completion check for any orphaned processing requests
   console.log('🔄 Performing initial completion check...');

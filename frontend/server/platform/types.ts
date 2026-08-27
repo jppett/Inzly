@@ -166,3 +166,29 @@ export interface PropertyInsightsResult {
   };
   error?: string;
 }
+
+// --- Property summary --------------------------------------------------
+
+export interface PropertyCorroborationNote {
+  finding: string;
+  permitContext: string;
+  effect: "confirmed" | "contradicted" | "context_only";
+}
+
+export interface PropertySummaryResult {
+  id: string;
+  address_request_id: string;
+  status: "completed" | "failed";
+  created_at: string;
+  model?: string;
+  headline: string;
+  overallAssessment: string;
+  overallCondition: "excellent" | "good" | "fair" | "poor";
+  topConcerns: PropertyInsight[];
+  topPositives: PropertyInsight[];
+  corroboration: PropertyCorroborationNote[];
+  estimatedCostRange: { low: number; high: number; currency: string } | null;
+  counts: Record<InsightSeverity, number>;
+  categories: CategoryAssessment[];
+  error?: string;
+}

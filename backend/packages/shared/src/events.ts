@@ -21,6 +21,8 @@ export const EVENT_TOPICS = {
   PROPERTY_INSIGHTS_RESULT_UPDATE: 'PropertyInsightsResult.update',
   PERMIT_HISTORY_RESULT_CREATE: 'PermitHistoryResult.create',
   PERMIT_HISTORY_RESULT_UPDATE: 'PermitHistoryResult.update',
+  PROPERTY_SUMMARY_RESULT_CREATE: 'PropertySummaryResult.create',
+  PROPERTY_SUMMARY_RESULT_UPDATE: 'PropertySummaryResult.update',
 } as const;
 
 export type EventTopic = typeof EVENT_TOPICS[keyof typeof EVENT_TOPICS];
@@ -150,6 +152,25 @@ export interface PermitHistoryResultUpdateEvent {
   };
 }
 
+export interface PropertySummaryResultCreateEvent {
+  type: typeof EVENT_TOPICS.PROPERTY_SUMMARY_RESULT_CREATE;
+  data: {
+    id: string;
+    address_request_id: string;
+    created_at: string;
+    status: 'completed' | 'failed';
+  };
+}
+
+export interface PropertySummaryResultUpdateEvent {
+  type: typeof EVENT_TOPICS.PROPERTY_SUMMARY_RESULT_UPDATE;
+  data: {
+    id: string;
+    status?: 'completed' | 'failed';
+    updated_at: string;
+  };
+}
+
 // Union type for all events
 export type AppEvent = 
   | AddressRequestCreateEvent
@@ -163,7 +184,9 @@ export type AppEvent =
   | PropertyInsightsResultCreateEvent
   | PropertyInsightsResultUpdateEvent
   | PermitHistoryResultCreateEvent
-  | PermitHistoryResultUpdateEvent;
+  | PermitHistoryResultUpdateEvent
+  | PropertySummaryResultCreateEvent
+  | PropertySummaryResultUpdateEvent;
 
 // Utility functions for creating event envelopes
 export function createEventEnvelope<T>(type: EventTopic, data: T): EventEnvelope<T> {
@@ -219,4 +242,12 @@ export function createPermitHistoryResultCreateEvent(data: PermitHistoryResultCr
 
 export function createPermitHistoryResultUpdateEvent(data: PermitHistoryResultUpdateEvent['data']): EventEnvelope<PermitHistoryResultUpdateEvent['data']> {
   return createEventEnvelope(EVENT_TOPICS.PERMIT_HISTORY_RESULT_UPDATE, data);
+}
+
+export function createPropertySummaryResultCreateEvent(data: PropertySummaryResultCreateEvent['data']): EventEnvelope<PropertySummaryResultCreateEvent['data']> {
+  return createEventEnvelope(EVENT_TOPICS.PROPERTY_SUMMARY_RESULT_CREATE, data);
+}
+
+export function createPropertySummaryResultUpdateEvent(data: PropertySummaryResultUpdateEvent['data']): EventEnvelope<PropertySummaryResultUpdateEvent['data']> {
+  return createEventEnvelope(EVENT_TOPICS.PROPERTY_SUMMARY_RESULT_UPDATE, data);
 }

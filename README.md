@@ -82,6 +82,7 @@ See [docs/PHOTO_ANALYSIS.md](docs/PHOTO_ANALYSIS.md).
 - [docs/CALIBRATION.md](docs/CALIBRATION.md) — tuning the agents against professional judgement
 - [docs/PERMITS.md](docs/PERMITS.md) — permit history, and how it corroborates what the agents see
 - [docs/DEPLOY.md](docs/DEPLOY.md) — standing the app up on Railway
+- [docs/SPEED_AND_COST.md](docs/SPEED_AND_COST.md) — tiered models, the Summary Agent, batching, and why "instant" means precomputed
 - [docs/BRAND.md](docs/BRAND.md) — brand and UI design guide
 - [docs/KNOWN_ISSUES.md](docs/KNOWN_ISSUES.md) — inherited problems worth knowing about
 - [backend/docs/](backend/docs/) — platform API spec, events, decisions

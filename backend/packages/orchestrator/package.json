@@ -14,7 +14,8 @@
   "dependencies": {
     "@bones-report/shared": "workspace:*",
     "redis": "^4.6.0",
-    "kafkajs": "^2.2.0"
+    "kafkajs": "^2.2.0",
+    "@bones-report/photo-analyst": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.3.0",

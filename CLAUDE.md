@@ -52,6 +52,13 @@ is exactly what this setup replaced.
 **Events.** Topics are `<noun>.<operation>`; envelopes are `{ type, ts, data }`.
 `backend/schemas/*.json` is the source of truth for bodies.
 
+**Speed and cost.** Category agents run on `claude-sonnet-5`; the Summary
+Agent that synthesises them runs once per property on `claude-opus-5`, text
+only. Ingestion-time work (category analysis) goes through the Batch API;
+a property view reads the precomputed `PropertySummaryResult` — no model call
+in that path. Read
+[docs/SPEED_AND_COST.md](docs/SPEED_AND_COST.md) before changing either tier.
+
 **Permits.** `permits-fetcher` puts building permits on record, and the photo
 agents use them to corroborate what they see — see
 [docs/PERMITS.md](docs/PERMITS.md). Shovels reports money in cents.

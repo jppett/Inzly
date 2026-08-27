@@ -12,8 +12,9 @@ import type {
 } from '@bones-report/shared';
 import { EXPERT_AGENTS, type ExpertAgent } from '../agents/definitions.js';
 import { SHARED_RUBRIC, OUTPUT_CONTRACT } from '../agents/rubric.js';
+import { DEFAULT_CATEGORY_MODEL } from '../agents/definitions.js';
 import { permitContext } from '../agents/permit-context.js';
-import type { VisionProvider, VisionUsage } from '../providers/index.js';
+import type { VisionProvider, VisionUsage, VisionRequest, BatchItem, BatchItemOutcome } from '../providers/index.js';
 import { reconcileCategory, severityRank } from './reconcile.js';
 
 export interface AnalyseOptions {
@@ -52,6 +53,14 @@ export interface AnalyseOutcome {
   failures: Array<{ category: string; error: string }>;
 }
 
+/** One (agent, run) unit of work — the thing both execution paths schedule. */
+interface PlannedRequest {
+  agent: ExpertAgent;
+  runIndex: number;
+  customId: string;
+  request: VisionRequest;
+}
+
 const DEFAULT_MAX_PHOTOS = 20;
 const DEFAULT_CONCURRENCY = 4;
 const DEFAULT_MAX_PER_PHOTO = 3;
@@ -64,118 +73,191 @@ export class PhotoAnalyst {
     photoUrls: string[],
     options: AnalyseOptions = {},
   ): Promise<AnalyseOutcome> {
-    const photos = toPhotoRefs(photoUrls, options.maxPhotos ?? DEFAULT_MAX_PHOTOS);
+    const { photos, agents, empty } = this.plan(addressRequestId, photoUrls, options);
+    if (empty) return empty;
+
     const manifest = buildManifest(photos);
-
-    const agents = EXPERT_AGENTS.filter(
-      (a) => !options.categories || options.categories.includes(a.category),
-    );
-
-    const usage: VisionUsage = {
-      inputTokens: 0,
-      outputTokens: 0,
-      cacheReadTokens: 0,
-      cacheWriteTokens: 0,
-    };
+    const usage = emptyUsage();
     const failures: Array<{ category: string; error: string }> = [];
     const assessments: CategoryAssessment[] = [];
     const insights: PropertyInsight[] = [];
 
-    if (photos.length === 0) {
-      return {
-        result: {
-          address_request_id: addressRequestId,
-          status: 'failed',
-          model: this.provider.model,
-          photos: [],
-          categories: [],
-          insights: [],
-          summary: emptySummary('No photographs were available for this property.'),
-          error: 'no_photos',
-        },
-        usage,
-        failures,
-      };
-    }
+    const runOne = async (agent: ExpertAgent) => {
+      const runs: AgentCategoryResponse[] = [];
+
+      for (let i = 0; i < agent.runs; i += 1) {
+        try {
+          const response = await this.provider.analyze(
+            this.buildRequest(agent, photos, manifest, options),
+          );
+          runs.push(response.result);
+          addUsage(usage, response.usage);
+        } catch (error) {
+          console.error(`❌ [photo-analyst] ${agent.category} run ${i + 1} failed:`, error);
+        }
+      }
+
+      this.collect(agent, runs, photos, assessments, insights, failures);
+    };
 
     // The first agent writes the shared photo prefix to cache; the rest read
     // it. Running one before the others makes that hit reliable rather than
     // racing several cold writers.
     const [first, ...rest] = agents;
-    if (first) {
-      await this.runOne(first, photos, manifest, assessments, insights, failures, usage, options);
-    }
+    if (first) await runOne(first);
+    await inBatches(rest, options.concurrency ?? DEFAULT_CONCURRENCY, runOne);
 
-    await inBatches(rest, options.concurrency ?? DEFAULT_CONCURRENCY, (agent) =>
-      this.runOne(agent, photos, manifest, assessments, insights, failures, usage, options),
-    );
-
-    insights.sort((a, b) => severityRank(b.severity) - severityRank(a.severity));
-
-    // Agents run blind to each other, so a busy kitchen can collect findings
-    // from five of them. Enforce the cap across the whole run, keeping the most
-    // consequential per photograph.
-    const capped = capPerPhoto(insights, options.maxPerPhoto ?? DEFAULT_MAX_PER_PHOTO);
-    insights.length = 0;
-    insights.push(...capped);
-
-    const status: CreatePropertyInsightsResultInput['status'] =
-      failures.length === 0 ? 'completed' : failures.length < agents.length ? 'partial' : 'failed';
-
-    return {
-      result: {
-        address_request_id: addressRequestId,
-        status,
-        model: this.provider.model,
-        photos,
-        categories: assessments,
-        insights,
-        summary: buildSummary(insights, assessments),
-        error: failures.length ? `${failures.length} categories failed` : undefined,
-      },
-      usage,
-      failures,
-    };
+    return this.assemble(addressRequestId, photos, agents, assessments, insights, failures, usage, options);
   }
 
-  private async runOne(
-    agent: ExpertAgent,
-    photos: PhotoRef[],
-    manifest: string,
-    assessments: CategoryAssessment[],
-    insights: PropertyInsight[],
-    failures: Array<{ category: string; error: string }>,
-    usage: VisionUsage,
-    options: AnalyseOptions,
-  ): Promise<void> {
-    const permits = options.permits;
-    const runs: AgentCategoryResponse[] = [];
+  /**
+   * Same result as `analyse()`, submitted as a single Message Batch instead of
+   * one call per (agent, run). For providers that don't support batching (the
+   * mock, chiefly) this falls back to running everything sequentially through
+   * `analyze()` — batching is a cost optimisation, not something callers
+   * should have to branch on.
+   */
+  async analyseBatch(
+    addressRequestId: string,
+    photoUrls: string[],
+    options: AnalyseOptions = {},
+    onProgress?: (status: string) => void,
+  ): Promise<AnalyseOutcome> {
+    const { photos, agents, empty } = this.plan(addressRequestId, photoUrls, options);
+    if (empty) return empty;
 
-    for (let i = 0; i < agent.runs; i += 1) {
-      try {
-        const response = await this.provider.analyze({
-          systemPrompt: SHARED_RUBRIC,
-          photos,
-          photoManifest: manifest,
-          // Permit context sits with the brief, after the cache breakpoint,
-          // so the photo prefix stays identical across agents.
-          brief:
-            `${agent.brief}` +
-            `${propertyContext(options.property)}` +
-            `${permitContext(permits, agent.category)}\n\n${OUTPUT_CONTRACT}`,
+    const manifest = buildManifest(photos);
+    const usage = emptyUsage();
+    const failures: Array<{ category: string; error: string }> = [];
+    const assessments: CategoryAssessment[] = [];
+    const insights: PropertyInsight[] = [];
+
+    const planned: PlannedRequest[] = [];
+    for (const agent of agents) {
+      for (let runIndex = 0; runIndex < agent.runs; runIndex += 1) {
+        planned.push({
+          agent,
+          runIndex,
+          customId: `${agent.category}::${runIndex}`,
+          request: this.buildRequest(agent, photos, manifest, options),
         });
-        runs.push(response.result);
-        if (response.usage) {
-          usage.inputTokens += response.usage.inputTokens;
-          usage.outputTokens += response.usage.outputTokens;
-          usage.cacheReadTokens += response.usage.cacheReadTokens;
-          usage.cacheWriteTokens += response.usage.cacheWriteTokens;
-        }
-      } catch (error) {
-        console.error(`❌ [photo-analyst] ${agent.category} run ${i + 1} failed:`, error);
       }
     }
 
+    const outcomes = this.provider.analyzeBatch
+      ? await this.provider.analyzeBatch(
+          planned.map(({ customId, request }) => ({ customId, request })),
+          onProgress,
+        )
+      : await this.runSequentiallyAsBatch(planned, onProgress);
+
+    const runsByCategory = new Map<string, AgentCategoryResponse[]>();
+    for (const item of planned) {
+      const outcome = outcomes.get(item.customId);
+      if (!outcome) {
+        console.error(`❌ [photo-analyst] ${item.customId} missing from batch results`);
+        continue;
+      }
+      if (!outcome.ok) {
+        console.error(`❌ [photo-analyst] ${item.customId} failed: ${outcome.error}`);
+        continue;
+      }
+      addUsage(usage, outcome.response.usage);
+      const list = runsByCategory.get(item.agent.category) ?? [];
+      list.push(outcome.response.result);
+      runsByCategory.set(item.agent.category, list);
+    }
+
+    for (const agent of agents) {
+      this.collect(agent, runsByCategory.get(agent.category) ?? [], photos, assessments, insights, failures);
+    }
+
+    return this.assemble(addressRequestId, photos, agents, assessments, insights, failures, usage, options);
+  }
+
+  /** Fallback for providers without native batch support: same requests, run one at a time. */
+  private async runSequentiallyAsBatch(
+    planned: PlannedRequest[],
+    onProgress?: (status: string) => void,
+  ): Promise<Map<string, BatchItemOutcome>> {
+    const outcomes = new Map<string, BatchItemOutcome>();
+    for (const [i, item] of planned.entries()) {
+      onProgress?.(`${i + 1}/${planned.length} (sequential fallback — provider has no batch support)`);
+      try {
+        const response = await this.provider.analyze(item.request);
+        outcomes.set(item.customId, { ok: true, response });
+      } catch (error) {
+        outcomes.set(item.customId, {
+          ok: false,
+          error: error instanceof Error ? error.message : 'Unknown error',
+        });
+      }
+    }
+    return outcomes;
+  }
+
+  private plan(
+    addressRequestId: string,
+    photoUrls: string[],
+    options: AnalyseOptions,
+  ): { photos: PhotoRef[]; agents: ExpertAgent[]; empty?: AnalyseOutcome } {
+    const photos = toPhotoRefs(photoUrls, options.maxPhotos ?? DEFAULT_MAX_PHOTOS);
+    const agents = EXPERT_AGENTS.filter(
+      (a) => !options.categories || options.categories.includes(a.category),
+    );
+
+    if (photos.length === 0) {
+      return {
+        photos,
+        agents,
+        empty: {
+          result: {
+            address_request_id: addressRequestId,
+            status: 'failed',
+            model: this.provider.model,
+            photos: [],
+            categories: [],
+            insights: [],
+            summary: emptySummary('No photographs were available for this property.'),
+            error: 'no_photos',
+          },
+          usage: emptyUsage(),
+          failures: [],
+        },
+      };
+    }
+
+    return { photos, agents };
+  }
+
+  private buildRequest(
+    agent: ExpertAgent,
+    photos: PhotoRef[],
+    manifest: string,
+    options: AnalyseOptions,
+  ): VisionRequest {
+    return {
+      model: agent.model ?? DEFAULT_CATEGORY_MODEL,
+      systemPrompt: SHARED_RUBRIC,
+      photos,
+      photoManifest: manifest,
+      // Permit context sits with the brief, after the cache breakpoint, so
+      // the photo prefix stays identical across agents.
+      brief:
+        `${agent.brief}` +
+        `${propertyContext(options.property)}` +
+        `${permitContext(options.permits, agent.category)}\n\n${OUTPUT_CONTRACT}`,
+    };
+  }
+
+  private collect(
+    agent: ExpertAgent,
+    runs: AgentCategoryResponse[],
+    photos: PhotoRef[],
+    assessments: CategoryAssessment[],
+    insights: PropertyInsight[],
+    failures: Array<{ category: string; error: string }>,
+  ): void {
     if (runs.length === 0) {
       failures.push({ category: agent.category, error: 'all runs failed' });
       return;
@@ -185,6 +267,7 @@ export class PhotoAnalyst {
       agent.category,
       runs,
       photos.length,
+      agent.model ?? DEFAULT_CATEGORY_MODEL,
     );
 
     assessments.push(assessment);
@@ -203,6 +286,60 @@ export class PhotoAnalyst {
       });
     }
   }
+
+  private assemble(
+    addressRequestId: string,
+    photos: PhotoRef[],
+    agents: ExpertAgent[],
+    assessments: CategoryAssessment[],
+    insights: PropertyInsight[],
+    failures: Array<{ category: string; error: string }>,
+    usage: VisionUsage,
+    options: AnalyseOptions,
+  ): AnalyseOutcome {
+    insights.sort((a, b) => severityRank(b.severity) - severityRank(a.severity));
+
+    // Agents run blind to each other, so a busy kitchen can collect findings
+    // from five of them. Enforce the cap across the whole run, keeping the most
+    // consequential per photograph.
+    const capped = capPerPhoto(insights, options.maxPerPhoto ?? DEFAULT_MAX_PER_PHOTO);
+    insights.length = 0;
+    insights.push(...capped);
+
+    const status: CreatePropertyInsightsResultInput['status'] =
+      failures.length === 0 ? 'completed' : failures.length < agents.length ? 'partial' : 'failed';
+
+    return {
+      result: {
+        address_request_id: addressRequestId,
+        status,
+        // Distinct models actually used, not just the provider's default —
+        // categories can run on different tiers.
+        model:
+          [...new Set(assessments.map((a) => a.model).filter(Boolean))].join(', ') ||
+          this.provider.model,
+        photos,
+        categories: assessments,
+        insights,
+        summary: buildSummary(insights, assessments),
+        error: failures.length ? `${failures.length} categories failed` : undefined,
+      },
+      usage,
+      failures,
+    };
+  }
+}
+
+function emptyUsage(): VisionUsage {
+  return { inputTokens: 0, outputTokens: 0, cacheReadTokens: 0, cacheWriteTokens: 0 };
+}
+
+function addUsage(total: VisionUsage, delta?: VisionUsage): void {
+  if (!delta) return;
+  total.inputTokens += delta.inputTokens;
+  total.outputTokens += delta.outputTokens;
+  total.cacheReadTokens += delta.cacheReadTokens;
+  total.cacheWriteTokens += delta.cacheWriteTokens;
 }
 
 /** Short, stable ids derived from the url, so they survive re-analysis. */

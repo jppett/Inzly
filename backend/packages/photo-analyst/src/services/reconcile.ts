@@ -23,6 +23,7 @@ export function reconcileCategory(
   category: InsightCategory,
   runs: AgentCategoryResponse[],
   photosConsidered: number,
+  model?: string,
 ): { assessment: CategoryAssessment; insights: Omit<PropertyInsight, 'id'>[] } {
   const usable = runs.filter((r) => r.rating !== 'not_visible');
 
@@ -30,6 +31,7 @@ export function reconcileCategory(
     return {
       assessment: {
         category,
+        model,
         rating: 'not_visible',
         confidence: runs.length > 0 ? 'high' : 'low',
         summary:
@@ -51,6 +53,7 @@ export function reconcileCategory(
   return {
     assessment: {
       category,
+      model,
       rating,
       confidence,
       // One summary, from the run whose rating matched the reconciled verdict —

@@ -10,5 +10,13 @@
   "exclude": [
     "dist",
     "node_modules"
+  ],
+  "references": [
+    {
+      "path": "../shared"
+    },
+    {
+      "path": "../photo-analyst"
+    }
   ]
 }

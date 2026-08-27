@@ -6,6 +6,7 @@ export { reconcileCategory, dedupeInsights } from './services/reconcile.js';
 export { EXPERT_AGENTS, AGENTS_BY_CATEGORY } from './agents/definitions.js';
 export { SHARED_RUBRIC, OUTPUT_CONTRACT } from './agents/rubric.js';
 export * from './providers/index.js';
+export * from './summary/index.js';
 
 async function main(): Promise<void> {
   const brokers = (process.env.REDPANDA_BROKERS || 'localhost:9092').split(',');

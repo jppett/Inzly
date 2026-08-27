@@ -129,6 +129,9 @@ export interface PropertyInsight {
 
 export interface CategoryAssessment {
   category: InsightCategory;
+  /** Which model produced this assessment — for cost and quality traceability
+   * when agents run on different tiers. */
+  model?: string;
   /** A single reconciled value — never a delimited list of per-run results. */
   rating: CategoryRating;
   confidence: Confidence;

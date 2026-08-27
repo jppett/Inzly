@@ -60,6 +60,7 @@ export const PropertyInsightSchema = z.object({
 
 export const CategoryAssessmentSchema = z.object({
   category: InsightCategorySchema,
+  model: z.string().optional(),
   rating: CategoryRatingSchema,
   confidence: ConfidenceSchema,
   summary: z.string(),

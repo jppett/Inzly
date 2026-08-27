@@ -136,6 +136,9 @@ importers:
 
   packages/orchestrator:
     dependencies:
+      '@bones-report/photo-analyst':
+        specifier: workspace:*
+        version: link:../photo-analyst
       '@bones-report/shared':
         specifier: workspace:*
         version: link:../shared

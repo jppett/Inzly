@@ -3,6 +3,7 @@ import { z } from 'zod';
 
 export * from './insights.js';
 export * from './permits.js';
+export * from './summary.js';
 
 
 // EventEnvelope schema

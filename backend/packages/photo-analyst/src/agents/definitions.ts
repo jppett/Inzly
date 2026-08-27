@@ -5,6 +5,15 @@ export interface ExpertAgent {
   /** Shown in the UI when grouping findings. */
   label: string;
   /**
+   * Model tier for this agent. Category agents do bounded, well-specified
+   * visual judgment — condition, materials, defects against a rubric with
+   * worked examples — which is a good fit for a cheaper model. The Summary
+   * Agent, which reasons across all of them at once with no rubric to lean
+   * on, stays on the top tier. Override per-agent only when calibration shows
+   * a category needs it.
+   */
+  model?: string;
+  /**
    * Category-specific brief. Sent after the photos so the shared rubric and
    * the images stay a stable, cacheable prefix across all agents.
    */
@@ -20,6 +29,9 @@ export interface ExpertAgent {
    */
   runs: number;
 }
+
+/** Default model for category agents — see the `model` field doc on ExpertAgent. */
+export const DEFAULT_CATEGORY_MODEL = process.env.CATEGORY_MODEL ?? 'claude-sonnet-5';
 
 export const EXPERT_AGENTS: ExpertAgent[] = [
   {

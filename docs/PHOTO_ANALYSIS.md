@@ -190,6 +190,20 @@ pnpm --filter @bones-report/photo-analyst analyse --list
 The CLI needs no Redis, Kafka or running stack. Use it when editing a brief: run
 before, edit, run again on the same photos, compare.
 
+## The Summary Agent
+
+Category agents don't talk to each other, and never see the full permit
+history — only the slice bearing on their own category. A separate step,
+`packages/photo-analyst/src/summary/`, runs once per property after every
+category agent and the permit lookup are done: it reads all of it at once,
+on `claude-opus-5`, and produces the report the product app actually shows —
+a curated set of top concerns and positives, not the raw union of fourteen
+agents' findings, plus cross-category permit corroboration none of them could
+reason about alone. Category agents themselves moved to `claude-sonnet-5`,
+cheaper and a reasonable fit for their more bounded task. See
+[SPEED_AND_COST.md](SPEED_AND_COST.md) for the full architecture and the
+tradeoffs behind it.
+
 ## Permit corroboration
 
 Where building permits are on record, each agent receives the ones bearing on

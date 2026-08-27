@@ -9,6 +9,9 @@ export * from './insights.js';
 // Permit history types (permits-fetcher output)
 export * from './permits.js';
 
+// Property summary types (Summary Agent output)
+export * from './summary.js';
+
 // Runtime validation schemas
 export * from './schemas/index.js';
 
@@ -28,6 +31,8 @@ export {
   createPropertyInsightsResultUpdateEvent,
   createPermitHistoryResultCreateEvent,
   createPermitHistoryResultUpdateEvent,
+  createPropertySummaryResultCreateEvent,
+  createPropertySummaryResultUpdateEvent,
   type EventTopic,
   type AppEvent,
   type AddressRequestCreateEvent,
@@ -42,6 +47,8 @@ export {
   type PropertyInsightsResultUpdateEvent,
   type PermitHistoryResultCreateEvent,
   type PermitHistoryResultUpdateEvent,
+  type PropertySummaryResultCreateEvent,
+  type PropertySummaryResultUpdateEvent,
 } from './events/index.js';
 
 // General utilities

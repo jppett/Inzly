@@ -9,7 +9,7 @@ import type {
 import type { IStorage } from "../storage-types";
 import { PlatformClient, PlatformError } from "./client";
 import { mapReportToProperty, mapInsightsToIssues, scoreFromInsights, type MappedProperty } from "./mapper";
-import type { MLSListingResult, PropertyInsightsResult } from "./types";
+import type { MLSListingResult, PropertyInsightsResult, PropertySummaryResult } from "./types";
 
 /**
  * Reads properties from the Inzly data platform instead of the local database.
@@ -61,10 +61,11 @@ export class PlatformStorage implements IStorage {
     const request = await this.client.getAddressRequest(id);
     if (!request) return undefined;
 
-    const [report, mls, insights] = await Promise.all([
+    const [report, mls, insights, summary] = await Promise.all([
       this.client.getLatestReport(id).catch(() => undefined),
       this.mlsByAddress(),
       this.client.getLatestInsights(id).catch(() => undefined),
+      this.client.getLatestSummary(id).catch(() => undefined),
     ]);
 
     const property = mapReportToProperty(
@@ -73,7 +74,7 @@ export class PlatformStorage implements IStorage {
       mls.get(normalizeAddress(request.address)),
     );
 
-    return withInsights(property, insights);
+    return withInsights(withSummary(property, summary), insights, Boolean(summary && summary.status !== "failed"));
   }
 
   /**
@@ -112,8 +113,15 @@ export class PlatformStorage implements IStorage {
    * endpoint keep rendering while the pipeline is being rolled out.
    */
   async getIssuesByPropertyId(propertyId: string): Promise<Issue[]> {
-    const insights = await this.client.getLatestInsights(propertyId).catch(() => undefined);
+    // Three tiers, most curated first: the Summary Agent's chosen concerns
+    // and positives, then the full unreconciled insight set (mid-rollout, or
+    // if the summary step hasn't run yet), then the database.
+    const summary = await this.client.getLatestSummary(propertyId).catch(() => undefined);
+    if (summary && (summary.topConcerns.length > 0 || summary.topPositives.length > 0)) {
+      return mapInsightsToIssues(propertyId, [...summary.topConcerns, ...summary.topPositives]);
+    }
 
+    const insights = await this.client.getLatestInsights(propertyId).catch(() => undefined);
     if (insights && insights.insights.length > 0) {
       return mapInsightsToIssues(propertyId, insights.insights);
     }
@@ -185,9 +193,44 @@ export type { MappedProperty };
  * on the right photo. The Inzly Score comes from the findings rather than being
  * left null.
  */
+/**
+ * Fold the Summary Agent's synthesis into the property's description.
+ *
+ * The headline and assessment are the report — written by the one step that
+ * reasons across every category and the full permit history, rather than the
+ * raw per-category text a single agent produced in isolation. Runs before
+ * `withInsights`, which still supplies images and, when no summary exists
+ * yet, the fallback score.
+ */
+function withSummary(
+  property: MappedProperty,
+  summary?: PropertySummaryResult,
+): MappedProperty {
+  if (!summary || summary.status === "failed") return property;
+
+  return {
+    ...property,
+    description: `${summary.headline} ${summary.overallAssessment}`.trim(),
+    foundlyScore: scoreFromCondition(summary.overallCondition, summary.counts),
+  };
+}
+
+/** Deterministic 0-100 score from the Summary Agent's own condition call. */
+function scoreFromCondition(
+  condition: PropertySummaryResult["overallCondition"],
+  counts: PropertySummaryResult["counts"],
+): number {
+  const base = { excellent: 92, good: 78, fair: 60, poor: 38 }[condition] ?? 60;
+  const penalty = counts.critical * 8 + counts.warning * 2;
+  const bonus = counts.good;
+  return Math.max(0, Math.min(100, Math.round(base - penalty + bonus)));
+}
+
 function withInsights(
   property: MappedProperty,
   insights?: PropertyInsightsResult,
+  /** True once withSummary has already set the score — don't overwrite it. */
+  scoreFromSummary = false,
 ): MappedProperty {
   if (!insights || insights.status === "failed") return property;
 
@@ -200,6 +243,9 @@ function withInsights(
           label: photo.label ?? `Photo ${index + 1}`,
         }))
       : property.images,
-    foundlyScore: insights.insights.length ? scoreFromInsights(insights.insights) : property.foundlyScore,
+    foundlyScore:
+      scoreFromSummary || !insights.insights.length
+        ? property.foundlyScore
+        : scoreFromInsights(insights.insights),
   };
 }

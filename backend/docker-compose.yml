@@ -112,12 +112,20 @@ services:
       - NODE_ENV=${NODE_ENV:-development}
       - REDIS_URL=redis://redis:6379
       - REDPANDA_BROKERS=redpanda:9092
+      # The orchestrator triggers the Summary Agent once photo insights and
+      # permits are both ready. Without a key that step fails per-property
+      # and logs it; everything else the orchestrator does is unaffected.
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+      - SUMMARY_MODEL=${SUMMARY_MODEL:-claude-opus-5}
+      - SUMMARY_EFFORT=${SUMMARY_EFFORT:-high}
       - LOG_LEVEL=${LOG_LEVEL:-info}
     volumes:
       - ./packages/orchestrator:/app/packages/orchestrator
+      - ./packages/photo-analyst:/app/packages/photo-analyst
       - ./packages/shared:/app/packages/shared
       - /app/node_modules
       - /app/packages/orchestrator/node_modules
+      - /app/packages/photo-analyst/node_modules
       - /app/packages/shared/node_modules
     restart: unless-stopped
 
@@ -167,6 +175,7 @@ services:
       - VISION_PROVIDER=${VISION_PROVIDER:-}
       - VISION_MODEL=${VISION_MODEL:-claude-opus-5}
       - VISION_EFFORT=${VISION_EFFORT:-high}
+      - CATEGORY_MODEL=${CATEGORY_MODEL:-claude-sonnet-5}
       - LOG_LEVEL=${LOG_LEVEL:-info}
     volumes:
       - ./packages/photo-analyst:/app/packages/photo-analyst
